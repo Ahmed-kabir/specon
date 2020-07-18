@@ -8,6 +8,12 @@ class Schedule extends Model
 {
     public function speakers()
     {
-        return $this->belongsTo('App\Speaker');
+        return $this->hasOne('App\Speaker', 'id');
     }
+    public function topicName()
+    {
+        return $this->hasOne('App\Topic', 'id');
+
+    }
+
 }

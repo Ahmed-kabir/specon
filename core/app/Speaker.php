@@ -4,7 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Speaker extends Model
 {
-    //
+    public function schedule()
+    {
+        return $this->hasMany('App\Schedule', 'speaker_id');
+    }
 }

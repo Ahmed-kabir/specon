@@ -1,7 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="03af9804-3964-46f8-9101-ee09b5e022d7" name="Default Changelist" comment="" />
+    <list default="true" id="03af9804-3964-46f8-9101-ee09b5e022d7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/core/resources/views/schedule/edit_schedule.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/resources/views/schedule/manage_schedule.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/resources/views/speaker/edit_speaker.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/resources/views/speaker/manage_speaker.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/resources/views/sponsor/add_sponsor.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/resources/views/sponsor/mange_sponsor.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/resources/views/ticket/add_ticket.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/resources/views/ticket/edit_ticket.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/resources/views/ticket/manage_ticket.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/resources/views/topic/edit_topic.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/resources/views/topic/manage_topic.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/speakerImage/speaker03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/ScheduleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Http/Controllers/ScheduleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/SpeakerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Http/Controllers/SpeakerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/TopicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Http/Controllers/TopicController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Schedule.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Schedule.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Speaker.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Speaker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/core/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/core/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/admin/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/frontend/schedule.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/frontend/schedule.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/frontend/speaker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/frontend/speaker.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/frontend/ticket.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/frontend/ticket.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/schedule/add_schedule.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/schedule/add_schedule.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/topic/add_topic.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/topic/add_topic.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +59,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -114,6 +166,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1eiEO0FDqVfF8uupbsPLf7w5Fnk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -151,25 +204,51 @@
       <option name="presentableId" value="Default" />
       <updated>1594795976294</updated>
       <workItem from="1594795977755" duration="12743000" />
-      <workItem from="1594872758129" duration="23981000" />
+      <workItem from="1594872758129" duration="24702000" />
+      <workItem from="1595045124820" duration="11298000" />
+      <workItem from="1595059639074" duration="4613000" />
+      <workItem from="1595064283136" duration="8230000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594801384325">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595072676065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1594801384325" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1594883402574">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1595072676065" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1595073111664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1594883402574" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1595073111664" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1594890769544">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1594890769544" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/core/resources/views/speaker/manage_speaker.blade.php</url>
+          <line>30</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

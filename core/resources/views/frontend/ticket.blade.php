@@ -6,45 +6,23 @@
                 taciti eu urna, mi nunc volutpat quis</p>
         </div>
         <div class="row mb-30-none justify-content-center">
+            @foreach($ticket as $row)
             <div class="col-xl-4 col-md-6">
                 <div class="ticket-item wow fadeInUp" data-wow-duration="1s">
-                    <h3 class="title">Personal</h3>
+                    <h3 class="title">{{$row->tkt_typ}}</h3>
                     <div class="ticket-thumb">
-                        <img src="{{asset('assets/frontEnd/assets/images/ticket/ticket01.png')}}" alt="ticket">
+                        <img src="{{asset($row->tkt_img)}}" alt="ticket">
                     </div>
                     <div class="ticket-content">
-                        <p>Tortor sodales facilis diam sed. Turpis maecenas.</p>
-                        <h3 class="sub-title">$249</h3>
+                        <p>{{$row->tkt_desc}}</p>
+                        <h3 class="sub-title">${{$row->tkt_price}}</h3>
                         <a href="#0" class="custom-button active">Buy Ticket</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="ticket-item wow fadeInUp" data-wow-duration="1s">
-                    <h3 class="title">Business</h3>
-                    <div class="ticket-thumb">
-                        <img src="{{asset('assets/frontEnd/assets/images/ticket/ticket02.png')}}" alt="ticket">
-                    </div>
-                    <div class="ticket-content">
-                        <p>Tortor sodales facilis diam sed. Turpis maecenas.</p>
-                        <h3 class="sub-title">$499</h3>
-                        <a href="#0" class="custom-button active">Buy Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="ticket-item wow fadeInUp" data-wow-duration="1s">
-                    <h3 class="title">golden pack</h3>
-                    <div class="ticket-thumb">
-                        <img src="{{asset('assets/frontEnd/assets/images/ticket/ticket03.png')}}" alt="ticket">
-                    </div>
-                    <div class="ticket-content">
-                        <p>Tortor sodales facilis diam sed. Turpis maecenas.</p>
-                        <h3 class="sub-title">$599</h3>
-                        <a href="#0" class="custom-button active">Buy Ticket</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
+
         </div>
     </div>
 </section><?php

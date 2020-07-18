@@ -10,7 +10,8 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin.mainContent');
+        $data['title'] = 'Admin Home';
+        return view('admin.mainContent', $data);
     }
 
 

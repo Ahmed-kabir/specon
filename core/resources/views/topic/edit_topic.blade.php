@@ -4,7 +4,7 @@
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-header text-center">
-                    <strong>Topic Add Form</strong>
+                    <strong>Speaker Add Form</strong>
                     <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
                 </div>
 
@@ -18,20 +18,17 @@
                     </div>
                 @endif
                 <div class="card-body card-block">
-                    <form action="{{route('saveTopic')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <form action="{{route('updateTopic',$topic->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                         @csrf
 
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="selectSm" class=" form-control-label">Topic Name</label></div>
-                            <div class="col-12 col-md-9">
-                                <div class="col-12 col-md-9"><input type="text" name="topics" name="text-input"  class="form-control"></div>
-                            </div>
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Speaker Name</label></div>
+                            <div class="col-12 col-md-9"><input type="text" name="topic_name" name="text-input" placeholder="Speaker Name" value="{{$topic->topic_name}}" class="form-control"></div>
                         </div>
 
 
-
                         <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary btn-large">Save Topic</button>
+                            <button type="submit" class="btn btn-primary btn-block">Update</button>
 
                         </div>
 

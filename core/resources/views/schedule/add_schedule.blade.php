@@ -6,6 +6,7 @@
                 <div class="card-header text-center">
                     <strong>Schedule Add Form</strong>
                     <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
+                    <h3 class="text-danger text-center">{{Session::get('error_message')}}</h3>
                 </div>
 
                 @if ($errors->any())

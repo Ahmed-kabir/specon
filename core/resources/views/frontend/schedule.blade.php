@@ -13,51 +13,20 @@
             </ul>
             <div class="tab-area mb-30-none">
                 <div class="tab-item">
+                    @foreach($frontendSchedule as $row)
                     <div class="schedule-item">
                         <div class="schedule-thumb">
-                            <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/schedule/schedule01.png')}}" alt="schedule"></a>
+                            <a href="#0"><img src="{{asset($row->speakers->speaker_img)}}" alt="schedule"></a>
                         </div>
                         <div class="schedule-content">
-                            <h4 class="title"><a href="#0">Wordpress Development</a></h4>
-                            <p><a href="#0">martin hook</a>at 08:00am - 09:00 am</p>
-                            <p class="para">Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent
-                                vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl.
-                                Velit
-                                lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget
-                                malesuadadales
-                                fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.</p>
+                            <h4 class="title"><a href="#0">{{ $row->topicName->topic_name }}</a></h4>
+                            <p><a href="#0">{{ $row->speakers->speaker_name }}</a>at {{$row->start_time}} {{$row->end_time}}</p>
+                            <p class="para">{{$row->speakers->description}}</p>
                         </div>
                     </div>
-                    <div class="schedule-item">
-                        <div class="schedule-thumb">
-                            <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/schedule/schedule02.png')}}" alt="schedule"></a>
-                        </div>
-                        <div class="schedule-content">
-                            <h4 class="title"><a href="#0">wordpress Development</a></h4>
-                            <p><a href="#0">martin hook</a>at 08:00am - 09:00 am</p>
-                            <p class="para">Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent
-                                vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl.
-                                Velit
-                                lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget
-                                malesuadadales
-                                fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.</p>
-                        </div>
-                    </div>
-                    <div class="schedule-item">
-                        <div class="schedule-thumb">
-                            <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/schedule/schedule03.png')}}" alt="schedule"></a>
-                        </div>
-                        <div class="schedule-content">
-                            <h4 class="title"><a href="#0">Front End Development</a></h4>
-                            <p><a href="#0">martin hook</a>at 08:00am - 09:00 am</p>
-                            <p class="para">Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent
-                                vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl.
-                                Velit
-                                lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget
-                                malesuadadales
-                                fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.</p>
-                        </div>
-                    </div>
+                    @endforeach
+
+
                 </div>
                 <div class="tab-item">
                     <div class="schedule-item">

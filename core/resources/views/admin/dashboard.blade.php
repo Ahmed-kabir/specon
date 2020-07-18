@@ -56,6 +56,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Speaker</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-puzzle-piece"></i><a href="{{route('addSpeaker')}}">Add Speaker</a></li>
+                        <li><i class="fa fa-puzzle-piece"></i><a href="{{route('manageSpeaker')}}">Manage Speaker</a></li>
 
                     </ul>
                 </li>
@@ -63,6 +64,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Topics</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-table"></i><a href="{{route('addTopic')}}">Add Topics</a></li>
+                        <li><i class="fa fa-table"></i><a href="{{route('manageTopic')}}">Manage Topics</a></li>
 
                     </ul>
                 </li>
@@ -70,7 +72,24 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Schedule</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-th"></i><a href="{{ route('addSchedule') }}">Add Schedule</a></li>
-                        <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageSchedule') }}">Manage Schedule</a></li>
+
+                    </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Ticket</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('addTicket') }}">Add Ticket</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageTicket') }}">Manage Ticket</a></li>
+
+                    </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Sponsor</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('addSponsor') }}">Add Sponsor</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageSponsor') }}">Manage Sponsor</a></li>
+
                     </ul>
                 </li>
 

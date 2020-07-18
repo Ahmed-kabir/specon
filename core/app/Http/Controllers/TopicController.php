@@ -22,4 +22,33 @@ class TopicController extends Controller
         $topic->save();
         return back()->with('success_message', 'Topic Added Successfully');
     }
+    public function manageTopic()
+    {
+        $data['title'] = 'Manage Topic';
+         $data['topics'] = Topic::paginate(3);
+        return view('topic.manage_topic', $data);
+    }
+    public function editTopic(Request $request, $id)
+    {
+        $data['title'] = 'Edit Topic';
+        $data['topic'] = Topic::find($id);
+        return view('topic.edit_topic', $data);
+    }
+
+    public function updateTopic(Request $request, $id)
+    {
+        $topic = Topic::where('id',$id)->first();
+
+        $topic->topic_name = $request->topic_name;
+
+        $topic->save();
+        return redirect()->route('manageTopic')->with('success_message', 'Topic Updated Successfully');
+    }
+
+    public function deleteTopic($id)
+    {
+        $topic = Topic::where('id', $id)->first();
+        $topic->delete();
+        return redirect()->route('manageTopic')->with('success_message', 'Topic Deleted Successfully');
+    }
 }
