@@ -93,6 +93,23 @@
                     </ul>
                 </li>
 
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Blog</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('addBlog') }}">Add Blog</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageBlog') }}">Manage Blog</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Section</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageBanner') }}">Manage Banner</a></li>
+
+                    </ul>
+                </li>
+
                 <h3 class="menu-title">Icons</h3><!-- /.menu-title -->
 
                 <li class="menu-item-has-children dropdown">
@@ -304,9 +321,13 @@
 <script src="{{asset('assets/admin/vendors/chart.js/dist/Chart.bundle.min.js')}}"></script>
 <script src="{{asset('assets/admin/assets/js/dashboard.js')}}"></script>
 <script src="{{asset('assets/admin/assets/js/widgets.js')}}"></script>
+<script src="{{asset('assets/admin/assets/js/niceEdit.js')}}"></script>
 <script src="{{asset('assets/admin/vendors/jqvmap/dist/jquery.vmap.min.js')}}"></script>
 <script src="{{asset('assets/admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
 <script src="{{asset('assets/admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
 <script>
     (function($) {
         "use strict";

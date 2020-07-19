@@ -4,8 +4,13 @@
     <div class="container">
         <div class="banner-content text-center">
             <div class="banner-header">
-                <h1 class="title">join with global business <span class="d-block w-100">conferances 2019</span></h1>
-                <p>Tortor sed id nulla ac vivamus, semper at orci vitpltus a sodales. Nibh adipiscing nullam consequat. </p>
+                <h1 class="title">
+
+
+                    {!! $banner->content['title'] !!}
+                </h1>
+
+                <p>{!! $banner->content['desc'] !!} </p>
             </div>
             <ul class="banner-countdown">
                 <li class="theme-style">

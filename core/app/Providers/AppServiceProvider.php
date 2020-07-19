@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+use App\Blog;
 use App\Schedule;
+use App\Section;
 use App\Speaker;
+use App\Sponsor;
 use App\Ticket;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,14 +29,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       $allSpeakers = Speaker::all();
-       $allSchedule = Schedule::all();
-       $ticket = Ticket::all();
-        $frontendSchedule = Schedule::with('speakers', 'topicName')->get();
-        view()->share('allSpeakers', $allSpeakers);
-        view()->share('allSchedule', $allSchedule);
-        view()->share('frontendSchedule', $frontendSchedule);
-        view()->share('ticket', $ticket);
+
+
 
     }
 }

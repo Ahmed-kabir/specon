@@ -4,9 +4,8 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-xl-6 col-lg-10">
                     <div class="about-overview-left wow fadeIn" data-wow-duration="1s">
-                        <h2 class="title">join with us for next conferance 2019</h2>
-                        <h5 class="sub-title">hymenaeos nulla dui ultrices sodales. Sed dolorturpis turpiitlandit donec
-                            curabitur amet nascetur.</h5>
+                        <h2 class="title">  {!! $about->content['title'] !!}</h2>
+                        <h5 class="sub-title">{!! $about->content['sub_title'] !!}</h5>
                         <p>consequat, quis ac turpis, mi a ligula scelerisque eleifend arcuttis feugiat pede vivamus id
                             ac, vitae volutpat viverra, pttitor velppede est auctor velit. Nullam nonummy Fusce neque
                             pharetra elemtum ante praesent et, non non nulla enim, velit amet sit convallis si</p>

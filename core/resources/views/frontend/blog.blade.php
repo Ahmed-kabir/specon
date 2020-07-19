@@ -6,51 +6,29 @@
                 taciti eu urna, mi nunc volutpat quis</p>
         </div>
         <div class="row mb-30-none justify-content-center">
+            @foreach($blog as $row)
             <div class="col-md-6 col-lg-4">
                 <div class="post-item wow fadeInUp" data-wow-duration="1s">
                     <div class="post-thumb">
-                        <a href="blog.html"><img src="{{asset('assets/frontEnd/assets/images/blog/blog01.jpg')}}" alt="blog"></a>
+                        <a href="blog.html"><img src="{{asset($row->img)}}" alt="blog"></a>
                         <ul class="blog-date">
-                            <h2>25</h2>
-                            <span>dec</span>
+                            <?php
+
+                             $exploded_date = (explode("-",$row->date));
+                            $month =$exploded_date[0];
+                            $date = $exploded_date[1];
+                            ?>
+                            <h2>{{$date}}</h2>
+                            <span>{{$month}}</span>
                         </ul>
                     </div>
                     <div class="post-content">
-                        <h4 class="title"><a href="blog.html">A praesent a feugiat id sit rilus velit fusce morbi
-                                dolorum.</a></h4>
+                        <h4 class="title"><a href="blog.html">{{$row->title}}</a></h4>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="post-item wow fadeInUp" data-wow-duration="1s">
-                    <div class="post-thumb">
-                        <a href="blog.html"><img src="{{asset('assets/frontEnd/assets/images/blog/blog02.jpg')}}" alt="blog"></a>
-                        <ul class="blog-date">
-                            <h2>28</h2>
-                            <span>dec</span>
-                        </ul>
-                    </div>
-                    <div class="post-content">
-                        <h4 class="title"><a href="blog.html">Pede fringilla et vulputate et wisi varius, urna
-                                curabitur </a></h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="post-item wow fadeInUp" data-wow-duration="1s">
-                    <div class="post-thumb">
-                        <a href="blog.html"><img src="{{asset('assets/frontEnd/assets/images/blog/blog03.jpg')}}" alt="blog"></a>
-                        <ul class="blog-date">
-                            <h2>30</h2>
-                            <span>dec</span>
-                        </ul>
-                    </div>
-                    <div class="post-content">
-                        <h4 class="title"><a href="blog.html">A praesent a feugiat id sit rilus velit fusce morbi
-                                dolorum.</a></h4>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </section>

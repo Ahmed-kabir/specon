@@ -2,20 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'WelcomeController@index');
 
 Auth::routes();
 Route::prefix('admin')->group(function(){
@@ -55,6 +44,19 @@ Route::group(['middleware'=>'auth:admin'],function(){
     Route::get('add/sponsor', 'SponsorController@addSponsor')->name('addSponsor');
     Route::post('save/sponsor', 'SponsorController@saveSponsor')->name('saveSponsor');
     Route::get('manage/sponsor', 'SponsorController@manageSponsor')->name('manageSponsor');
+    Route::get('edit/sponsor/{id}', 'SponsorController@editSponsor')->name('editSponsor');
+    Route::post('update/sponsor/{id}', 'SponsorController@updateSponsor')->name('updateSponsor');
+    Route::get('inactive/sponsor/{id}', 'SponsorController@inactiveSponsor')->name('inactiveSponsor');
+//                      blog section
+    Route::get('add/blog', 'BlogController@addBlog')->name('addBlog');
+    Route::post('save/blog', 'BlogController@saveBlog')->name('saveBlog');
+    Route::get('manage/blog', 'BlogController@manageBlog')->name('manageBlog');
+    Route::get('edit/blog/{id}', 'BlogController@editBlog')->name('editBlog');
+    Route::post('update/blog/{id}', 'BlogController@updateBlog')->name('updateBlog');
+    Route::get('inactive/blog/{id}', 'BlogController@inactiveBlog')->name('inactiveBlog');
+//                      section title
+    Route::get('manage/banner', 'SectionController@manageBanner')->name('manageBanner');
+    Route::POST('update/banner/{id}', 'SectionController@updateBanner')->name('updateBanner');
 });
 });
 
@@ -62,9 +64,6 @@ Route::group(['middleware'=>'guest:admin'],function(){
     Route::get('admin/login', 'admin\LoginController@showLoginForm')->name('login');
     Route::post('admin/login', 'admin\LoginController@login')->name('login');
 });
-
-
-
 
 
 Route::get('/home', 'HomeController@index')->name('home');

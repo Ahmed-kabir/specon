@@ -7,31 +7,26 @@
         </div>
         <div class="sponsor-wrapper">
             <h4 class="sub-title">diamond sponsors</h4>
+
             <div class="sponsor-area">
+                @foreach($sponsor as $row)
+                    @if($row->sponsor_type == 'Diamond Sponsors')
                 <div class="sponsor-thumb">
-                    <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/sponsor/sponsor01.png')}}" alt="sponsor"></a>
+                    <a href="#0"><img src="{{asset($row->sponsor_img)}}" alt="sponsor"></a>
                 </div>
-                <div class="sponsor-thumb">
-                    <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/sponsor/sponsor02.png')}}" alt="sponsor"></a>
-                </div>
-                <div class="sponsor-thumb">
-                    <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/sponsor/sponsor03.png')}}" alt="sponsor"></a>
-                </div>
+                    @endif
+                @endforeach
             </div>
+
             <h4 class="sub-title">platinum sponsors</h4>
             <div class="sponsor-area">
+                @foreach($sponsor as $row)
+                    @if($row->sponsor_type == 'Platinum Sponsors')
                 <div class="sponsor-thumb">
-                    <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/sponsor/sponsor04.png')}}" alt="sponsor"></a>
+                    <a href="#0"><img src="{{asset($row->sponsor_img)}}" alt="sponsor"></a>
                 </div>
-                <div class="sponsor-thumb">
-                    <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/sponsor/sponsor05.png')}}" alt="sponsor"></a>
-                </div>
-                <div class="sponsor-thumb">
-                    <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/sponsor/sponsor07.png')}}" alt="sponsor"></a>
-                </div>
-                <div class="sponsor-thumb">
-                    <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/sponsor/sponsor06.png')}}" alt="sponsor"></a>
-                </div>
+                    @endif
+                @endforeach
             </div>
         </div>
         <div class="text-center">
