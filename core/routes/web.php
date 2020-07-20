@@ -4,7 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index')->name('index');
+Route::get('/speaker', 'WelcomeController@speaker')->name('speaker');
+Route::get('/ticket', 'WelcomeController@Ticket')->name('Ticket');
+Route::get('buy/ticket/{id}', 'TicketController@buyTicket')->name('buyTicket');
+
+Route::post('confirm/ticket/{id}', 'TicketController@confirmTicket')->name('confirmTicket');
 
 Auth::routes();
 Route::prefix('admin')->group(function(){
@@ -40,6 +45,7 @@ Route::group(['middleware'=>'auth:admin'],function(){
     Route::get('edit/ticket/{id}', 'TicketController@editTicket')->name('editTicket');
     Route::post('update/ticket/{id}', 'TicketController@updateTicket')->name('updateTicket');
     Route::get('inactive/ticket/{id}', 'TicketController@inactiveTicket')->name('inactiveTicket');
+
 //                      sponsor section
     Route::get('add/sponsor', 'SponsorController@addSponsor')->name('addSponsor');
     Route::post('save/sponsor', 'SponsorController@saveSponsor')->name('saveSponsor');
@@ -57,6 +63,10 @@ Route::group(['middleware'=>'auth:admin'],function(){
 //                      section title
     Route::get('manage/banner', 'SectionController@manageBanner')->name('manageBanner');
     Route::POST('update/banner/{id}', 'SectionController@updateBanner')->name('updateBanner');
+    Route::get('manage/about', 'SectionController@manageAbout')->name('manageAbout');
+    Route::post('update/about/{id}', 'SectionController@updateAbout')->name('updateAbout');
+    Route::get('manage/about/overview', 'SectionController@manageAboutOverview')->name('manageAboutOverview');
+    Route::post('update/about/overview/{id}', 'SectionController@updateAboutOverview')->name('updateAboutOverview');
 });
 });
 

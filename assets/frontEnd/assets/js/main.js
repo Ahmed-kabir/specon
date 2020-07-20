@@ -67,7 +67,7 @@
               days: 'Days'
             },
             function () {
-              alert('Done!');
+              //alert('Done!');
         });
         // Scroll To Top 
         var scrollTop = $(".scrollToTop");

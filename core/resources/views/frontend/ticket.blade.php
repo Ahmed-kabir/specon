@@ -16,7 +16,7 @@
                     <div class="ticket-content">
                         <p>{{$row->tkt_desc}}</p>
                         <h3 class="sub-title">${{$row->tkt_price}}</h3>
-                        <a href="#0" class="custom-button active">Buy Ticket</a>
+                        <a href="{{route('buyTicket',$row->id)}}" class="custom-button active">Buy Ticket</a>
                     </div>
                 </div>
             </div>

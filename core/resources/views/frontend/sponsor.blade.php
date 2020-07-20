@@ -33,4 +33,4 @@
             <a href="#0" class="custom-button">Become a Sponsor</a>
         </div>
     </div>
-</section><?php
+</section>

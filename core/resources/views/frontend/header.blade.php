@@ -5,26 +5,12 @@
         </div>
         <ul class="menu">
             <li>
-                <a href="#0">Home</a>
-                <ul class="submenu">
-                    <li>
-                        <a href="#0" class="active">Home One</a>
-                    </li>
-                    <li>
-                        <a href="index-two.html">Home two</a>
-                    </li>
-                </ul>
+                <a href="{{route('index')}}">Home</a>
+
             </li>
             <li>
-                <a href="#0">Speaker</a>
-                <ul class="submenu">
-                    <li>
-                        <a href="speaker.html">Speaker One</a>
-                    </li>
-                    <li>
-                        <a href="speaker-two.html">Speaker two</a>
-                    </li>
-                </ul>
+                <a href="{{route('speaker')}}">Speaker</a>
+
             </li>
             <li>
                 <a href="#0">Pages</a>
@@ -94,7 +80,7 @@
                 <a href="contact.html">Contact</a>
             </li>
             <li>
-                <a href="#0" class="header-button">buy ticket</a>
+                <a href="{{route('Ticket')}}" class="header-button">buy ticket</a>
             </li>
         </ul>
         <div class="header-bar d-lg-none">

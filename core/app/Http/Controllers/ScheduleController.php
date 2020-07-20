@@ -36,16 +36,24 @@ class ScheduleController extends Controller
         $endTime = $request->end_time;
         $date = $request->date;
 
-//        $search = Schedule::where('date', '=' ,$request->date)->get();
+        $search = Schedule::where('date', '=' ,$request->date)->get();
 
        $search = Schedule::where('start_time', '<', $startTime)
            ->where('end_time', '>', $endTime)
            ->get();
 
-          $reservations = Schedule::whereBetween('start_time', [$startTime, $endTime])
+       $reservations = Schedule::where('date', $request->date)->where('start_time', '<=', $request->end_time)->where('end_time', '>=' , $request->start_time)->first();
+
+
+           $test = Schedule::whereBetween('start_time', [$startTime, $endTime])
              ->orWhereRaw('? BETWEEN start_time AND end_time', [$startTime, $endTime])
               ->WHERE ('date', '=', $date)
              ->get();
+
+        $test1 = Schedule::WhereRaw('? BETWEEN start_time AND end_time', [$startTime, $endTime])
+
+           ->where ('date', '=', $date)
+           ->get();
 
 //            $schedule = DB::table('schedules')
 //           ->whereBetween('start_time', [$startTime, $endTime])
@@ -66,7 +74,7 @@ class ScheduleController extends Controller
 //           ->where('end_time', '>', $request->start_time)
 //           ->get();
 
-        if(sizeof($reservations)>0)
+        if($reservations)
         {
             return back()->with('error_message', 'Schedule Not Available');
         }

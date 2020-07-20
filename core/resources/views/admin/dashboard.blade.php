@@ -105,7 +105,9 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Section</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageBanner') }}">Manage Banner</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageBanner') }}"> Banner</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageAbout') }}"> About</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageAboutOverview') }}"> About Overview</a></li>
 
                     </ul>
                 </li>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Speaker;
 use App\Ticket;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -95,5 +97,40 @@ class TicketController extends Controller
         $ticket->status = 0;
         $ticket->save();
         return redirect()->route('manageTicket')->with('success_message', 'Ticket Inactivated Successfully');
+    }
+    public function buyTicket($id)
+    {
+        $data['title'] = 'Buy Ticket';
+        $data['ticket'] = Ticket::find($id);
+        return view('ticket.buy_ticket', $data);
+    }
+    public function confirmTicket(Request $request, $id)
+    {
+        $request->validate([
+           "name" => 'required',
+           "email" => 'required|email',
+           "phone" => 'required',
+           "qty" => 'required'
+        ]);
+        $ticket = Ticket::find($id);
+        if ($ticket->tkt_qty < $request->qty)
+        {
+            return back()->with('error_message', $request->qty. 'Ticket'. ' '.  'Not Available');
+        }
+        else
+        {
+            $tktId = Str::random(6);
+            $customer = New Customer();
+            $customer->name = $request->name;
+            $customer->email = $request->email;
+            $customer->phone = $request->phone;
+            $customer->tkt_id = $tktId;
+            $customer->qty = $request->qty;
+            $customer->save();
+
+            $ticket->tkt_qty = $ticket->tkt_qty - $request->qty;
+            $ticket->save();
+            return redirect()->route('buyTicket',$id)->with('success_message', 'Ticket Confirmed Successfully');
+        }
     }
 }

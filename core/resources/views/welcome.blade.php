@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="{{asset('assets/frontEnd/assets/images/favicon.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('assets/frontEnd/assets/css/style.css')}}">
 
-    <title>Specon - Conference & Seminar HTML Template</title>
+    <title>{{$title}}</title>
 
 </head>
 
@@ -35,45 +35,45 @@
 <!-- ============Header Section Starts Here================== -->
 @include('frontend.header')
 <!-- ============Header Section Ends Here================== -->
-
+@yield('main')
 <!-- ============Banner Section Starts Here================== -->
-@include('frontend.banner')
+{{--@include('frontend.banner')--}}
 <!-- ============Banner Section Ends Here================== -->
 
 <!-- ============About Section Starts Here================== -->
-@include('frontend.about')
+{{--@include('frontend.about')--}}
 <!-- ============About Section Ends Here================== -->
 
 <!-- ============Overview Section Starts Here================== -->
-@include('frontend.overview')
+{{--@include('frontend.overview')--}}
 <!-- ============Overview Section Ends Here================== -->
 
 <!-- ============Speaker Section Starts Here================== -->
-@include('frontend.speaker')
+{{--@include('frontend.speaker')--}}
 <!-- ============Speaker Section Ends Here================== -->
 
 <!-- ============Schedule Section Starts Here================== -->
-@include('frontend.schedule')
+{{--@include('frontend.schedule')--}}
 <!-- ============Schedule Section Ends Here================== -->
 
 <!-- ============Call in Ticket Section Starts Here================== -->
-@include('frontend.callticket')
+{{--@include('frontend.callticket')--}}
 <!-- ============Call in Ticket Section Ends Here================== -->
 
 <!-- ============Ticket Section Starts Here================== -->
-@include('frontend.ticket')
+{{--@include('frontend.ticket')--}}
 <!-- ============Ticket Section Ends Here================== -->
 
 <!-- ============Join Event Section Starts Here================== -->
-@include('frontend.joinevent')
+{{--@include('frontend.joinevent')--}}
 <!-- ============Join Event Section Ends Here================== -->
 
 <!-- ============Blog Section Starts Here================== -->
-@include('frontend.blog')
+{{--@include('frontend.blog')--}}
 <!-- ============Blog Section Ends Here================== -->
 
 <!-- ============Sponsor Section Starts Here================== -->
-@include('frontend.sponsor')
+{{--@include('frontend.sponsor')--}}
 <!-- ============Sponsor Section Ends Here================== -->
 
 <!-- ============Footer Section Starts Here================== -->

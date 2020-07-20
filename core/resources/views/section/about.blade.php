@@ -18,7 +18,7 @@
                     </div>
                 @endif
                 <div class="card-body card-block">
-                    <form action="{{route('updateBanner',$banner->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <form action="{{route('updateAbout',$about->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                         @csrf
 
 
@@ -26,18 +26,23 @@
                             <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Title</label></div>
                             <div class="col-12 col-md-9">
 
-                                <input type="text" class="form-control" name="title" value="{{$banner['title']}}">
+                                <input type="text" class="form-control" name="title" value="{{$about['title']}}">
 
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Description</label></div>
-                            <div class="col-12 col-md-9"><textarea name="description" id="textarea-input" rows="5" class="form-control">{{$banner['description']}}</textarea></div>
+                            <div class="col-12 col-md-9"><textarea name="description" id="textarea-input" rows="5" class="form-control">{{$about['description']}}</textarea></div>
                         </div>
 
 
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="file-input" class=" form-control-label">About Image</label></div>
+                            <th> <img src="{{asset($about->img)}}"alt="{{$about->img}}"width="200" height="200"> </th>
+                            <div class="col-12 col-md-9"><input type="file" id="file-input" name="img" class="form-control-file"><small class="form-text text-muted">Max 1MB</small></div>
 
+                        </div>
 
 
                         <div class="card-footer text-center">
