@@ -24,7 +24,7 @@
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="selectSm" class=" form-control-label">Topic Name</label></div>
                             <div class="col-12 col-md-9">
-                                <div class="col-12 col-md-9"><input type="text" name="topics" name="text-input"  class="form-control"></div>
+                                <div class="col-12 col-md-9"><input type="text" name="topic_name" name="text-input"  class="form-control"></div>
                             </div>
                         </div>
 

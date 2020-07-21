@@ -3,13 +3,13 @@
     <section class="page-header">
         <div class="container">
             <div class="page-header-content">
-                <h2 class="title"> buy ticket</h2>
+                <h2 class="title">pricing plan</h2>
                 <ul class="breadcrumb">
                     <li>
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        buy ticket
+                        pricing plan
                     </li>
                 </ul>
             </div>
@@ -17,60 +17,31 @@
     </section>
     <!-- ============Page Header Section Ends Here================== -->
 
-    <!-- ============Become Sponsor Section Starts Here================== -->
-    <section class="become-sponsor-section buy-ticket padding-bottom padding-top">
+    <!-- ============Ticket Section Starts Here================== -->
+    <section class="ticket-section padding-bottom padding-top">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mb-lg-0 mb-5">
-                    <div class="become-sponsor-article">
-                        <h3 class="title">business packages <span>$369</span></h3>
-                        <p class="main-para">Massa lacus elementum eros vitae nam, voluptatem in et neque commodo eget
-                            mattis, arcsrqllus, pretium sit nulla justo nullam dolor. Posuere ultrices. Mauris at ut
-                            nullam sodales, sapien veslum scelerisque sunt erat venenatis, semper vestibulum, tempor
-                            orci enim wisi in enim ipsum, etiam enim. Viverra dolor litora quaerat turpis integer, etiam
-                            enim purus nec elit tempor. Vitae siinrdum ante eu dolor. Morbi mi mauris integer auctor.
-                            Elit nonummy metus tristique dignissim tortor, accumsan amet, ullamcorper wisi ullamcorper
-                            sed purus. Libero facilisis integer vestibulum id.</p>
-                        <h4 class="sub-title">benifites of Business package</h4>
-                        <p>Fringilla euismod sed mauris nec, curabitur in mi sed eget, amet congue sed nam etiam quisnam
-                            vehicula dui lorem, erat maecenas libero. </p>
-                        <ul>
-                            <li>Leifend fringilla quiselit </li>
-                            <li>Aliquam dolor tortor phasellu </li>
-                            <li>Dignissim semper consequat </li>
-                        </ul>
-                        <h4 class="sub-title">Business pack Features</h4>
-                        <p class="last-para">condimentum cras ac. Sapien exercitationem rhoncus in suspendisse, felis ut
-                            cras, nunc felimorbi imperdiet volutpat elit, lectus sodales mollis. Aenean dignissim vel
-                            massa in at, ornare enitortor mi tempus. Ut duis, morbi maecenas lorem diam.</p>
+            <div class="section-header">
+                <h2 class="title">get your ticket</h2>
+                <p>a porttitor metus cupidatat nunc, luctus erat at. Amet class phasellus in eget sociosqu mi amet morbi
+                    taciti eu urna, mi nunc volutpat quis</p>
+            </div>
+            <div class="row mb-30-none justify-content-center">
+                @foreach($ticket as $row)
+                <div class="col-xl-4 col-md-6">
+                    <div class="ticket-item">
+                        <h3 class="title">{{$row->tkt_typ}}</h3>
+                        <div class="ticket-thumb">
+                            <img src="{{asset($row->tkt_img)}}" alt="ticket">
+                        </div>
+                        <div class="ticket-content">
+                            <p>Tortor sodales facilis diam sed. Turpis maecenas.</p>
+                            <h3 class="sub-title">${{$row->tkt_price}}</h3>
+                            <a href="{{route('buyTicket',$row->id)}}" class="custom-button active">Buy Ticket</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="application-form-area">
-                        <h5 class="title">buy ticket</h5>
-                        <form class="application-form">
-                            <div class="form-group">
-                                <input type="text" placeholder="Full Name">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Phone">
-                            </div>
-                            <div class="form-group">
-                                <input type="number" placeholder="Quantity" min="1">
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Submit Now">
-                            </div>
-                            <div class="form-group check-input d-flex flex-wrap align-items-center">
-                                <input type="checkbox" id="check-ticket">
-                                <label for="check-ticket">I Accept The</label> <a href="#0">Terms & Policy</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>

@@ -11,19 +11,19 @@
                 </div>
                 <ul class="banner-countdown">
                     <li class="theme-style">
-                        <h2 class="banner-countdown-title"><span class="days">00</span></h2>
+                        <h2 class="banner-countdown-title" id="days"><span class="days">00</span></h2>
                         <p class="days_text">days</p>
                     </li>
                     <li class="yellow-style">
-                        <h2 class="banner-countdown-title"><span class="hours">00</span></h2>
+                        <h2 class="banner-countdown-title" id="hours"><span class="hours">00</span></h2>
                         <p class="hours_text">hours</p>
                     </li>
                     <li class="grey-style">
-                        <h2 class="banner-countdown-title"><span class="minutes">00</span></h2>
+                        <h2 class="banner-countdown-title" id="minutes"><span class="minutes">00</span></h2>
                         <p class="minu_text">minutes</p>
                     </li>
                     <li class="skyblue-style">
-                        <h2 class="banner-countdown-title"><span class="seconds">00</span></h2>
+                        <h2 class="banner-countdown-title" id="seconds"><span class="seconds">00</span></h2>
                         <p class="seco_text">seconds</p>
                     </li>
                 </ul>
@@ -246,16 +246,22 @@
             </div>
             <div class="schedule-area tab">
                 <ul class="tab-menu">
-                    @foreach($slot as $row)
+                    @foreach($slot as $vSlot)
 {{--                    <li><span>{{ $row->slot }} day</span>29 december , 2019</li>--}}
-                    <li onclick="getTabData();"><span>{{ $row->slot }} day</span>{{ $row->date }}</li>
+                    <li onclick="getTabData1('{{$vSlot->date}}');"><span>{{ $vSlot->slot }} day</span>{{ $vSlot->date }}</li>
+{{--                    <li id="tab-button-custom"><span>{{ $row->slot }} day</span> <span id="date_value">{{ $row->date }}</span></li>--}}
 
 
                     @endforeach
                 </ul>
+
                 <div class="tab-area mb-30-none">
-                    <div class="tab-item">
+                    @foreach($slot as $vSlot)
+                    <div class="tab-item" id="msg">
+
                         @foreach($frontendSchedule as $row)
+                            @if($row->date == $vSlot->date)
+{{--    @dd($row->speakers)--}}
                             <div class="schedule-item">
                                 <div class="schedule-thumb">
                                     <a href="#0"><img src="{{asset($row->speakers->speaker_img)}}" alt="schedule"></a>
@@ -266,79 +272,14 @@
                                     <p class="para">{{$row->speakers->description}}</p>
                                 </div>
                             </div>
-                        @endforeach
+                                @endif
+                            @endforeach
+
+                    </div>
+                    @endforeach
 
 
-                    </div>
-                    <div class="tab-item">
-                        <div class="schedule-item">
-                            <div class="schedule-thumb">
-                                <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/schedule/schedule01.png')}}" alt="schedule"></a>
-                            </div>
-                            <div class="schedule-content">
-                                <h4 class="title"><a href="#0">website design</a></h4>
-                                <p><a href="#0">martin hook</a>at 08:00am - 09:00 am</p>
-                                <p class="para">Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent
-                                    vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit
-                                    lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales
-                                    fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.</p>
-                            </div>
-                        </div>
-                        <div class="schedule-item">
-                            <div class="schedule-thumb">
-                                <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/schedule/schedule02.png')}}" alt="schedule"></a>
-                            </div>
-                            <div class="schedule-content">
-                                <h4 class="title"><a href="#0">Laravel Development</a></h4>
-                                <p><a href="#0">martin hook</a>at 08:00am - 09:00 am</p>
-                                <p class="para">Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent
-                                    vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit
-                                    lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales
-                                    fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.</p>
-                            </div>
-                        </div>
-                        <div class="schedule-item">
-                            <div class="schedule-thumb">
-                                <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/schedule/schedule03.png')}}" alt="schedule"></a>
-                            </div>
-                            <div class="schedule-content">
-                                <h4 class="title"><a href="#0">FrontEnd Development</a></h4>
-                                <p><a href="#0">martin hook</a>at 08:00am - 09:00 am</p>
-                                <p class="para">Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent
-                                    vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit
-                                    lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales
-                                    fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-item">
-                        <div class="schedule-item">
-                            <div class="schedule-thumb">
-                                <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/schedule/schedule03.png')}}" alt="schedule"></a>
-                            </div>
-                            <div class="schedule-content">
-                                <h4 class="title"><a href="#0">Laraval Development</a></h4>
-                                <p><a href="#0">martin hook</a>at 08:00am - 09:00 am</p>
-                                <p class="para">Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent
-                                    vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit
-                                    lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales
-                                    fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.</p>
-                            </div>
-                        </div>
-                        <div class="schedule-item">
-                            <div class="schedule-thumb">
-                                <a href="#0"><img src="{{asset('assets/frontEnd/assets/images/schedule/schedule01.png')}}" alt="schedule"></a>
-                            </div>
-                            <div class="schedule-content">
-                                <h4 class="title"><a href="#0">website design</a></h4>
-                                <p><a href="#0">martin hook</a>at 08:00am - 09:00 am</p>
-                                <p class="para">Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent
-                                    vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit
-                                    lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales
-                                    fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.</p>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -589,7 +530,7 @@
             </div>
         </div>
     </section>
-
+<input type="hidden" id="start_date123" name="start_date" value="{{$settings->start_date}}">
 @endsection
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
     $.ajaxSetup({
@@ -600,17 +541,68 @@
 </script>
 
 <script>
-    function getTabData() {
-        alert('hi');
-        $.ajax({
-            type:'POST',
-            url:'/getmsg',
-            data:'_token = <?php echo csrf_token() ?>',
-            success:function(data) {
-                $("#msg").html(data.msg);
-            }
-        });
+    // $( document ).ready(function() {
+    //
+    //     // alert('hi');
+    //     // Set the date we're counting down to
+    //     var countDownDate = new Date("Jan 10, 2021");
+    //     var now = new Date();
+    //
+    //     var d = new Date();
+    //     var date = document.getElementById("demo").innerHTML = d.getDate();
+    //
+    //     var number=document.getElementById("start_date123").value;
+    //     console.log(countDownDate);
+    //     console.log(now);
+    //     console.log(number);
+    //     console.log(date);
+    //
+    //     // var countDownDate = new Date("Jan 5, 2021").getTime();
+    //     // var countDownDate = document.getElementById("start_date123").value;
+    //     var final = Date.parse(countDownDate)
+    //     // alert(final);
+    //     var number=document.getElementById("start_date123").value;
+    //     var test = new Date(number);
+    //
+    //
+    //     var parse = Date.parse(number);
+    //
+    //     // var countDownDate = number.getTime();
+    //
+    //
+    //     // Update the count down every 1 second
+    //     var x = setInterval(function() {
+    //
+    //         // Get today's date and time
+    //         var now = new Date().getTime();
+    //
+    //
+    //         // Find the distance between now and the count down date
+    //         var distance = countDownDate - now;
+    //
+    //         // Time calculations for days, hours, minutes and seconds
+    //         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    //         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    //         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    //         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    //
+    //         // Display the result in the element with id="demo"
+    //         // document.getElementById("timer_section").innerHTML = days + "d " + hours + "h "
+    //         //     + minutes + "m " + seconds + "s ";
+    //         document.getElementById("days").innerHTML = days;
+    //         document.getElementById("hours").innerHTML = hours;
+    //         document.getElementById("minutes").innerHTML = minutes;
+    //         document.getElementById("seconds").innerHTML = seconds;
+    //
+    //         // If the count down is finished, write some text
+    //         if (distance < 0) {
+    //             clearInterval(x);
+    //             document.getElementById("timer_section").innerHTML = "EXPIRED";
+    //         }
+    //     }, 1000);
+    //
+    //
+    // });
 
-    }
 </script>
-</head>
+

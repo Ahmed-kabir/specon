@@ -59,16 +59,6 @@
               element.siblings('li').find('ul').slideUp(300, "swing");
             }
         });
-        //Count Down JAva Script
-        $('.banner-countdown').countdown({
-              date: '12/27/2019 05:00:00',
-              offset: +2,
-              day: 'Day',
-              days: 'Days'
-            },
-            function () {
-              //alert('Done!');
-        });
         // Scroll To Top 
         var scrollTop = $(".scrollToTop");
         $(window).on('scroll', function () {

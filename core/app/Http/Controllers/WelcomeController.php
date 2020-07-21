@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Blog;
 use App\Schedule;
 use App\Section;
+use App\Setting;
 use App\Speaker;
 use App\Sponsor;
 use App\Ticket;
@@ -44,7 +45,9 @@ class WelcomeController extends Controller
         $data['ticket'] = Ticket::all();
         $data['sponsor'] = Sponsor::where('status', 1)->get();
         $data['blog'] = Blog::where('status', 1)->get();
-         $data['frontendSchedule'] = Schedule::with('speakers', 'topicName')->where('slot', '1st')->get();
+        $data['settings'] = Setting::first();
+//         $data['frontendSchedule'] = Schedule::with('speakers', 'topicName')->where('slot', '1st')->get();
+         $data['frontendSchedule'] = Schedule::with('speakers', 'topicName')->get();
 //         dd($data['frontendSchedule'] );
 
 //        return $results = Schedule::select('date', \DB::raw('COUNT(id) as amount'))
@@ -54,6 +57,7 @@ class WelcomeController extends Controller
            $data['slot'] = Schedule::groupBy('date','slot')
             ->selectRaw('slot, date')
             ->get();
+
         return view('frontend.main_content', $data);
     }
 
@@ -66,7 +70,28 @@ class WelcomeController extends Controller
     public function Ticket()
     {
         $data['title'] = 'Ticket';
+        $data['ticket'] = Ticket::where('status',1)->get();
         return view('ticket', $data);
+    }
+    public function schedule()
+    {
+        $data['title'] = 'Schedule';
+        $data['frontendSchedule'] = Schedule::with('speakers', 'topicName')->get();
+        $data['slot'] = Schedule::groupBy('date','slot')
+            ->selectRaw('slot, date')
+            ->get();
+        return view('schedule', $data);
+    }
+    public function contact()
+    {
+        $data['title'] = 'Contact';
+        return view('contact', $data);
+    }
+    public function Blog()
+    {
+        $data['title'] = 'Blog';
+        $data['blog'] = Blog::where('status', 1)->get();
+        return view('blog', $data);
     }
 
 

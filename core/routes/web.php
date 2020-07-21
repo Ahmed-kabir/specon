@@ -6,8 +6,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'WelcomeController@index')->name('index');
 Route::get('/speaker', 'WelcomeController@speaker')->name('speaker');
+Route::get('/schedule', 'WelcomeController@schedule')->name('Schedule');
+Route::get('/contact', 'WelcomeController@contact')->name('Contact');
+Route::get('/blog', 'WelcomeController@blog')->name('Blog');
 Route::get('/ticket', 'WelcomeController@Ticket')->name('Ticket');
 Route::get('buy/ticket/{id}', 'TicketController@buyTicket')->name('buyTicket');
+Route::post('/schedule/test', 'ScheduleController@dateScheduletest')->name('dateSchedule');
+
 
 Route::post('confirm/ticket/{id}', 'TicketController@confirmTicket')->name('confirmTicket');
 
@@ -15,6 +20,7 @@ Auth::routes();
 Route::prefix('admin')->group(function(){
 Route::group(['middleware'=>'auth:admin'],function(){
     Route::get('home', 'AdminController@index')->name('adminHome');
+    Route::get('/logout', 'AdminController@logout')->name('Logout');
 //                       speaker section
     Route::get('add/speaker', 'SpeakerController@addSpeaker')->name('addSpeaker');
     Route::post('save/speaker', 'SpeakerController@saveSpeaker')->name('saveSpeaker');

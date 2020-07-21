@@ -145,4 +145,13 @@ class ScheduleController extends Controller
    {
        echo 'deleted';
    }
+   public function dateScheduletest(Request $request)
+   {
+
+    $date = Schedule::with('speakers','topicName')->where('date', $request->date)->get();
+//   echo json_encode($date);
+       return response()->json([
+           'data' => $date
+       ]);
+   }
 }

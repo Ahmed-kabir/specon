@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Speaker;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class SpeakerController extends Controller
 {
@@ -23,7 +25,11 @@ class SpeakerController extends Controller
         ]);
 
         $speakerImage=$request->file('speaker_img');
-        $name=$speakerImage->getClientOriginalName();
+//        $name=$speakerImage->getClientOriginalName();
+        $randNumber = Str::random(6);
+        $fileExtension = $speakerImage->getClientOriginalExtension();
+        $name = $randNumber.'.'.$fileExtension;
+
         $path=('assets/speakerImage/');
         $speakerImage->move($path,$name);
         $imageurl=$path.$name;
@@ -78,7 +84,9 @@ class SpeakerController extends Controller
          $speakerImage = $request->file('speaker_img');
         if($speakerImage){
             unlink($speaker->speaker_img);
-            $name=$speakerImage->getClientOriginalName();
+            $randNumber = Str::random(6);
+            $fileExtension = $speakerImage->getClientOriginalExtension();
+            $name = $randNumber.'.'.$fileExtension;
             $path=('assets/speakerImage/');
             $speakerImage->move($path,$name);
             $imageurl=$path.$name;

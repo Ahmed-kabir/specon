@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2020 at 01:41 PM
+-- Generation Time: Jul 21, 2020 at 01:44 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -142,7 +142,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2020_07_19_050458_create_blogs_table', 7),
 (11, '2020_07_19_064730_create_sections_table', 8),
 (12, '2020_07_19_103733_create_welcomes_table', 9),
-(13, '2020_07_20_051535_create_customers_table', 9);
+(13, '2020_07_20_051535_create_customers_table', 9),
+(14, '2020_07_21_083508_create_settings_table', 10);
 
 -- --------------------------------------------------------
 
@@ -181,7 +182,8 @@ CREATE TABLE `schedules` (
 INSERT INTO `schedules` (`id`, `speaker_id`, `topic`, `date`, `start_time`, `end_time`, `slot`, `created_at`, `updated_at`) VALUES
 (1, 1, '1', '2020-07-19', '10:00', '10:58', '1st', '2020-07-16 03:38:10', '2020-07-16 03:38:10'),
 (2, 2, '2', '2020-07-20', '11:11', '11:50', '2nd', '2020-07-17 22:19:04', '2020-07-17 22:19:04'),
-(3, 3, '5', '2020-07-21', '12:30', '13:30', '3rd', '2020-07-17 22:20:49', '2020-07-17 22:20:49');
+(3, 3, '5', '2020-07-21', '12:30', '13:30', '3rd', '2020-07-17 22:20:49', '2020-07-17 22:20:49'),
+(4, 6, '6', '2020-07-22', '10:10', '10:30', NULL, '2020-07-21 05:37:46', '2020-07-21 05:37:46');
 
 -- --------------------------------------------------------
 
@@ -224,6 +226,29 @@ INSERT INTO `sections` (`id`, `name`, `title`, `description`, `img`, `created_at
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `location` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start_date` char(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `latitide` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `longitude` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `location`, `start_date`, `latitide`, `longitude`, `created_at`, `updated_at`) VALUES
+(1, 'Uttara', 'Jan 10 2021', '12654', '165464', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `speakers`
 --
 
@@ -231,7 +256,7 @@ CREATE TABLE `speakers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `speaker_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `experties` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(450) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `speaker_img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL COMMENT '1=active,0=inactive',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -246,7 +271,8 @@ INSERT INTO `speakers` (`id`, `speaker_name`, `experties`, `description`, `speak
 (1, 'Martin Hook', 'Wordpress Development', 'Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.', 'assets/speakerImage/speaker01.jpg', 1, '2020-07-16 00:28:19', '2020-07-16 00:28:19'),
 (2, 'Kawsar Ahmed', 'FrontEnd Development', 'Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.', 'assets/speakerImage/speaker04.jpg', 1, '2020-07-16 00:28:41', '2020-07-18 00:43:38'),
 (3, 'Ivan Ahmed', 'Java Development', 'Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.adc', 'assets/speakerImage/speaker05.jpg', 1, '2020-07-16 00:28:54', '2020-07-18 00:44:22'),
-(4, 'Zaman Hossain', 'Android Development', 'Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.', 'assets/speakerImage/speaker06.jpg', 1, '2020-07-17 23:16:46', '2020-07-18 00:49:27');
+(4, 'Zaman Hossain', 'Android Development', 'Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.', 'assets/speakerImage/speaker06.jpg', 1, '2020-07-17 23:16:46', '2020-07-18 00:49:27'),
+(6, 'Mustafiz', 'Ios Development', '<span style=\"color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;; font-size: 14px;\">Thanks for reporting but it looks like this is a question which can be asked on a support channel. Please only use this issue tracker for reporting bugs with the library itself. If you have a question on how to use functionality provided by this repo you can try one of the following channels:</span><br>', 'assets/speakerImage/lo98w8.jpg', 1, '2020-07-21 05:01:44', '2020-07-21 05:01:44');
 
 -- --------------------------------------------------------
 
@@ -324,7 +350,8 @@ INSERT INTO `topics` (`id`, `topic_name`, `created_at`, `updated_at`) VALUES
 (1, 'Wordpress Development', '2020-07-16 02:28:25', '2020-07-18 01:08:55'),
 (2, 'FrontEnd Development', '2020-07-16 02:28:27', '2020-07-16 02:28:27'),
 (3, 'Java Development', '2020-07-16 02:28:30', '2020-07-16 02:28:30'),
-(4, 'Android Development', '2020-07-16 02:28:32', '2020-07-16 02:28:32');
+(4, 'Android Development', '2020-07-16 02:28:32', '2020-07-16 02:28:32'),
+(6, 'Ios Development', '2020-07-21 04:57:32', '2020-07-21 04:57:32');
 
 -- --------------------------------------------------------
 
@@ -410,6 +437,12 @@ ALTER TABLE `sections`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `speakers`
 --
 ALTER TABLE `speakers`
@@ -479,13 +512,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `sections`
@@ -494,10 +527,16 @@ ALTER TABLE `sections`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `speakers`
 --
 ALTER TABLE `speakers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sponsors`
@@ -515,7 +554,7 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT for table `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
