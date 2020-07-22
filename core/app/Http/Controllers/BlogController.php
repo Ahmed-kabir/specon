@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -26,7 +27,11 @@ class BlogController extends Controller
 
         ]);
         $blogImage=$request->file('img');
-        $name=$blogImage->getClientOriginalName();
+
+        $randNumber = Str::random(6);
+        $fileExtension = $blogImage->getClientOriginalExtension();
+        $name = $randNumber.'.'.$fileExtension;
+
         $path=('assets/blogImage/');
         $blogImage->move($path,$name);
         $imageurl=$path.$name;
@@ -79,7 +84,10 @@ class BlogController extends Controller
         $blogImage = $request->file('img');
         if($blogImage){
             unlink($blog->img);
-            $name=$blogImage->getClientOriginalName();
+            $randNumber = Str::random(6);
+            $fileExtension = $blogImage->getClientOriginalExtension();
+            $name = $randNumber.'.'.$fileExtension;
+
             $path=('assets/blogImage/');
             $blogImage->move($path,$name);
             $imageurl=$path.$name;

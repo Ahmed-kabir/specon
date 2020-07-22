@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Section;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class SectionController extends Controller
 {
@@ -63,23 +64,7 @@ class SectionController extends Controller
         $section->save();
         return redirect()->route('manageAbout')->with('success_message', 'About Updated Successfully');
     }
-    public function chkimage($request, $id)
-    {
-        $section = Section::where('id', $id)->first();
-        $sectionImage = $request->file('img');
-        if($sectionImage){
-            unlink($section->img);
-            $name=$sectionImage->getClientOriginalName();
-            $path=('assets/sectionImage/');
-            $sectionImage->move($path,$name);
-            $imageurl=$path.$name;
 
-        }
-        else{
-            $imageurl=$section->img;
-        }
-        return $imageurl;
-    }
     public function manageAboutOverview()
     {
         $data['title'] = 'Manage About Overview';
@@ -89,17 +74,13 @@ class SectionController extends Controller
 
     public function updateAboutOverview(Request $request, $id)
     {
+
         $request->validate([
             "title" => 'required',
             "description" => 'required',
             "img" => 'mimes:jpeg,jpg,png,gif|required|max:1000'
         ]);
         $imageurl = $this->chkimage($request, $id);
-//        $sectionImage = $request->file('img');
-//        $name=$sectionImage->getClientOriginalName();
-//        $path=('assets/sectionImage/');
-//        $sectionImage->move($path,$name);
-//        $imageurl=$path.$name;
 
         $section = Section::find($id);
         $section->title = $request->title;
@@ -108,6 +89,26 @@ class SectionController extends Controller
 
         $section->save();
         return redirect()->route('manageAboutOverview')->with('success_message', 'Data Updated Successfully');
+    }
+    public function chkimage($request, $id)
+    {
+        $section = Section::where('id', $id)->first();
+        $sectionImage = $request->file('img');
+        if($sectionImage){
+            unlink($section->img);
+            $randNumber = Str::random(6);
+            $fileExtension = $sectionImage->getClientOriginalExtension();
+            $name = $randNumber.'.'.$fileExtension;
+
+            $path=('assets/sectionImage/');
+            $sectionImage->move($path,$name);
+            $imageurl=$path.$name;
+
+        }
+        else{
+            $imageurl=$section->img;
+        }
+        return $imageurl;
     }
 
 

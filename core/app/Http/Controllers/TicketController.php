@@ -25,10 +25,15 @@ class TicketController extends Controller
             "tkt_img"=>'mimes:jpeg,jpg,png,gif|required|max:1000'
         ]);
         $ticketImage=$request->file('tkt_img');
-        $name=$ticketImage->getClientOriginalName();
+
+        $randNumber = Str::random(6);
+        $fileExtension = $ticketImage->getClientOriginalExtension();
+        $name = $randNumber.'.'.$fileExtension;
+
         $path=('assets/ticketImage/');
         $ticketImage->move($path,$name);
         $imageurl=$path.$name;
+
 
         $ticket = new Ticket();
         $ticket->tkt_typ = $request->tkt_typ;
@@ -79,7 +84,10 @@ class TicketController extends Controller
         $ticketImage = $request->file('tkt_img');
         if($ticketImage){
             unlink($ticket->tkt_img);
-            $name=$ticketImage->getClientOriginalName();
+
+            $randNumber = Str::random(6);
+            $fileExtension = $ticketImage->getClientOriginalExtension();
+            $name = $randNumber.'.'.$fileExtension;
             $path=('assets/ticketImage/');
             $ticketImage->move($path,$name);
             $imageurl=$path.$name;

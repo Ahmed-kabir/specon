@@ -10,6 +10,8 @@ Route::get('/schedule', 'WelcomeController@schedule')->name('Schedule');
 Route::get('/contact', 'WelcomeController@contact')->name('Contact');
 Route::get('/blog', 'WelcomeController@blog')->name('Blog');
 Route::get('/ticket', 'WelcomeController@Ticket')->name('Ticket');
+Route::get('/sponsor', 'WelcomeController@Sponsor')->name('Sponsor');
+Route::post('save/sponsor', 'SponsorController@saveSponsor')->name('saveSponsor');
 Route::get('buy/ticket/{id}', 'TicketController@buyTicket')->name('buyTicket');
 Route::post('/schedule/test', 'ScheduleController@dateScheduletest')->name('dateSchedule');
 
@@ -54,11 +56,15 @@ Route::group(['middleware'=>'auth:admin'],function(){
 
 //                      sponsor section
     Route::get('add/sponsor', 'SponsorController@addSponsor')->name('addSponsor');
-    Route::post('save/sponsor', 'SponsorController@saveSponsor')->name('saveSponsor');
+
     Route::get('manage/sponsor', 'SponsorController@manageSponsor')->name('manageSponsor');
     Route::get('edit/sponsor/{id}', 'SponsorController@editSponsor')->name('editSponsor');
     Route::post('update/sponsor/{id}', 'SponsorController@updateSponsor')->name('updateSponsor');
     Route::get('inactive/sponsor/{id}', 'SponsorController@inactiveSponsor')->name('inactiveSponsor');
+    Route::get('sponsor/request', 'SponsorController@sponsorRequest')->name('sponsorRequest');
+    Route::get('activated/request/{id}', 'SponsorController@activatedSponsor')->name('activatedSponsor');
+    Route::post('active/sponsor/{id}', 'SponsorController@activeSponsor')->name('activeSponsor');
+    Route::post('test', 'SponsorController@test')->name('test');
 //                      blog section
     Route::get('add/blog', 'BlogController@addBlog')->name('addBlog');
     Route::post('save/blog', 'BlogController@saveBlog')->name('saveBlog');

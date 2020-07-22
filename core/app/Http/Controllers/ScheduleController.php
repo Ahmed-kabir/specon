@@ -102,8 +102,9 @@ class ScheduleController extends Controller
    }
    public function editSchedule($id)
    {
+
        $data['title'] = 'Edit Schedule';
-       $data['scheduleEditByid'] = Schedule::find($id)->first();
+        $data['scheduleEditByid'] = Schedule::where('id', $id)->first();
        $data['speakerName'] = Speaker::all();
        $data['topicName'] = Topic::all();
        return view('schedule.edit_schedule', $data);
@@ -111,6 +112,7 @@ class ScheduleController extends Controller
 
    public function updateSchedule(Request $request, $id)
    {
+
        $request->validate([
            "speaker_name"=>'required',
            "topic"=>'required',
@@ -119,12 +121,14 @@ class ScheduleController extends Controller
            "end_time"=>'required|after:start_time'
        ]);
 
+         $reservations = Schedule::where('date', $request->date)->where('start_time', '<=', $request->end_time)->where('end_time', '>=' , $request->start_time)->first();
 
-       $reservations = Schedule::whereBetween('start_time', [$request->start_time, $request->end_time])
+        $testQuery = Schedule::whereBetween('start_time', [$request->start_time, $request->end_time])
            ->orWhereRaw('? BETWEEN start_time AND end_time', [$request->start_time, $request->end_time])
            ->WHERE ('date', '=', $request->date)
            ->get();
-       if(sizeof($reservations)>0)
+//       if(sizeof($reservations)>0)
+       if($reservations)
        {
            return back()->with('error_message', 'Schedule Not Available');
 
@@ -132,7 +136,7 @@ class ScheduleController extends Controller
        else
        {
            $schedule = Schedule::find($id)->first();
-           $schedule->speaker_name = $request->speaker_name;
+           $schedule->id = $request->speaker_name;
            $schedule->topic = $request->topic;
            $schedule->date = $request->date;
            $schedule->start_time = $request->start_time;

@@ -75,7 +75,7 @@ class SpeakerController extends Controller
         $speaker->description = $request->description;
         $speaker->speaker_img = $imageurl;
         $speaker->save();
-        return redirect()->route('manageSpeaker')->with('success_message', 'Speaker Updated Successfully');
+        return redirect()->route('sponsorRequest')->with('success_message', 'Speaker Updated Successfully');
 
     }
 

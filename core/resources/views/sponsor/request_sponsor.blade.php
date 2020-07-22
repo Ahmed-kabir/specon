@@ -3,10 +3,18 @@
 </br>
 </br>
 <div class="row justify-content-center" >
+
+
+
+
+
+
+
+
     <div class="col-lg-10">
         <div class="card">
             <div class="card-header text-center">
-                <strong class="card-title">Manage Sponsor</strong>
+                <strong class="card-title">Sponsor Request</strong>
                 <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
             </div>
             <div class="card-body">
@@ -17,8 +25,6 @@
                         <th scope="col">Company Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Website</th>
-                        <th scope="col">Sponsor Type</th>
-                        <th scope="col">Img</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -31,23 +37,16 @@
                             <td>{{ $row->company_name}}</td>
                             <td>{{ $row->email}}</td>
                             <td>{{ $row->website}}</td>
-                            <td>{{ $row->sponsor_type}}</td>
-                            <td> <img src="{{asset($row->img)}}" /></td>
+{{--                            <td> <img src="{{asset($row->sponsor_img)}}" /></td>--}}
                             <td>
-{{--                                <a href="{{route('editSponsor',$row->id)}}" class="btn btn-success">--}}
-{{--                                    <span class="glyphicon glyphicon-edit">Edit</span></a>--}}
 
-{{--                                @if($row->status ==0)--}}
-                                <a href="" class="btn btn-success" data-toggle="modal" data-target="#modalLoginForm-{{$row->id}}" >
-                                    <span class="glyphicon glyphicon-edit">Edit</span>
-                                </a>
-{{--                                @endif--}}
 
-                                <a href="{{route('inactiveSponsor',$row->id)}}" class="btn btn-secondary" onclick="return confirm('Are You sure to Inactive this');">
+                                <a href="{{route('activatedSponsor',$row->id)}}" class="btn btn-primary" onclick="return confirm('Are You sure to Active this');">
 
-                                    <span class="glyphicon glyphicon-trash">Inactive</span></a>
+                                    <span class="glyphicon glyphicon-trash">Active</span></a>
 
                             </td>
+
                         </tr>
                         @include('sponsor.edit_modal')
                     @endforeach

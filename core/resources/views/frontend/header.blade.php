@@ -22,6 +22,10 @@
 
             </li>
             <li>
+                <a href="{{route('Sponsor')}}">Sponsor</a>
+
+            </li>
+            <li>
                 <a href="{{route('Contact')}}">Contact</a>
             </li>
             <li>

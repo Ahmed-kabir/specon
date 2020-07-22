@@ -246,12 +246,18 @@
             </div>
             <div class="schedule-area tab">
                 <ul class="tab-menu">
+                    <?php
+                    $sl=1;
+                    ?>
                     @foreach($slot as $vSlot)
+
 {{--                    <li><span>{{ $row->slot }} day</span>29 december , 2019</li>--}}
-                    <li onclick="getTabData1('{{$vSlot->date}}');"><span>{{ $vSlot->slot }} day</span>{{ $vSlot->date }}</li>
+                    <li onclick="getTabData1('{{$vSlot->date}}');"><span>Day {{ $sl}}</span>{{ $vSlot->date }}</li>
 {{--                    <li id="tab-button-custom"><span>{{ $row->slot }} day</span> <span id="date_value">{{ $row->date }}</span></li>--}}
 
-
+                        <?php
+                            $sl++;
+                        ?>
                     @endforeach
                 </ul>
 
@@ -365,8 +371,8 @@
                                             </div>
                                             <div class="event-tab-content">
                                                 <ul>
-                                                    <li>USA, Callifornia 20, Firs</li>
-                                                    <li>Avenue, Callifornia</li>
+                                                    <li>{{$settings->place}}</li>
+
                                                     <ul>
                                             </div>
                                         </div>
@@ -376,7 +382,7 @@
                                             </div>
                                             <div class="event-tab-content">
                                                 <ul>
-                                                    <li><a href="tel:(123) 456-7890">(123) 456-7890</a></li>
+                                                    <li><a href="tel:(123) 456-7890">{{$settings->phone}}</a></li>
                                                     <li><a href="tel:(123) 456-7891">(123) 456-7891</a></li>
                                                     <ul>
                                             </div>
@@ -387,7 +393,7 @@
                                             </div>
                                             <div class="event-tab-content">
                                                 <ul>
-                                                    <li><a href="mailto:contact@example.com">contact@example.com</a>
+                                                    <li><a href="mailto:contact@example.com">{{$settings->email}}</a>
                                                     </li>
                                                     <li><a href="mailto:info@example.com">info@example.com</a></li>
                                                     <ul>
@@ -502,35 +508,27 @@
                 <p>{!! $sponsor1['description'] !!}</p>
             </div>
             <div class="sponsor-wrapper">
-                <h4 class="sub-title">diamond sponsors</h4>
+                @foreach($sponsor_type as $v)
+                <h4 class="sub-title">{{$v->sponsor_type}}</h4>
 
                 <div class="sponsor-area">
                     @foreach($sponsor as $row)
-                        @if($row->sponsor_type == 'Diamond Sponsors')
+                        @if($v->sponsor_type == $row->sponsor_type)
                             <div class="sponsor-thumb">
-                                <a href="#0"><img src="{{asset($row->sponsor_img)}}" alt="sponsor"></a>
+                                <a href="#0"><img src="{{asset($row->img)}}" alt="sponsor"></a>
                             </div>
                         @endif
                     @endforeach
                 </div>
-
-                <h4 class="sub-title">platinum sponsors</h4>
-                <div class="sponsor-area">
-                    @foreach($sponsor as $row)
-                        @if($row->sponsor_type == 'Platinum Sponsors')
-                            <div class="sponsor-thumb">
-                                <a href="#0"><img src="{{asset($row->sponsor_img)}}" alt="sponsor"></a>
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
+                @endforeach
             </div>
             <div class="text-center">
-                <a href="#0" class="custom-button">Become a Sponsor</a>
+                <a href="{{route('Sponsor')}}" class="custom-button">Become a Sponsor</a>
             </div>
         </div>
     </section>
-<input type="hidden" id="start_date123" name="start_date" value="{{$settings->start_date}}">
+{{--    <div id="countdown"></div>--}}
+<input type="hidden" id="start_date" name="start_date" value="{{$settings->start_date}}">
 @endsection
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
     $.ajaxSetup({
@@ -541,68 +539,42 @@
 </script>
 
 <script>
-    // $( document ).ready(function() {
-    //
-    //     // alert('hi');
-    //     // Set the date we're counting down to
-    //     var countDownDate = new Date("Jan 10, 2021");
-    //     var now = new Date();
-    //
-    //     var d = new Date();
-    //     var date = document.getElementById("demo").innerHTML = d.getDate();
-    //
-    //     var number=document.getElementById("start_date123").value;
-    //     console.log(countDownDate);
-    //     console.log(now);
-    //     console.log(number);
-    //     console.log(date);
-    //
-    //     // var countDownDate = new Date("Jan 5, 2021").getTime();
-    //     // var countDownDate = document.getElementById("start_date123").value;
-    //     var final = Date.parse(countDownDate)
-    //     // alert(final);
-    //     var number=document.getElementById("start_date123").value;
-    //     var test = new Date(number);
-    //
-    //
-    //     var parse = Date.parse(number);
-    //
-    //     // var countDownDate = number.getTime();
-    //
-    //
-    //     // Update the count down every 1 second
-    //     var x = setInterval(function() {
-    //
-    //         // Get today's date and time
-    //         var now = new Date().getTime();
-    //
-    //
-    //         // Find the distance between now and the count down date
-    //         var distance = countDownDate - now;
-    //
-    //         // Time calculations for days, hours, minutes and seconds
-    //         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    //         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    //         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    //         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    //
-    //         // Display the result in the element with id="demo"
-    //         // document.getElementById("timer_section").innerHTML = days + "d " + hours + "h "
-    //         //     + minutes + "m " + seconds + "s ";
-    //         document.getElementById("days").innerHTML = days;
-    //         document.getElementById("hours").innerHTML = hours;
-    //         document.getElementById("minutes").innerHTML = minutes;
-    //         document.getElementById("seconds").innerHTML = seconds;
-    //
-    //         // If the count down is finished, write some text
-    //         if (distance < 0) {
-    //             clearInterval(x);
-    //             document.getElementById("timer_section").innerHTML = "EXPIRED";
-    //         }
-    //     }, 1000);
-    //
-    //
-    // });
+    $( document ).ready(function() {
+        // var end = new Date('2020-10-20');
+        var startDate = document.getElementById("start_date").value;
+        var end = new Date(startDate);
+
+
+        var _second = 1000;
+        var _minute = _second * 60;
+        var _hour = _minute * 60;
+        var _day = _hour * 24;
+        var timer;
+
+        function showRemaining() {
+            var now = new Date();
+            var distance = end - now;
+            if (distance < 0) {
+
+                clearInterval(timer);
+                document.getElementById('countdown').innerHTML = 'EXPIRED!';
+
+                return;
+            }
+            var days = Math.floor(distance / _day);
+            var hours = Math.floor((distance % _day) / _hour);
+            var minutes = Math.floor((distance % _hour) / _minute);
+            var seconds = Math.floor((distance % _minute) / _second);
+
+            document.getElementById('days').innerHTML = days ;
+            document.getElementById('hours').innerHTML = hours ;
+            document.getElementById('minutes').innerHTML = minutes ;
+            document.getElementById('seconds').innerHTML = seconds ;
+        }
+
+        timer = setInterval(showRemaining, 1000);
+
+    });
 
 </script>
 

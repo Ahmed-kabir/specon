@@ -54,8 +54,12 @@ class WelcomeController extends Controller
 //            ->groupBy('date')
 //            ->get();
 
-           $data['slot'] = Schedule::groupBy('date','slot')
-            ->selectRaw('slot, date')
+           $data['slot'] = Schedule::groupBy('date')
+            ->selectRaw('date')
+            ->get();
+
+         $data['sponsor_type'] = Sponsor::groupBy('sponsor_type')
+            ->selectRaw('sponsor_type')
             ->get();
 
         return view('frontend.main_content', $data);
@@ -92,6 +96,11 @@ class WelcomeController extends Controller
         $data['title'] = 'Blog';
         $data['blog'] = Blog::where('status', 1)->get();
         return view('blog', $data);
+    }
+    public function Sponsor()
+    {
+        $data['title'] = 'Sponsor';
+        return view('sponsor', $data);
     }
 
 
