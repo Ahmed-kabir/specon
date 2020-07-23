@@ -99,10 +99,11 @@
                                                 </blockquote>
                                                 <div class="blockquote-speaker d-flex">
                                                     <div class="blockquote-speaker-thumb">
-                                                        <img src="{{asset('assets/frontEnd/assets/images/about/about-tab01.jpg')}}" alt="about">
+                                                        <img src="{{asset($tab_testimonial['img'])}}" alt="about">
                                                     </div>
                                                     <div class="blockquote-speaker-content">
-                                                        <h6>martin hook</h6>
+                                                        <h6>{!! $tab_testimonial['title'] !!}</h6>
+
                                                         <span>Businesman</span>
                                                     </div>
                                                 </div>
@@ -147,57 +148,27 @@
                     <div class="overview-left padding-bottom padding-top">
                         <div class="left-content">
                             <div class="row m-0">
+                                @foreach($benifit as $row)
                                 <div class="col-md-6">
                                     <div class="overview-item wow fadeInUp" data-wow-duration="1s">
                                         <div class="overview-header">
-                                            <i class="{!! $overview1['img'] !!}"></i>
-                                            <h4 class="title">{!! $overview1['title'] !!}</h4>
+                                            <i class="{!! $row->img !!}"></i>
+                                            <h4 class="title">{!! $row['title'] !!}</h4>
                                         </div>
                                         <div class="overview-item-content">
-                                            <p>{!! $overview1['description'] !!}</p>
+                                            <p>{!! $row['description'] !!}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="overview-item wow fadeInUp" data-wow-duration="1s">
-                                        <div class="overview-header">
-                                            <i class="{!! $overview2['img'] !!}"></i>
-                                            <h4 class="title">{!! $overview2['title'] !!}</h4>
-                                        </div>
-                                        <div class="overview-item-content">
-                                            <p>{!! $overview2['description'] !!}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="overview-item wow fadeInUp" data-wow-duration="1s">
-                                        <div class="overview-header">
-                                            <i class="{!! $overview3['img'] !!}"></i>
-                                            <h4 class="title">{!! $overview3['title'] !!}</h4>
-                                        </div>
-                                        <div class="overview-item-content">
-                                            <p>{!! $overview3['description'] !!}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="overview-item wow fadeInUp" data-wow-duration="1s">
-                                        <div class="overview-header">
-                                            <i class="{!! $overview4['img'] !!}"></i>
-                                            <h4 class="title">{!! $overview4['title'] !!}</h4>
-                                        </div>
-                                        <div class="overview-item-content">
-                                            <p>{!! $overview4['description'] !!}</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-6 p-0">
                     <div class="overview-right h-100 bg_img" data-background="{{asset('assets/frontEnd//assets/images/overview/overview-bg01.jpg')}}">
-                        <img src="{{asset('assets/frontEnd/assets/images/overview/overview-bg01.jpg')}}" alt="overview">
+                        <img src="{{asset($overview1['img'])}}" alt="overview">
                     </div>
                 </div>
             </div>
@@ -250,10 +221,16 @@
                     $sl=1;
                     ?>
                     @foreach($slot as $vSlot)
+                            <?php
+                            $date = $vSlot->date;
 
-{{--                    <li><span>{{ $row->slot }} day</span>29 december , 2019</li>--}}
-                    <li onclick="getTabData1('{{$vSlot->date}}');"><span>Day {{ $sl}}</span>{{ $vSlot->date }}</li>
-{{--                    <li id="tab-button-custom"><span>{{ $row->slot }} day</span> <span id="date_value">{{ $row->date }}</span></li>--}}
+                            $convert_date = strtotime($date);
+                            $month = date('F',$convert_date);
+                            $year = date('Y',$convert_date);
+                            $day = date('j',$convert_date);
+                            ?>
+
+                    <li onclick="getTabData1('{{$vSlot->date}}');"><span>Day {{ $sl}}</span>{{ $month.' '.$day, ','.$year }}</li>
 
                         <?php
                             $sl++;
@@ -349,7 +326,10 @@
         <div class="container-fluid p-xl-0">
             <div class="row m-0">
                 <div class="col-xl-6 p-0">
-                    <div class="maps h-100"></div>
+                    <div class="maps h-100 container-fluid">
+                        <iframe width="100%" height="500" src="https://maps.google.com/maps?q={{$settings->location}}&output=embed"></iframe>
+
+                    </div>
                 </div>
                 <div class="col-xl-6 p-0">
                     <div class="event-overview-content padding-top">

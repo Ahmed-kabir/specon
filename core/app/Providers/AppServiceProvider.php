@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Blog;
 use App\Schedule;
 use App\Section;
+use App\Setting;
 use App\Speaker;
 use App\Sponsor;
 use App\Ticket;
@@ -30,7 +31,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-
+        $settings = Setting::first();
+        view()->share('settings', $settings);
 
     }
 }

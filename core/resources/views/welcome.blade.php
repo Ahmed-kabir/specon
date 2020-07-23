@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="{{asset('assets/frontEnd/assets/images/favicon.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('assets/frontEnd/assets/css/style.css')}}">
 
-    <title>{{$title}}</title>
+    <title>{{$settings->title}}</title>
 
 </head>
 

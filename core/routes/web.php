@@ -23,6 +23,8 @@ Route::prefix('admin')->group(function(){
 Route::group(['middleware'=>'auth:admin'],function(){
     Route::get('home', 'AdminController@index')->name('adminHome');
     Route::get('/logout', 'AdminController@logout')->name('Logout');
+    Route::get('/settings', 'AdminController@manageSettings')->name('manageSettings');
+    Route::post('/update/settings/{id}', 'AdminController@updateSettings')->name('updateSettings');
 //                       speaker section
     Route::get('add/speaker', 'SpeakerController@addSpeaker')->name('addSpeaker');
     Route::post('save/speaker', 'SpeakerController@saveSpeaker')->name('saveSpeaker');
@@ -79,6 +81,27 @@ Route::group(['middleware'=>'auth:admin'],function(){
     Route::post('update/about/{id}', 'SectionController@updateAbout')->name('updateAbout');
     Route::get('manage/about/overview', 'SectionController@manageAboutOverview')->name('manageAboutOverview');
     Route::post('update/about/overview/{id}', 'SectionController@updateAboutOverview')->name('updateAboutOverview');
+    Route::get('manage/benifit/', 'SectionController@manageBenifit')->name('manageBenifit');
+    Route::post('update/benifit/{id}', 'SectionController@updateBenifit')->name('updateBenifit');
+    Route::get('delete/benifit/{id}', 'SectionController@deleteBenifit')->name('deleteBenifit');
+    Route::get('speaker/title', 'SectionController@speakerTitle')->name('speakerTitle');
+    Route::post('update/speaker/title/{id}', 'SectionController@updateSpeakerTitle')->name('updateSpeakerTitle');
+    Route::get('schedule/title/', 'SectionController@scheduleTitle')->name('scheduleTitle');
+    Route::post('update/schedule/title/{id}', 'SectionController@updateScheduleTitle')->name('updateScheduleTitle');
+    Route::get('callin/title', 'SectionController@callInTitle')->name('callInTitle');
+    Route::post('update/callin/title/{id}', 'SectionController@updateCallinTitle')->name('updateCallinTitle');
+    Route::get('ticket/title/', 'SectionController@ticketTitle')->name('ticketTitle');
+    Route::post('update/ticket/title/{id}', 'SectionController@updateTicket1')->name('updateTicket1');
+    Route::get('event/title/', 'SectionController@eventTitle')->name('eventTitle');
+    Route::post('update/event/title/{id}', 'SectionController@updateEventTitle')->name('updateEventTitle');
+    Route::get('blog1/title', 'SectionController@blog1Title')->name('blog1Title');
+    Route::post('update/blog1/title/{id}', 'SectionController@updateBlogTitle1')->name('updateBlogTitle1');
+    Route::get('sponsor1/title', 'SectionController@sponsor1Title')->name('sponsor1Title');
+    Route::post('update/sponsor1/title/{id}', 'SectionController@updateSponsor1')->name('updateSponsor1');
+    Route::get('mission/title/', 'SectionController@missionTitle')->name('missionTitle');
+    Route::post('update/mission/title/{id}', 'SectionController@updateTitleMission')->name('updateTitleMission');
+    Route::get('testimonial/title/', 'SectionController@testimonialTitle')->name('testimonialTitle');
+    Route::post('update/title/testimonial/{id}', 'SectionController@updateTitleTestimonial')->name('updateTitleTestimonial');
 });
 });
 

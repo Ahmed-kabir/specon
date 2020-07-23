@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Benifit;
 use App\Blog;
 use App\Schedule;
 use App\Section;
@@ -36,12 +37,13 @@ class WelcomeController extends Controller
         $data['tab_mission'] = Section::where('name', 'tab_mission')->first();
         $data['tab_testimonial'] = Section::where('name', 'tab_testimonial')->first();
         $data['overview1'] = Section::where('name', 'overview1')->first();
+
         $data['overview2'] = Section::where('name', 'overview2')->first();
         $data['overview3'] = Section::where('name', 'overview3')->first();
         $data['overview4'] = Section::where('name', 'overview4')->first();
 
         $data['allSpeakers'] = Speaker::all();
-//        $data['allSchedule'] = Schedule::all();
+        $data['benifit'] = Benifit::all();
         $data['ticket'] = Ticket::all();
         $data['sponsor'] = Sponsor::where('status', 1)->get();
         $data['blog'] = Blog::where('status', 1)->get();

@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{asset('assets/admin/vendors/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/admin/vendors/selectFX/css/cs-skin-elastic.css')}}">
     <link rel="stylesheet" href="{{asset('assets/admin/vendors/jqvmap/dist/jqvmap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/bootstrap-iconpicker.min.css') }}">
+
 
 
     <link rel="stylesheet" href="{{asset('assets/admin/assets/css/style.css')}}">
@@ -42,14 +44,14 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="./"><img src="{{asset('assets/admin/images/logo.png')}}" alt="Logo"></a>
+            <a class="navbar-brand" href="{{route('adminHome')}}"><img src="{{asset('assets/admin/images/logo.png')}}" alt="Logo"></a>
             <a class="navbar-brand hidden" href="./"><img src="{{asset('assets/admin/images/logo2.png')}}" alt="Logo"></a>
         </div>
 
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                    <a href="{{route('adminHome')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                 </li>
                 <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
@@ -102,44 +104,28 @@
                     </ul>
                 </li>
 
+                <h3 class="menu-title">Title Section</h3><!-- /.menu-title -->
+
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Section</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Title</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageBanner') }}"> Banner</a></li>
-                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageAbout') }}"> About</a></li>
-                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageAboutOverview') }}"> About Overview</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageBanner') }}"> Banner Section</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageAbout') }}"> About Section</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageAboutOverview') }}"> About Overview Section</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageBenifit') }}"> Benifit Section</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('speakerTitle') }}"> Speaker Section</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('scheduleTitle') }}"> Schedule Section</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('callInTitle') }}"> Call In Section</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('ticketTitle') }}"> Ticket Section</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('eventTitle') }}"> Event Section</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('blog1Title') }}"> Blog Section</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('sponsor1Title') }}"> Sponsor Section</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('missionTitle') }}"> Mission Section</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('testimonialTitle') }}"> Testomonial Section</a></li>
 
                     </ul>
                 </li>
 
-                <h3 class="menu-title">Icons</h3><!-- /.menu-title -->
-
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Font Awesome</a></li>
-                        <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">Themefy Icons</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
-                </li>
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-line-chart"></i><a href="charts-chartjs.html">Chart JS</a></li>
-                        <li><i class="menu-icon fa fa-area-chart"></i><a href="charts-flot.html">Flot Chart</a></li>
-                        <li><i class="menu-icon fa fa-pie-chart"></i><a href="charts-peity.html">Peity Chart</a></li>
-                    </ul>
-                </li>
-
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-map-o"></i><a href="maps-gmap.html">Google Maps</a></li>
-                        <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html">Vector Maps</a></li>
-                    </ul>
-                </li>
                 <h3 class="menu-title">Extras</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
@@ -251,11 +237,8 @@
                     </a>
 
                     <div class="user-menu dropdown-menu">
-                        <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
 
-                        <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>
-
-                        <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+                        <a class="nav-link" href="{{route('manageSettings')}}"><i class="fa fa-cog"></i> Settings</a>
 
                         <a class="nav-link" href="{{route('Logout')}}"><i class="fa fa-power-off"></i> Logout</a>
                     </div>
@@ -293,6 +276,7 @@
                 <div class="page-title ">
                     <h3>Admin Dashboard</h3>
                 </div>
+                <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
             </div>
 {{--        </div>--}}
 {{--        <div class="col-sm-8">--}}
@@ -327,8 +311,10 @@
 <script src="{{asset('assets/admin/vendors/jqvmap/dist/jquery.vmap.min.js')}}"></script>
 <script src="{{asset('assets/admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
 <script src="{{asset('assets/admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
+<script src="{{ asset('assets/admin/assets/js/bootstrap-iconpicker.bundle.min.js') }}"></script>
 <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
 <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
 
 <script>
     (function($) {

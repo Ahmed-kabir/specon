@@ -25,12 +25,25 @@
         </div>
         <div class="schedule-area tab">
             <ul class="tab-menu">
+                <?php
+                $sl=1;
+                ?>
                 @foreach($slot as $vSlot)
-                    {{--                    <li><span>{{ $row->slot }} day</span>29 december , 2019</li>--}}
-                    <li onclick="getTabData1('{{$vSlot->date}}');"><span>{{ $vSlot->slot }} day</span>{{ $vSlot->date }}</li>
-                    {{--                    <li id="tab-button-custom"><span>{{ $row->slot }} day</span> <span id="date_value">{{ $row->date }}</span></li>--}}
+                    <?php
+                        $date = $vSlot->date;
 
+                        $convert_date = strtotime($date);
+                        $month = date('F',$convert_date);
+                        $year = date('Y',$convert_date);
+                        $day = date('j',$convert_date);
 
+//                       echo $result = $month . " " . $day . ", " . $year ;
+                    ?>
+                    <li onclick="getTabData1('{{$vSlot->date}}');"><span>Day {{ $sl}} </span>{{ $month.' '.$day, ','.$year }}</li>
+
+                        <?php
+                        $sl++;
+                        ?>
                 @endforeach
             </ul>
 
