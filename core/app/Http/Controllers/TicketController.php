@@ -15,6 +15,7 @@ class TicketController extends Controller
         $data['title'] = 'Add Ticket';
         return view('ticket.add_ticket', $data);
     }
+
     public function saveTicket(Request $request)
     {
         $request->validate([
@@ -22,17 +23,17 @@ class TicketController extends Controller
             "tkt_price" => 'required|not_in:0',
             "tkt_desc" => 'required',
             "tkt_qty" => 'required|not_in:0',
-            "tkt_img"=>'mimes:jpeg,jpg,png,gif|required|max:1000'
+            "tkt_img" => 'mimes:jpeg,jpg,png,gif|required|max:1000'
         ]);
-        $ticketImage=$request->file('tkt_img');
+        $ticketImage = $request->file('tkt_img');
 
         $randNumber = Str::random(6);
         $fileExtension = $ticketImage->getClientOriginalExtension();
-        $name = $randNumber.'.'.$fileExtension;
+        $name = $randNumber . '.' . $fileExtension;
 
-        $path=('assets/ticketImage/');
-        $ticketImage->move($path,$name);
-        $imageurl=$path.$name;
+        $path = ('assets/ticketImage/');
+        $ticketImage->move($path, $name);
+        $imageurl = $path . $name;
 
 
         $ticket = new Ticket();
@@ -52,12 +53,14 @@ class TicketController extends Controller
         $data['ticket'] = Ticket::where('status', 1)->get();
         return view('ticket.manage_ticket', $data);
     }
+
     public function editTicket($id)
     {
         $data['title'] = 'Edit Ticket';
         $data['editTicketById'] = Ticket::find($id);
-        return view('ticket.edit_ticket',$data);
+        return view('ticket.edit_ticket', $data);
     }
+
     public function updateTicket(Request $request, $id)
     {
 
@@ -65,7 +68,8 @@ class TicketController extends Controller
             "tkt_typ" => 'required',
             "tkt_price" => 'required|not_in:0',
             "tkt_desc" => 'required',
-            "tkt_qty" => 'required|not_in:0'
+            "tkt_qty" => 'required|not_in:0',
+            "tkt_img" => 'mimes:jpeg,jpg,png,gif|max:1000'
         ]);
         $imageurl = $this->chkimage($request, $id);
 
@@ -78,23 +82,23 @@ class TicketController extends Controller
         $ticket->save();
         return redirect()->route('manageTicket')->with('success_message', 'Ticket Updated Successfully');
     }
+
     public function chkimage($request, $id)
     {
         $ticket = Ticket::where('id', $id)->first();
         $ticketImage = $request->file('tkt_img');
-        if($ticketImage){
+        if ($ticketImage) {
             unlink($ticket->tkt_img);
 
             $randNumber = Str::random(6);
             $fileExtension = $ticketImage->getClientOriginalExtension();
-            $name = $randNumber.'.'.$fileExtension;
-            $path=('assets/ticketImage/');
-            $ticketImage->move($path,$name);
-            $imageurl=$path.$name;
+            $name = $randNumber . '.' . $fileExtension;
+            $path = ('assets/ticketImage/');
+            $ticketImage->move($path, $name);
+            $imageurl = $path . $name;
 
-        }
-        else{
-            $imageurl=$ticket->tkt_img;
+        } else {
+            $imageurl = $ticket->tkt_img;
         }
         return $imageurl;
     }
@@ -106,29 +110,30 @@ class TicketController extends Controller
         $ticket->save();
         return redirect()->route('manageTicket')->with('success_message', 'Ticket Inactivated Successfully');
     }
+
     public function buyTicket($id)
     {
         $data['title'] = 'Buy Ticket';
         $data['ticket'] = Ticket::find($id);
         return view('ticket.buy_ticket', $data);
     }
+
     public function confirmTicket(Request $request, $id)
     {
         $request->validate([
-           "name" => 'required',
-           "email" => 'required|email',
-           "phone" => 'required',
-           "qty" => 'required'
+            "name" => 'required',
+            "email" => 'required|email',
+            "phone" => 'required',
+            "qty" => 'required|integer|max:5',
+            "checkbox" => 'required'
+
         ]);
         $ticket = Ticket::find($id);
-        if ($ticket->tkt_qty < $request->qty)
-        {
-            return back()->with('error_message', $request->qty. 'Ticket'. ' '.  'Not Available');
-        }
-        else
-        {
+        if ($ticket->tkt_qty < $request->qty) {
+            return back()->with('error_message', $request->qty . 'Ticket' . ' ' . 'Not Available');
+        } else {
             $tktId = Str::random(6);
-            $customer = New Customer();
+            $customer = new Customer();
             $customer->name = $request->name;
             $customer->email = $request->email;
             $customer->phone = $request->phone;
@@ -138,7 +143,7 @@ class TicketController extends Controller
 
             $ticket->tkt_qty = $ticket->tkt_qty - $request->qty;
             $ticket->save();
-            return redirect()->route('buyTicket',$id)->with('success_message', 'Ticket Confirmed Successfully');
+            return redirect()->route('buyTicket', $id)->with('success_message', 'Ticket Confirmed Successfully');
         }
     }
 }

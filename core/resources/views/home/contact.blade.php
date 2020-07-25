@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('home.welcome')
 @section('main')
 <section class="page-header">
     <div class="container">

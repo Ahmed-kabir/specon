@@ -32,12 +32,12 @@
 
                     <i class=" prefix grey-text"></i>
                     <label data-error="wrong" data-success="right" for="defaultForm-email">Sponsor Type</label>
-                    <select name="sponsor_type" id="sponsor_type" class="form-control">
-                    <option value="silver">Silver</option>
-                    <option value="golden">golden</option>
-                    <option value="platinum">platinum</option>
-                    <option value="media">media</option>
-                    <option value="diamond">diamond</option>
+                    <select name="sponsor_id" id="sponsor_id" class="form-control">
+                    <option value="1">Silver</option>
+                    <option value="2">golden</option>
+                    <option value="3">platinum</option>
+                    <option value="4">media</option>
+                    <option value="5">diamond</option>
                     </select>
 
                     <i class=" prefix grey-text"></i>

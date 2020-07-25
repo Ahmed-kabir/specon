@@ -1,6 +1,7 @@
-@extends('welcome')
+@extends('home.welcome')
 @section('main')
-    <section class="banner-section bg_img" data-background="{{asset('assets/frontEnd/assets/images/banner/banner-bg-one.jpg')}}">
+    <section class="banner-section bg_img"
+             data-background="{{asset('assets/frontEnd/assets/images/banner/banner-bg-one.jpg')}}">
         <div class="banner-shape-two"></div>
         <div class="banner-shape-one"></div>
         <div class="container">
@@ -30,9 +31,9 @@
             </div>
         </div>
     </section>
-<!-- ============Banner Section Ends Here================== -->
+    <!-- ============Banner Section Ends Here================== -->
 
-<!-- ============About Section Starts Here================== -->
+    <!-- ============About Section Starts Here================== -->
     <section class="about-section padding-top">
         <div class="about-overview-item padding-bottom">
             <div class="container-fluid">
@@ -42,7 +43,7 @@
                             <h2 class="title">{!! $about['title'] !!}</h2>
 
                             <p>{!! $about['description'] !!}</p>
-                            <a href="#0" class="custom-button">get ticket</a>
+                            <a href="{{route('Ticket')}}" class="custom-button">get ticket</a>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-10">
@@ -52,16 +53,20 @@
                             </div>
                             <ul id="parallax01">
                                 <li class="layer" data-depth="0.90">
-                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax01.png')}}" alt="parallax">
+                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax01.png')}}"
+                                         alt="parallax">
                                 </li>
                                 <li class="layer" data-depth="0.20">
-                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax02.png')}}" alt="parallax">
+                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax02.png')}}"
+                                         alt="parallax">
                                 </li>
                                 <li class="layer" data-depth="0.50">
-                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax03.png')}}" alt="parallax">
+                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax03.png')}}"
+                                         alt="parallax">
                                 </li>
                                 <li class="layer" data-depth="0.40">
-                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax04.png')}}" alt="parallax">
+                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax04.png')}}"
+                                         alt="parallax">
                                 </li>
                             </ul>
                         </div>
@@ -119,16 +124,20 @@
                             <div class="shape"><img src="{{asset($about_overview['img'])}}" alt="about"></div>
                             <ul id="parallax02">
                                 <li class="layer" data-depth="0.90">
-                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax01.png')}}" alt="parallax">
+                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax01.png')}}"
+                                         alt="parallax">
                                 </li>
                                 <li class="layer" data-depth="0.20">
-                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax02.png')}}" alt="parallax">
+                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax02.png')}}"
+                                         alt="parallax">
                                 </li>
                                 <li class="layer" data-depth="0.50">
-                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax03.png')}}" alt="parallax">
+                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax03.png')}}"
+                                         alt="parallax">
                                 </li>
                                 <li class="layer" data-depth="0.40">
-                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax04.png')}}" alt="parallax">
+                                    <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax04.png')}}"
+                                         alt="parallax">
                                 </li>
                             </ul>
                         </div>
@@ -136,11 +145,12 @@
                 </div>
             </div>
         </div>
-        <div class="about-left-animation"><img src="{{asset('assets/frontEnd/assets/images/parallax/parallax05.png')}}" alt="parallax"></div>
+        <div class="about-left-animation"><img src="{{asset('assets/frontEnd/assets/images/parallax/parallax05.png')}}"
+                                               alt="parallax"></div>
     </section>
-<!-- ============About Section Ends Here================== -->
+    <!-- ============About Section Ends Here================== -->
 
-<!-- ============Overview Section Starts Here================== -->
+    <!-- ============Overview Section Starts Here================== -->
     <section class="overview-section">
         <div class="container-fluid p-0">
             <div class="row flex-wrap-reverse">
@@ -149,17 +159,17 @@
                         <div class="left-content">
                             <div class="row m-0">
                                 @foreach($benifit as $row)
-                                <div class="col-md-6">
-                                    <div class="overview-item wow fadeInUp" data-wow-duration="1s">
-                                        <div class="overview-header">
-                                            <i class="{!! $row->img !!}"></i>
-                                            <h4 class="title">{!! $row['title'] !!}</h4>
-                                        </div>
-                                        <div class="overview-item-content">
-                                            <p>{!! $row['description'] !!}</p>
+                                    <div class="col-md-6">
+                                        <div class="overview-item wow fadeInUp" data-wow-duration="1s">
+                                            <div class="overview-header">
+                                                <i class="{!! $row->img !!}"></i>
+                                                <h4 class="title">{!! $row['title'] !!}</h4>
+                                            </div>
+                                            <div class="overview-item-content">
+                                                <p>{!! $row['description'] !!}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 @endforeach
 
                             </div>
@@ -167,16 +177,17 @@
                     </div>
                 </div>
                 <div class="col-xl-6 p-0">
-                    <div class="overview-right h-100 bg_img" data-background="{{asset('assets/frontEnd//assets/images/overview/overview-bg01.jpg')}}">
-                        <img src="{{asset($overview1['img'])}}" alt="overview">
+                    <div class="overview-right h-100 bg_img"
+                         data-background="{{asset('assets/frontEnd//assets/images/overview/overview-bg01.jpg')}}">
+                        <img src="{{asset($overview_img['img'])}}" alt="overview">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<!-- ============Overview Section Ends Here================== -->
+    <!-- ============Overview Section Ends Here================== -->
 
-<!-- ============Speaker Section Starts Here================== -->
+    <!-- ============Speaker Section Starts Here================== -->
     <section class="speaker-section padding-bottom padding-top">
         <div class="container-fluid">
             <div class="section-header wow fadeInUp" data-wow-duration="1s">
@@ -195,7 +206,7 @@
                             </div>
                             <div class="speaker-thumb">
 
-                                <img src="{{asset($row->speaker_img)}}" />
+                                <img src="{{asset($row->speaker_img)}}"/>
 
                             </div>
                         </div>
@@ -206,9 +217,9 @@
             </div>
         </div>
     </section>
-<!-- ============Speaker Section Ends Here================== -->
+    <!-- ============Speaker Section Ends Here================== -->
 
-<!-- ============Schedule Section Starts Here================== -->
+    <!-- ============Schedule Section Starts Here================== -->
     <section class="schedule-section padding-bottom">
         <div class="container">
             <div class="section-header wow fadeInUp" data-wow-duration="1s">
@@ -218,59 +229,63 @@
             <div class="schedule-area tab">
                 <ul class="tab-menu">
                     <?php
-                    $sl=1;
+                    $sl = 1;
                     ?>
                     @foreach($slot as $vSlot)
-                            <?php
-                            $date = $vSlot->date;
+                        <?php
+                        $date = $vSlot->date;
 
-                            $convert_date = strtotime($date);
-                            $month = date('F',$convert_date);
-                            $year = date('Y',$convert_date);
-                            $day = date('j',$convert_date);
-                            ?>
+                        $convert_date = strtotime($date);
+                        $month = date('F', $convert_date);
+                        $year = date('Y', $convert_date);
+                        $day = date('j', $convert_date);
+                        ?>
 
-                    <li onclick="getTabData1('{{$vSlot->date}}');"><span>Day {{ $sl}}</span>{{ $month.' '.$day, ','.$year }}</li>
+                        <li onclick="getTabData1('{{$vSlot->date}}');">
+                            <span>Day {{ $sl}}</span>{{ $month.' '.$day, ','.$year }}</li>
 
                         <?php
-                            $sl++;
+                        $sl++;
                         ?>
                     @endforeach
                 </ul>
 
                 <div class="tab-area mb-30-none">
                     @foreach($slot as $vSlot)
-                    <div class="tab-item" id="msg">
+                        <div class="tab-item" id="msg">
 
-                        @foreach($frontendSchedule as $row)
-                            @if($row->date == $vSlot->date)
-{{--    @dd($row->speakers)--}}
-                            <div class="schedule-item">
-                                <div class="schedule-thumb">
-                                    <a href="#0"><img src="{{asset($row->speakers->speaker_img)}}" alt="schedule"></a>
-                                </div>
-                                <div class="schedule-content">
-                                    <h4 class="title"><a href="#0">{{ $row->topicName->topic_name }}</a></h4>
-                                    <p><a href="#0">{{ $row->speakers->speaker_name }}</a>at {{$row->start_time}} {{$row->end_time}}</p>
-                                    <p class="para">{{$row->speakers->description}}</p>
-                                </div>
-                            </div>
+                            @foreach($frontendSchedule as $row)
+                                @if($row->date == $vSlot->date)
+                                    {{--    @dd($row->speakers)--}}
+                                    <div class="schedule-item">
+                                        <div class="schedule-thumb">
+                                            <a href="#0"><img src="{{asset($row->speakers->speaker_img)}}"
+                                                              alt="schedule"></a>
+                                        </div>
+                                        <div class="schedule-content">
+                                            <h4 class="title"><a href="#0">{{ $row->topicName->topic_name }}</a></h4>
+                                            <p>
+                                                <a href="#0">{{ $row->speakers->speaker_name }}</a>at {{$row->start_time}} {{$row->end_time}}
+                                            </p>
+                                            <p class="para">{{$row->speakers->description}}</p>
+                                        </div>
+                                    </div>
                                 @endif
                             @endforeach
 
-                    </div>
+                        </div>
                     @endforeach
-
 
 
                 </div>
             </div>
         </div>
     </section>
-<!-- ============Schedule Section Ends Here================== -->
+    <!-- ============Schedule Section Ends Here================== -->
 
-<!-- ============Call in Ticket Section Starts Here================== -->
-    <section class="call-in-ticket padding-top padding-bottom bg_img" data-background="{{asset('assets/frontEnd/assets/images/ticket/ticket-bg.jpg')}}">
+    <!-- ============Call in Ticket Section Starts Here================== -->
+    <section class="call-in-ticket padding-top padding-bottom bg_img"
+             data-background="{{asset('assets/frontEnd/assets/images/ticket/ticket-bg.jpg')}}">
         <ul id="parallax03">
             <li class="layer" data-depth="0.40">
                 <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax06.png')}}" alt="parallax">
@@ -285,13 +300,13 @@
                     <h2 class="title">{!! $call_in['title'] !!}</h2>
                     <h2 class="title">{!! $call_in['description'] !!}</h2>
                 </div>
-                <a href="#0" class="custom-button">Buy Ticket</a>
+                <a href="{{route('Ticket')}}" class="custom-button">Buy Ticket</a>
             </div>
         </div>
     </section>
-<!-- ============Call in Ticket Section Ends Here================== -->
+    <!-- ============Call in Ticket Section Ends Here================== -->
 
-<!-- ============Ticket Section Starts Here================== -->
+    <!-- ============Ticket Section Starts Here================== -->
     <section class="ticket-section padding-bottom padding-top">
         <div class="container">
             <div class="section-header wow fadeInUp" data-wow-duration="1s">
@@ -319,15 +334,16 @@
             </div>
         </div>
     </section>
-<!-- ============Ticket Section Ends Here================== -->
+    <!-- ============Ticket Section Ends Here================== -->
 
-<!-- ============Join Event Section Starts Here================== -->
+    <!-- ============Join Event Section Starts Here================== -->
     <section class="overview-event-section">
         <div class="container-fluid p-xl-0">
             <div class="row m-0">
                 <div class="col-xl-6 p-0">
                     <div class="maps h-100 container-fluid">
-                        <iframe width="100%" height="500" src="https://maps.google.com/maps?q={{$settings->location}}&output=embed"></iframe>
+                        <iframe width="100%" height="500"
+                                src="https://maps.google.com/maps?q={{$settings->location}}&output=embed"></iframe>
 
                     </div>
                 </div>
@@ -385,7 +401,7 @@
                                             </div>
                                             <div class="event-tab-content">
                                                 <ul>
-                                                    <li>monday to Friday </li>
+                                                    <li>monday to Friday</li>
                                                     <li>time by schedule</li>
                                                     <ul>
                                             </div>
@@ -442,9 +458,9 @@
             </div>
         </div>
     </section>
-<!-- ============Join Event Section Ends Here================== -->
+    <!-- ============Join Event Section Ends Here================== -->
 
-<!-- ============Blog Section Starts Here================== -->
+    <!-- ============Blog Section Starts Here================== -->
     <section class="blog-section padding-top">
         <div class="container">
             <div class="section-header wow fadeInUp" data-wow-duration="1s">
@@ -460,8 +476,8 @@
                                 <ul class="blog-date">
                                     <?php
 
-                                    $exploded_date = (explode("-",$row->date));
-                                    $month =$exploded_date[0];
+                                    $exploded_date = (explode("-", $row->date));
+                                    $month = $exploded_date[0];
                                     $date = $exploded_date[1];
                                     ?>
                                     <h2>{{$date}}</h2>
@@ -478,9 +494,9 @@
             </div>
         </div>
     </section>
-<!-- ============Blog Section Ends Here================== -->
+    <!-- ============Blog Section Ends Here================== -->
 
-<!-- ============Sponsor Section Starts Here================== -->
+    <!-- ============Sponsor Section Starts Here================== -->
     <section class="sponsor-section padding-top padding-bottom">
         <div class="container">
             <div class="section-header wow fadeInUp" data-wow-duration="1s">
@@ -488,18 +504,23 @@
                 <p>{!! $sponsor1['description'] !!}</p>
             </div>
             <div class="sponsor-wrapper">
-                @foreach($sponsor_type as $v)
-                <h4 class="sub-title">{{$v->sponsor_type}}</h4>
+                @foreach($sponsorType as $v)
+                    @php
+                        $var= \App\SponsorType::findOrFail($v->id)->sponsorName()->get();
+                    @endphp
+                    <h4 class="sub-title">{{$v->sponsor_name}}</h4>
 
-                <div class="sponsor-area">
-                    @foreach($sponsor as $row)
-                        @if($v->sponsor_type == $row->sponsor_type)
+
+                    <div class="sponsor-area">
+                        @foreach( $var as $row)
+                            {{--                        @if($v->id == $row->sponsor_id)--}}
+                            {{--                        @if($row->status==1)--}}
                             <div class="sponsor-thumb">
                                 <a href="#0"><img src="{{asset($row->img)}}" alt="sponsor"></a>
                             </div>
-                        @endif
-                    @endforeach
-                </div>
+                            {{--                        @endif--}}
+                        @endforeach
+                    </div>
                 @endforeach
             </div>
             <div class="text-center">
@@ -507,10 +528,10 @@
             </div>
         </div>
     </section>
-{{--    <div id="countdown"></div>--}}
-<input type="hidden" id="start_date" name="start_date" value="{{$settings->start_date}}">
+    {{--    <div id="countdown"></div>--}}
+    <input type="hidden" id="start_date" name="start_date" value="{{$settings->start_date}}">
 @endsection
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -519,7 +540,7 @@
 </script>
 
 <script>
-    $( document ).ready(function() {
+    $(document).ready(function () {
         // var end = new Date('2020-10-20');
         var startDate = document.getElementById("start_date").value;
         var end = new Date(startDate);
@@ -546,10 +567,10 @@
             var minutes = Math.floor((distance % _hour) / _minute);
             var seconds = Math.floor((distance % _minute) / _second);
 
-            document.getElementById('days').innerHTML = days ;
-            document.getElementById('hours').innerHTML = hours ;
-            document.getElementById('minutes').innerHTML = minutes ;
-            document.getElementById('seconds').innerHTML = seconds ;
+            document.getElementById('days').innerHTML = days;
+            document.getElementById('hours').innerHTML = hours;
+            document.getElementById('minutes').innerHTML = minutes;
+            document.getElementById('seconds').innerHTML = seconds;
         }
 
         timer = setInterval(showRemaining, 1000);

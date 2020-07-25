@@ -14,27 +14,28 @@ class SpeakerController extends Controller
         $data['title'] = 'Add Speaker';
         return view('speaker.add_speaker', $data);
     }
+
     public function saveSpeaker(Request $request)
     {
         $request->validate([
-            "speaker_name"=>'required',
-            "experties"=>'required',
-            "description"=>'required',
-            "speaker_img"=>'mimes:jpeg,jpg,png,gif|required|max:1000'
+            "speaker_name" => 'required',
+            "experties" => 'required',
+            "description" => 'required',
+            "speaker_img" => 'mimes:jpeg,jpg,png,gif|required|max:1000'
 
         ]);
 
-        $speakerImage=$request->file('speaker_img');
+        $speakerImage = $request->file('speaker_img');
 //        $name=$speakerImage->getClientOriginalName();
         $randNumber = Str::random(6);
         $fileExtension = $speakerImage->getClientOriginalExtension();
-        $name = $randNumber.'.'.$fileExtension;
+        $name = $randNumber . '.' . $fileExtension;
 
-        $path=('assets/speakerImage/');
-        $speakerImage->move($path,$name);
-        $imageurl=$path.$name;
+        $path = ('assets/speakerImage/');
+        $speakerImage->move($path, $name);
+        $imageurl = $path . $name;
 
-        $speaker = New Speaker();
+        $speaker = new Speaker();
         $speaker->speaker_name = $request->speaker_name;
         $speaker->experties = $request->experties;
         $speaker->description = $request->description;
@@ -44,31 +45,33 @@ class SpeakerController extends Controller
         return redirect()->route('addSpeaker')->with('success_message', 'Speaker Added Successfully');
 
     }
+
     public function manageSpeaker()
     {
         $data['title'] = 'Manage Speaker';
         $data['speaker'] = Speaker::where('status', 1)->paginate(3);
         return view('speaker.manage_speaker', $data);
     }
+
     public function editSpeaker($id)
     {
         $data['title'] = 'Edit Speaker';
         $data['speaker'] = Speaker::find($id);
         return view('speaker.edit_speaker', $data);
     }
+
     public function updateSpeaker(Request $request, $id)
     {
         $request->validate([
-            "speaker_name"=>'required',
-            "experties"=>'required',
-            "description"=>'required'
-
-
+            "speaker_name" => 'required',
+            "experties" => 'required',
+            "description" => 'required',
+            "speaker_img" => 'mimes:jpeg,jpg,png,gif|max:1000'
         ]);
 
         $imageurl = $this->chkimage($request, $id);
 
-         $speaker = Speaker::where('id',$id)->first();
+        $speaker = Speaker::where('id', $id)->first();
 
         $speaker->speaker_name = $request->speaker_name;
         $speaker->experties = $request->experties;
@@ -79,21 +82,21 @@ class SpeakerController extends Controller
 
     }
 
-    public function chkimage($request, $id){
+    public function chkimage($request, $id)
+    {
         $speaker = Speaker::where('id', $id)->first();
-         $speakerImage = $request->file('speaker_img');
-        if($speakerImage){
+        $speakerImage = $request->file('speaker_img');
+        if ($speakerImage) {
             unlink($speaker->speaker_img);
             $randNumber = Str::random(6);
             $fileExtension = $speakerImage->getClientOriginalExtension();
-            $name = $randNumber.'.'.$fileExtension;
-            $path=('assets/speakerImage/');
-            $speakerImage->move($path,$name);
-            $imageurl=$path.$name;
+            $name = $randNumber . '.' . $fileExtension;
+            $path = ('assets/speakerImage/');
+            $speakerImage->move($path, $name);
+            $imageurl = $path . $name;
 
-        }
-        else{
-            $imageurl=$speaker->speaker_img;
+        } else {
+            $imageurl = $speaker->speaker_img;
         }
         return $imageurl;
     }

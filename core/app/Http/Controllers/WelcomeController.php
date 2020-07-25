@@ -9,6 +9,7 @@ use App\Section;
 use App\Setting;
 use App\Speaker;
 use App\Sponsor;
+use App\SponsorType;
 use App\Ticket;
 use App\Welcome;
 use Illuminate\Http\Request;
@@ -23,8 +24,7 @@ class WelcomeController extends Controller
     public function index()
     {
         $data['title'] = 'Specon';
-         $data['banner'] = Section::where('name', 'banner')->first();
-//         dd($data['banner']->title);
+        $data['banner'] = Section::where('name', 'banner')->first();
         $data['about'] = Section::where('name', 'about')->first();
         $data['about_overview'] = Section::where('name', 'about_overview')->first();
         $data['speaker'] = Section::where('name', 'speaker')->first();
@@ -34,35 +34,27 @@ class WelcomeController extends Controller
         $data['event'] = Section::where('name', 'event')->first();
         $data['blog1'] = Section::where('name', 'blog1')->first();
         $data['sponsor1'] = Section::where('name', 'sponsor1')->first();
+//         $data['sponsor'] = Sponsor::with('sponsorType')->get();
         $data['tab_mission'] = Section::where('name', 'tab_mission')->first();
         $data['tab_testimonial'] = Section::where('name', 'tab_testimonial')->first();
-        $data['overview1'] = Section::where('name', 'overview1')->first();
-
-        $data['overview2'] = Section::where('name', 'overview2')->first();
-        $data['overview3'] = Section::where('name', 'overview3')->first();
-        $data['overview4'] = Section::where('name', 'overview4')->first();
-
+        $data['overview_img'] = Section::where('name', 'overview_img')->first();
         $data['allSpeakers'] = Speaker::all();
         $data['benifit'] = Benifit::all();
         $data['ticket'] = Ticket::all();
-        $data['sponsor'] = Sponsor::where('status', 1)->get();
+        $data['sponsorType'] = SponsorType::where('status', 1)->get();
+
         $data['blog'] = Blog::where('status', 1)->get();
         $data['settings'] = Setting::first();
-//         $data['frontendSchedule'] = Schedule::with('speakers', 'topicName')->where('slot', '1st')->get();
-         $data['frontendSchedule'] = Schedule::with('speakers', 'topicName')->get();
-//         dd($data['frontendSchedule'] );
+        $data['frontendSchedule'] = Schedule::with('speakers', 'topicName')->get();
 
-//        return $results = Schedule::select('date', \DB::raw('COUNT(id) as amount'))
-//            ->groupBy('date')
-//            ->get();
 
-           $data['slot'] = Schedule::groupBy('date')
+        $data['slot'] = Schedule::groupBy('date')
             ->selectRaw('date')
             ->get();
 
-         $data['sponsor_type'] = Sponsor::groupBy('sponsor_type')
-            ->selectRaw('sponsor_type')
-            ->get();
+//        $data['sponsor_type'] = Sponsor::groupBy('sponsor_id')
+//            ->selectRaw('sponsor_id')
+//            ->get();
 
         return view('frontend.main_content', $data);
     }
@@ -71,38 +63,44 @@ class WelcomeController extends Controller
     {
         $data['title'] = 'Speaker';
         $data['speaker'] = Speaker::where('status', 1)->get();
-        return view('speaker', $data);
+        return view('home.speaker', $data);
     }
+
     public function Ticket()
     {
         $data['title'] = 'Ticket';
-        $data['ticket'] = Ticket::where('status',1)->get();
-        return view('ticket', $data);
+        $data['ticket'] = Ticket::where('status', 1)->get();
+        return view('home.ticket', $data);
     }
+
     public function schedule()
     {
         $data['title'] = 'Schedule';
         $data['frontendSchedule'] = Schedule::with('speakers', 'topicName')->get();
-        $data['slot'] = Schedule::groupBy('date','slot')
+        $data['slot'] = Schedule::groupBy('date', 'slot')
             ->selectRaw('slot, date')
             ->get();
-        return view('schedule', $data);
+        return view('home.schedule', $data);
     }
+
     public function contact()
     {
         $data['title'] = 'Contact';
-        return view('contact', $data);
+        return view('home.contact', $data);
     }
+
     public function Blog()
     {
         $data['title'] = 'Blog';
         $data['blog'] = Blog::where('status', 1)->get();
-        return view('blog', $data);
+        return view('home.blog', $data);
     }
+
     public function Sponsor()
     {
         $data['title'] = 'Sponsor';
-        return view('sponsor', $data);
+        $data['sponsorType'] = SponsorType::get();
+        return view('home.sponsor', $data);
     }
 
 

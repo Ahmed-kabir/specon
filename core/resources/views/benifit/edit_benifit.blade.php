@@ -15,11 +15,11 @@
                     <div class="md-form mb-5">
                         <i class=" prefix grey-text"></i>
                         <label data-error="wrong" data-success="right" for="defaultForm-email">Title</label>
-                        <input type="text" id="name" name="name" class="form-control validate" value="{{$row->title}}">
+                        <input type="text" id="title" name="title" class="form-control validate" value="{{$row->title}}">
 
                         <i class=" prefix grey-text"></i>
                         <label data-error="wrong" data-success="right" for="defaultForm-email">Description</label>
-                        <input type="text" id="company_name" name="company_name" class="form-control validate"
+                        <input type="text" id="description" name="description" class="form-control validate"
                                value="{{$row->description}}">
 
 
@@ -27,6 +27,10 @@
                              data-arrow-prev-icon-class="fa fa-angle-left"
                              data-arrow-next-icon-class="fa fa-angle-right"></div>
 
+                        <label data-error="wrong" data-success="right" for="defaultForm-email">Icon Name</label>
+                            <div class="form-control text-center">
+                                <input type="text" name="img">
+                            </div>
 
                         <div class="modal-footer d-flex justify-content-center">
                             <button class="btn btn-success" type="submit">Update</button>

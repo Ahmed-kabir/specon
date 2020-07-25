@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('home.welcome')
 @section('main')
 <section class="page-header">
     <div class="container">
@@ -42,6 +42,15 @@
             <div class="col-lg-4">
                 <div class="application-form-area">
                     <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <h5 class="title">Application Form</h5>
                     <form class="application-form" method="post" action="{{route('saveSponsor')}}">
                         @csrf
@@ -58,12 +67,10 @@
                             <input type="text"  name="website" placeholder="Website">
                         </div>
                         <div class="form-group">
-                            <select id="select-cata" name="sponsor_type">
-                                <option value="silver">Silver</option>
-                                <option value="golden">golden</option>
-                                <option value="platinum">platinum</option>
-                                <option value="media">media</option>
-                                <option value="diamond">diamond</option>
+                            <select name="sponsor_id" id="sponsor_id" >
+                                @foreach($sponsorType as $row)
+                                    <option value="{{ $row->id}}">{{ $row->sponsor_name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">

@@ -9,6 +9,15 @@
                 <strong class="card-title">Manage Sponsor</strong>
                 <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
             </div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="card-body">
                 <table class="table">
                     <thead class="thead-dark">

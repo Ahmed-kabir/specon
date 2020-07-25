@@ -76,6 +76,8 @@ Route::group(['middleware'=>'auth:admin'],function(){
     Route::get('inactive/blog/{id}', 'BlogController@inactiveBlog')->name('inactiveBlog');
 //                      section title
     Route::get('manage/banner', 'SectionController@manageBanner')->name('manageBanner');
+    Route::get('overview/image', 'SectionController@overviewImage')->name('overviewImage');
+    Route::post('update/overview/image/{id}', 'SectionController@updateOverviewImg')->name('updateOverviewImg');
     Route::POST('update/banner/{id}', 'SectionController@updateBanner')->name('updateBanner');
     Route::get('manage/about', 'SectionController@manageAbout')->name('manageAbout');
     Route::post('update/about/{id}', 'SectionController@updateAbout')->name('updateAbout');

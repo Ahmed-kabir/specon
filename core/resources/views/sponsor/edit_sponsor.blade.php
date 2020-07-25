@@ -22,17 +22,27 @@
                         @csrf
 
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Sponsor Type</label></div>
-                            <div class="col-12 col-md-9"><input type="text" name="sponsor_type" name="text-input" placeholder="Speaker Name" value="{{$sponosr->sponsor_type}}" class="form-control"></div>
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Sponsor Name</label></div>
+                            <div class="col-12 col-md-9"><input type="text" name="sponsor_type" name="text-input" placeholder="Speaker Name" value="{{$sponosr->name}}" class="form-control"></div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="selectSm" class=" form-control-label"> Sponsor Title</label></div>
-                            <div class="col-12 col-md-9"><input type="text" name="sponsor_title" name="text-input" placeholder="Speaker Name" value="{{$sponosr->sponsor_title}}" class="form-control"></div>
+                            <div class="col col-md-3"><label for="selectSm" class=" form-control-label"> Company Name</label></div>
+                            <div class="col-12 col-md-9"><input type="text" name="sponsor_title" name="text-input" placeholder="Speaker Name" value="{{$sponosr->company_name}}" class="form-control"></div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="selectSm" class=" form-control-label"> Email</label></div>
+                            <div class="col-12 col-md-9"><input type="text" name="sponsor_title" name="text-input" placeholder="Speaker Name" value="{{$sponosr->email}}" class="form-control"></div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="selectSm" class=" form-control-label"> Website</label></div>
+                            <div class="col-12 col-md-9"><input type="text" name="sponsor_title" name="text-input" placeholder="Speaker Name" value="{{$sponosr->website}}" class="form-control"></div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="file-input" class=" form-control-label">Sponsor Image</label></div>
-                            <th> <img src="{{asset($sponosr->sponsor_img)}}"alt="{{$sponosr->sponsor_img}}"width="150" height="150"> </th>
+                            <th> <img src="{{asset($sponosr->img)}}"alt="{{$sponosr->img}}"width="150" height="150"> </th>
                             <div class="col-12 col-md-9"><input type="file" id="file-input" name="sponsor_img" class="form-control-file"><small class="form-text text-muted">Max 1MB</small></div>
 
                         </div>

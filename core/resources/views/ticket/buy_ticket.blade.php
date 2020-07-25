@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('home.welcome')
 @section('main')
 <section class="page-header">
     <div class="container">
@@ -48,6 +48,15 @@
             <div class="col-lg-4">
                 <div class="application-form-area">
                     <h5 class="title">buy ticket</h5>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <h3 class="text-danger text-center">{{Session::get('error_message')}}</h3>
                     <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
                     <form class="application-form" action="{{route('confirmTicket',$ticket['id'])}}" method="post">
@@ -68,7 +77,7 @@
                             <input type="submit" value="Submit Now">
                         </div>
                         <div class="form-group check-input d-flex flex-wrap align-items-center">
-                            <input type="checkbox" id="check-ticket">
+                            <input type="checkbox" id="check-ticket" name="checkbox">
                             <label for="check-ticket">I Accept The</label> <a href="#0">Terms & Policy</a>
                         </div>
                     </form>

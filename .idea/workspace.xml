@@ -20,33 +20,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03af9804-3964-46f8-9101-ee09b5e022d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/resources/views/admin/update_settings.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/resources/views/benifit/edit_benifit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/resources/views/benifit/manage_benifit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/resources/views/section/blog.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/resources/views/section/callin.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/resources/views/section/event.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/resources/views/section/mission.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/resources/views/section/schedule.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/resources/views/section/speaker.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/resources/views/section/sponsor.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/resources/views/section/testimonial.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/resources/views/section/ticket.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/resources/views/section/overview_img.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/specon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/specon.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sectionImage/3kucSM.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sectionImage/ZOXak4.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Http/Controllers/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/ScheduleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Http/Controllers/ScheduleController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/SectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Http/Controllers/SectionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/SettingController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/SpeakerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Http/Controllers/SpeakerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/SponsorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Http/Controllers/SponsorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/TicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Http/Controllers/TicketController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/TopicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Http/Controllers/TopicController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/WelcomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Http/Controllers/WelcomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Sponsor.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Sponsor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/admin/dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/resources/views/admin/mainContent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/admin/mainContent.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/benifit/edit_benifit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/benifit/edit_benifit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/benifit/manage_benifit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/benifit/manage_benifit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/home/blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/home/contact.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/resources/views/frontend/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/frontend/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/resources/views/frontend/main_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/frontend/main_content.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/resources/views/schedule.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/schedule.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/home/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/schedule.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/home/schedule.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/speaker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/home/speaker.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/sponsor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/home/sponsor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/sponsor/edit_modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/sponsor/edit_modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/sponsor/edit_sponsor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/sponsor/edit_sponsor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/sponsor/mange_sponsor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/sponsor/mange_sponsor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/ticket.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/home/ticket.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/ticket/buy_ticket.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/ticket/buy_ticket.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/home/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,6 +191,9 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\specon\core\resources\views\home" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\specon\core\resources\views\admin" />
       <recent name="D:\xampp\htdocs\specon\core\app\Http\Controllers\admin" />
@@ -213,7 +224,8 @@
       <workItem from="1595218679462" duration="23843000" />
       <workItem from="1595305027669" duration="25153000" />
       <workItem from="1595391246997" duration="25957000" />
-      <workItem from="1595477572691" duration="25036000" />
+      <workItem from="1595477572691" duration="25245000" />
+      <workItem from="1595649733243" duration="22703000" />
     </task>
     <servers />
   </component>
@@ -233,14 +245,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595503782393">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595658335909">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1595503782393" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1595499615010">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1595658335909" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1595656004129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1595499615010" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1595656004129" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1595153959566">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -253,10 +265,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1595313960950" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595503900828">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595665184243">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1595503900828" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1595665184243" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

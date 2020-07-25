@@ -14,29 +14,30 @@ class BlogController extends Controller
         $data['title'] = 'Add Blog';
         return view('blog.add_blog', $data);
     }
+
     public function saveBlog(Request $request)
     {
 
 
         $request->validate([
-           "title"=>'required',
-           "date"=>'required',
-           "short_desc"=>'required',
-           "long_desc"=>'required',
-           "img"=>'mimes:jpeg,jpg,png,gif|required|max:1000'
+            "title" => 'required',
+            "date" => 'required',
+            "short_desc" => 'required',
+            "long_desc" => 'required',
+            "img" => 'mimes:jpeg,jpg,png,gif|required|max:1000'
 
         ]);
-        $blogImage=$request->file('img');
+        $blogImage = $request->file('img');
 
         $randNumber = Str::random(6);
         $fileExtension = $blogImage->getClientOriginalExtension();
-        $name = $randNumber.'.'.$fileExtension;
+        $name = $randNumber . '.' . $fileExtension;
 
-        $path=('assets/blogImage/');
-        $blogImage->move($path,$name);
-        $imageurl=$path.$name;
+        $path = ('assets/blogImage/');
+        $blogImage->move($path, $name);
+        $imageurl = $path . $name;
 
-        $date =  date("F-j", strtotime($request->date));
+        $date = date("F-j", strtotime($request->date));
 
         $blog = new Blog();
         $blog->title = $request->title;
@@ -48,24 +49,28 @@ class BlogController extends Controller
         $blog->save();
         return back()->with('success_message', 'Blog Added Successfully');
     }
+
     public function manageBlog()
     {
         $data['title'] = 'Manage Blog';
-        $data['blog'] = Blog::where('status',1)->get();
+        $data['blog'] = Blog::where('status', 1)->get();
         return view('blog.manage_blog', $data);
     }
+
     public function editBlog($id)
     {
         $data['title'] = 'Edit Blog';
         $data['editBlogById'] = Blog::find($id);
-        return view('blog.edit_blog',$data);
+        return view('blog.edit_blog', $data);
     }
+
     public function updateBlog(Request $request, $id)
     {
         $request->validate([
-            "title"=>'required',
-            "short_desc"=>'required',
-            "long_desc"=>'required'
+            "title" => 'required',
+            "short_desc" => 'required',
+            "long_desc" => 'required',
+            "img" => 'mimes:jpeg,jpg,png,gif|max:1000'
 
         ]);
         $imageurl = $this->chkimage($request, $id);
@@ -78,26 +83,27 @@ class BlogController extends Controller
         $blog->save();
         return redirect()->route('manageBlog')->with('success_message', 'Blog Updated Successfully');
     }
+
     public function chkimage($request, $id)
     {
         $blog = Blog::where('id', $id)->first();
         $blogImage = $request->file('img');
-        if($blogImage){
+        if ($blogImage) {
             unlink($blog->img);
             $randNumber = Str::random(6);
             $fileExtension = $blogImage->getClientOriginalExtension();
-            $name = $randNumber.'.'.$fileExtension;
+            $name = $randNumber . '.' . $fileExtension;
 
-            $path=('assets/blogImage/');
-            $blogImage->move($path,$name);
-            $imageurl=$path.$name;
+            $path = ('assets/blogImage/');
+            $blogImage->move($path, $name);
+            $imageurl = $path . $name;
 
-        }
-        else{
-            $imageurl=$blog->img;
+        } else {
+            $imageurl = $blog->img;
         }
         return $imageurl;
     }
+
     public function inactiveBlog($id)
     {
         $blog = Blog::where('id', $id)->first();

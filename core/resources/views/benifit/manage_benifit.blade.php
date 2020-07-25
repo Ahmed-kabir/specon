@@ -48,3 +48,9 @@
     </div>
 </div>
 @endsection
+
+@push('js')
+    <script>
+        $('#icon').iconpicker();
+    </script>
+@endpush
