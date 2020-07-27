@@ -96,6 +96,16 @@
                 </li>
 
                 <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Sponsor Category</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('addSponsorCategory') }}">Add Sponsor Category</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{ route('manageSponsorCategory') }}">Manage Category</a></li>
+
+
+                    </ul>
+                </li>
+
+                <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Blog</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-th"></i><a href="{{ route('addBlog') }}">Add Blog</a></li>
@@ -216,6 +226,7 @@
 <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
 <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 <script>
     (function($) {

@@ -51,17 +51,17 @@
 
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="selectSm" class=" form-control-label"> Date</label></div>
-                            <div class="col-12 col-md-9"><input type="date" name="date" name="text-input" placeholder="Speaker Name" value="{{$scheduleEditByid->date}}" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="date" name="date" name="text-input" placeholder="Speaker Name" value="{{$scheduleEditByid->date}}" class="form-control" readonly></div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="selectSm" class=" form-control-label"> Start Time</label></div>
-                            <div class="col-12 col-md-9"><input type="time" name="start_time" name="text-input" placeholder="Speaker Name" value="{{$scheduleEditByid->start_time}}" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="time" name="start_time" name="text-input" placeholder="Speaker Name" value="{{$scheduleEditByid->start_time}}" class="form-control" readonly></div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="selectSm" class=" form-control-label"> End Time</label></div>
-                            <div class="col-12 col-md-9"><input type="time" name="end_time" name="text-input" placeholder="Speaker Name" value="{{$scheduleEditByid->end_time}}" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="time" name="end_time" name="text-input" placeholder="Speaker Name" value="{{$scheduleEditByid->end_time}}" class="form-control" readonly></div>
                         </div>
 
 

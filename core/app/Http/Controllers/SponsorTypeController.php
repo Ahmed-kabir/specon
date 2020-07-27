@@ -7,79 +7,55 @@ use Illuminate\Http\Request;
 
 class SponsorTypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function addSponsorCategory()
     {
-        //
+        $data['title'] = 'Add Sponsor Category';
+        return view('sponsorCategory.add_sponsor_type', $data);
+    }
+    public function saveSponsorCategory(Request $request)
+    {
+        $request->validate([
+            "sponsor_name" => 'required'
+        ]);
+        $sponsorCategory = new SponsorType();
+        $sponsorCategory->sponsor_name = $request->sponsor_name;
+        $sponsorCategory->status = 0;
+        $sponsorCategory->save();
+        return back()->with('success_message', 'Successfully Aded');
+    }
+    public function manageSponsorCategory()
+    {
+        $data['title'] ='Manage Sponsor Category';
+        $data['sponsorCategory'] = SponsorType::all();
+        return view('sponsorCategory.manage_sponsor_category', $data);
+    }
+    public function editSponsorCategory( $id)
+    {
+
+        $data['title'] = 'Edit Sponsor Category';
+         $data['sponsorCategory'] = SponsorType::find($id);
+        return view('sponsorCategory.edit_sponsor_category', $data);
+    }
+    public function updateSponsorCategory(Request $request, $id)
+    {
+        $request->validate([
+            "sponsor_name" => 'required'
+        ]);
+
+        $data['title'] = 'Update Sponsor Category';
+        $sponsorType = SponsorType::where('id', $id)->first();
+
+        $sponsorType->sponsor_name = $request->sponsor_name;
+
+        $sponsorType->save();
+        return redirect()->route('manageSponsorCategory')->with('success_message', 'Updated Successfully');
+    }
+    public function deleteSponsorCategory($id)
+    {
+        $sponsorType = SponsorType::where('id', $id)->first();
+        $sponsorType->delete();
+        return redirect()->route('manageSponsorCategory')->with('success_message', 'Deleted Successfully');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\SponsorType  $sponsorType
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SponsorType $sponsorType)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\SponsorType  $sponsorType
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SponsorType $sponsorType)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\SponsorType  $sponsorType
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, SponsorType $sponsorType)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\SponsorType  $sponsorType
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(SponsorType $sponsorType)
-    {
-        //
-    }
 }

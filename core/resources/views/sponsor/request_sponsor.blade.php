@@ -1,60 +1,96 @@
-@extends('admin.dashboard')
+@extends('admin.dashboard1')
 @section('main')
-</br>
-</br>
-<div class="row justify-content-center" >
+
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h3><a href="{{route('manageSponsor')}}" class="btn btn-info" role="button">Manage Sponsor</a></h3>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{route('adminHome')}}">Home</a></li>
+                            <li class="breadcrumb-item active">Ticket List</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+
+                                        <th>Name</th>
+                                        <th>Company Name</th>
+                                        <th>Email</th>
+                                        <th>Website</th>
+                                        <th>Sponsor Type</th>
+                                        <th>Sponsor Img</th>
+
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    @foreach($sponsors  as $key => $row)
+                                        <tr>
+
+                                            <td>{{ $row->name}}</td>
+                                            <td>{{ $row->company_name}}</td>
+                                            <td>{{ $row->email}}</td>
+                                            <td>{{ $row->website}}</td>
+                                            <td>{{ $row->sponsorType->sponsor_name}}</td>
+                                            <td> <img src="{{asset($row->img)}}" /></td>
+
+
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <a href="{{route('editSponsor',$row->id)}}" class="btn btn-success btn-sm">
+                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+
+                                                    <a href="{{route('inactiveSponsor',$row->id)}}" class="btn btn-danger btn-sm">
+
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+
+                            </div>
 
 
 
+                        </div>
 
+                    </div>
 
+                </div>
 
-
-
-    <div class="col-lg-10">
-        <div class="card">
-            <div class="card-header text-center">
-                <strong class="card-title">Sponsor Request</strong>
-                <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
             </div>
-            <div class="card-body">
-                <table class="table">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Company Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Website</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($sponsors  as $key => $row)
-                        <tr>
-                            {{--                    <th scope="row">1</th>--}}
+        </section>
 
-                            <td>{{ $row->name}}</td>
-                            <td>{{ $row->company_name}}</td>
-                            <td>{{ $row->email}}</td>
-                            <td>{{ $row->website}}</td>
-{{--                            <td> <img src="{{asset($row->sponsor_img)}}" /></td>--}}
-                            <td>
-
-
-                                <a href="{{route('activatedSponsor',$row->id)}}" class="btn btn-primary" onclick="return confirm('Are You sure to Active this');">
-
-                                    <span class="glyphicon glyphicon-trash">Active</span></a>
-
-                            </td>
-
-                        </tr>
-                        @include('sponsor.edit_modal')
-                    @endforeach
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
     </div>
-</div>
+
 @endsection
+@push('img')
+    <style>
+        img {
+
+            height:130px;
+            width: 125px;
+        }
+    </style>
+
+@endpush

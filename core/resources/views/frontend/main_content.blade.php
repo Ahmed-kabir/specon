@@ -558,8 +558,11 @@
             if (distance < 0) {
 
                 clearInterval(timer);
-                document.getElementById('countdown').innerHTML = 'EXPIRED!';
-
+                // document.getElementById('countdown').innerHTML = 'EXPIRED!';
+                document.getElementById('days').innerHTML = 'Nan';
+                document.getElementById('hours').innerHTML = 'Nan';
+                document.getElementById('minutes').innerHTML = 'Nan';
+                document.getElementById('seconds').innerHTML = 'Nan';
                 return;
             }
             var days = Math.floor(distance / _day);

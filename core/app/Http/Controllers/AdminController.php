@@ -18,11 +18,11 @@ class AdminController extends Controller
     public function index()
     {
         $data['title'] = 'Admin Home';
-        $data['sponsor'] = Sponsor::count('id');
-        $data['soldTkt'] = Customer::sum('qty');
-        $data['remainTicket'] = Ticket::sum('tkt_qty');
-        $data['frontendSchedule'] = Schedule::with('speakers', 'topicName')->paginate(3);
-        return view('admin.mainContent', $data);
+//        $data['sponsor'] = Sponsor::count('id');
+//        $data['soldTkt'] = Customer::sum('qty');
+//        $data['remainTicket'] = Ticket::sum('tkt_qty');
+//        $data['frontendSchedule'] = Schedule::with('speakers', 'topicName')->paginate(3);
+        return view('admin.mainContent1', $data);
     }
 
     public function logout()

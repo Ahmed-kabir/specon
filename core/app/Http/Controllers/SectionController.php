@@ -13,7 +13,7 @@ class SectionController extends Controller
     public function manageBanner()
     {
         $data['title'] = 'Manage Banner';
-        $data['banner'] = Section::where('name', 'banner')->first();
+         $data['banner'] = Section::where('name', 'banner')->first();
         return view('section.banner', $data);
     }
 
@@ -32,7 +32,7 @@ class SectionController extends Controller
         $section->title = $request->title;
         $section->description = $request->description;
         $section->save();
-        return redirect()->route('manageBanner')->with('success_message', 'Banner Updated Successfully');
+        return redirect()->route('manageBanner')->with('success', 'Banner Updated Successfully');
 
     }
 

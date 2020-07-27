@@ -41,7 +41,7 @@ class SponsorController extends Controller
     public function manageSponsor()
     {
         $data['title'] = 'Manage Sponsor';
-        $data['sponsors'] = Sponsor::where('status', 1)->get();
+        $data['sponsors'] = Sponsor::with('sponsorType')->where('status', 1)->paginate(5);
         return view('sponsor.mange_sponsor', $data);
     }
 

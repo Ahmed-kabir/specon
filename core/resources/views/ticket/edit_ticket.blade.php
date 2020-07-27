@@ -1,59 +1,114 @@
-@extends('admin.dashboard')
+@extends('admin.dashboard1')
 @section('main')
-    <div class="row justify-content-center" >
-        <div class="col-lg-8">
-            <div class="card">
-                <div class="card-header text-center">
-                    <strong>Speaker Add Form</strong>
-                    <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
-                </div>
-
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1><a href="{{route('addSpeaker')}}" class="btn btn-info" role="button">Add Speaker</a></h1>
                     </div>
-                @endif
-                <div class="card-body card-block">
-                    <form action="{{route('updateTicket',$editTicketById->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
-                        @csrf
-
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Ticket Type</label></div>
-                            <div class="col-12 col-md-9"><input type="text" name="tkt_typ" name="text-input" placeholder="Speaker Name" value="{{$editTicketById->tkt_typ}}" class="form-control"></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="selectSm" class=" form-control-label"> Ticket Price</label></div>
-                            <div class="col-12 col-md-9"><input type="text" name="tkt_price" name="text-input" placeholder="Speaker Name" value="{{$editTicketById->tkt_price}}" class="form-control"></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Description</label></div>
-                            <div class="col-12 col-md-9"><textarea name="tkt_desc" id="textarea-input" rows="9"  class="form-control">{{$editTicketById->tkt_desc}}</textarea></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="selectSm" class=" form-control-label"> Ticket Qty</label></div>
-                            <div class="col-12 col-md-9"><input type="text" name="tkt_qty" name="text-input" placeholder="Speaker Name" value="{{$editTicketById->tkt_qty}}" class="form-control"></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="file-input" class=" form-control-label">File input</label></div>
-                            <th> <img src="{{asset($editTicketById->tkt_img)}}"alt="{{$editTicketById->tkt_img}}"width="200" height="200"> </th>
-                            <div class="col-12 col-md-9"><input type="file" id="file-input" name="tkt_img" class="form-control-file"><small class="form-text text-muted">Max 1MB</small></div>
-
-                        </div>
-
-                        <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
-
-                        </div>
-
-                    </form>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Speaker Form</li>
+                        </ol>
+                    </div>
                 </div>
-
+            </div><!-- /.container-fluid -->
+        </section>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
+    @endif
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-12">
+                        <!-- general form elements -->
+                        <!-- <div class="card card-success"> -->
+                    {{--              <div class="card-header text-center">--}}
+                    {{--                <h3>Speaker</h3>--}}
+                    {{--              </div>--}}
+                    <!-- /.card-header -->
+                        <!-- form start -->
+                        <form action="{{route('updateTicket',$editTicketById->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            @csrf
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label>Ticket Category</label>
+                                    <input type="text" class="form-control" id="tkt_typ" name="tkt_typ"
+                                           value="{{$editTicketById->tkt_typ}}">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Ticket Price</label>
+                                    <input type="text" class="form-control" id="tkt_price" name="tkt_price"
+                                           value="{{$editTicketById->tkt_price}}">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Ticket Qty</label>
+                                    <input type="text" class="form-control" id="tkt_qty" name="tkt_qty"
+                                           value="{{$editTicketById->tkt_qty}}">
+                                </div>
+                            </div>
 
-        </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Description</label>
+                                    <textarea class="form-control" rows="6" name="tkt_desc"
+                                              id="tkt_desc">{{$editTicketById->tkt_desc}}</textarea>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <label for="">Image: </label>
+                                            <input type="file" name="tkt_img" class="form-control d-block align-bottom" >
+                                            <small class="help-block form-text">Please Select 193*175 Image</small>
+                                        </div>
+                                        <div class="col py-3">
+                                            <div class="pl-5">
+                                                <label for="" class="align-top">Current Image : </label>
+                                                <img src="{{asset('assets/ticketImage/'.$editTicketById->tkt_img)}}"
+                                                     alt="buyticket" class="img-fluid w-75 img-thumbnail ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+                            </div>
+                        </form>
+
+
+                    </div>
+
+
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
     </div>
 @endsection
+@push('img')
+    <style>
+        img {
+
+            height:160px;
+            width: 160px;
+        }
+    </style>
+
+@endpush

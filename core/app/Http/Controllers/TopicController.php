@@ -27,7 +27,7 @@ class TopicController extends Controller
     public function manageTopic()
     {
         $data['title'] = 'Manage Topic';
-        $data['topics'] = Topic::paginate(3);
+        $data['topics'] = Topic::paginate(5);
         return view('topic.manage_topic', $data);
     }
 
@@ -40,6 +40,7 @@ class TopicController extends Controller
 
     public function updateTopic(Request $request, $id)
     {
+
         $topic = Topic::where('id', $id)->first();
 
         $topic->topic_name = $request->topic_name;

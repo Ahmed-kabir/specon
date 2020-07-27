@@ -55,6 +55,14 @@ Route::group(['middleware'=>'auth:admin'],function(){
     Route::get('edit/ticket/{id}', 'TicketController@editTicket')->name('editTicket');
     Route::post('update/ticket/{id}', 'TicketController@updateTicket')->name('updateTicket');
     Route::get('inactive/ticket/{id}', 'TicketController@inactiveTicket')->name('inactiveTicket');
+    //                  sponsor Category section
+
+    Route::get('add/sponsor/category', 'SponsorTypeController@addSponsorCategory')->name('addSponsorCategory');
+    Route::post('save/sponsor/category', 'SponsorTypeController@saveSponsorCategory')->name('saveSponsorCategory');
+    Route::get('manage/sponsor/category', 'SponsorTypeController@manageSponsorCategory')->name('manageSponsorCategory');
+    Route::get('edit/sponsor/category/{id}', 'SponsorTypeController@editSponsorCategory')->name('editSponsorCategory');
+    Route::post('update/sponsor/category/{id}', 'SponsorTypeController@updateSponsorCategory')->name('updateSponsorCategory');
+    Route::get('delete/sponsor/category/{id}', 'SponsorTypeController@deleteSponsorCategory')->name('deleteSponsorCategory');
 
 //                      sponsor section
     Route::get('add/sponsor', 'SponsorController@addSponsor')->name('addSponsor');

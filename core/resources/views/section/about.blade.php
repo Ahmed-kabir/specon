@@ -1,60 +1,86 @@
-@extends('admin.dashboard')
+@extends('admin.dashboard1')
 @section('main')
-    <div class="row justify-content-center" >
-        <div class="col-lg-10">
-            <div class="card">
-                <div class="card-header text-center">
-                    <strong>Manage Banner</strong>
-                    <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
-                </div>
-
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        {{--                        <h1><a href="{{route('manageSpeaker')}}" class="btn btn-info" role="button">Manage Speaker</a>--}}
+                        </h1>
                     </div>
-                @endif
-                <div class="card-body card-block">
-                    <form action="{{route('updateAbout',$about->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
-                        @csrf
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{route('adminHome')}}">Home</a></li>
+                            <li class="breadcrumb-item active">Banner Form</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+    @endif
+    <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-12">
+                        <!-- general form elements -->
+                        <!-- <div class="card card-success"> -->
+                        <!-- <div class="card-header text-center">
+                          <h3>Speaker</h3>
+                        </div> -->
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form action="{{route('updateBanner',$about->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            @csrf
+
+                            <div class="form-group">
+                                <label>Banner Title</label>
+                                <input type="text" class="form-control" id="title" value="{{$about['title']}}" name="title"
+                                       placeholder="Name" required>
+                            </div>
 
 
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Title</label></div>
-                            <div class="col-12 col-md-9">
 
-                                <input type="text" class="form-control" name="title" value="{{$about['title']}}">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" rows="3" name="description"  id="description"
+                                          placeholder="Description ...">{{$about['description']}}</textarea>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Image</label>
+                                <img class="img-fluid img-thumbnail ml-3 rounded" src="{{asset('assets/speakerImage/'.$about->img)}}"
+                                     alt="{{asset('assets/speakerImage/'.$about->img)}}">
+                                <input type="file" class="form-control" id="speaker_img" name="speaker_img">
+                                <small class="help-block form-text">Please Select 460*530 Image</small>
+                            </div>
+
+
+                            <div class=" text-center">
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
 
                             </div>
-                        </div>
-
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Description</label></div>
-                            <div class="col-12 col-md-9"><textarea name="description" id="textarea-input" rows="5" class="form-control">{{$about['description']}}</textarea></div>
-                        </div>
+                        </form>
 
 
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="file-input" class=" form-control-label">About Image</label></div>
-                            <th> <img src="{{asset($about->img)}}"alt="{{$about->img}}"width="200" height="200"> </th>
-                            <div class="col-12 col-md-9"><input type="file" id="file-input" name="img" class="form-control-file"><small class="form-text text-muted">Max 1MB</small></div>
-
-                        </div>
+                    </div>
 
 
-                        <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
-
-                        </div>
-
-                    </form>
                 </div>
-
-            </div>
-
-        </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
     </div>
 @endsection

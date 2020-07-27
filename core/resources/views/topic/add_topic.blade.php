@@ -1,45 +1,74 @@
-@extends('admin.dashboard')
+@extends('admin.dashboard1')
 @section('main')
-    <div class="row justify-content-center" >
-        <div class="col-lg-8">
-            <div class="card">
-                <div class="card-header text-center">
-                    <strong>Topic Add Form</strong>
-                    <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
-                </div>
-
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1><a href="{{route('manageTopic')}}" class="btn btn-info" role="button">Manage Topic</a>
+                        </h1>
                     </div>
-                @endif
-                <div class="card-body card-block">
-                    <form action="{{route('saveTopic')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
-                        @csrf
-
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="selectSm" class=" form-control-label">Topic Name</label></div>
-                            <div class="col-12 col-md-9">
-                                <div class="col-12 col-md-9"><input type="text" name="topic_name" name="text-input"  class="form-control"></div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary btn-large">Save Topic</button>
-
-                        </div>
-
-                    </form>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{route('adminHome')}}">Home</a></li>
+                            <li class="breadcrumb-item active">Topic Add Form</li>
+                        </ol>
+                    </div>
                 </div>
+            </div><!-- /.container-fluid -->
+        </section>
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
+    @endif
+    <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-12">
+                        <!-- general form elements -->
+                        <!-- <div class="card card-success"> -->
+                        <!-- <div class="card-header text-center">
+                          <h3>Speaker</h3>
+                        </div> -->
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form action="{{route('saveSpeaker')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            @csrf
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label>Topic Name</label>
+                                    <input type="text" class="form-control" id="speaker_name" name="speaker_name"
+                                           placeholder="Topic Name" required>
+                                </div>
 
-        </div>
+                            </div>
+
+
+
+
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+                            </div>
+                        </form>
+
+
+                    </div>
+
+
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
     </div>
 @endsection

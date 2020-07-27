@@ -28,7 +28,7 @@ class ScheduleController extends Controller
     public function saveSchedule(Request $request)
     {
         $request->validate([
-            "speaker_name" => 'required',
+            "speaker_id" => 'required',
             "topic" => 'required',
             "date" => 'required|after:today',
             "start_time" => 'required',
@@ -38,30 +38,38 @@ class ScheduleController extends Controller
         $endTime = $request->end_time;
         $date = $request->date;
 
-        $search = Schedule::where('date', '=', $request->date)->get();
+        $topic = Schedule::where('topic', '=', $request->topic)->first();
 
-        $search = Schedule::where('start_time', '<', $startTime)
-            ->where('end_time', '>', $endTime)
-            ->get();
+//        $search1 = Schedule::where('start_time', '<', $startTime)
+//            ->where('end_time', '>', $endTime)
+//            ->get();
 
-        $reservations = Schedule::where('date', $request->date)->where('start_time', '<=', $request->end_time)->where('end_time', '>=', $request->start_time)->first();
-
-
-        $test = Schedule::whereBetween('start_time', [$startTime, $endTime])
-            ->orWhereRaw('? BETWEEN start_time AND end_time', [$startTime, $endTime])
-            ->WHERE('date', '=', $date)
-            ->get();
-
-        $test1 = Schedule::WhereRaw('? BETWEEN start_time AND end_time', [$startTime, $endTime])
-            ->where('date', '=', $date)
-            ->get();
+         $reservations = Schedule::where('date', $request->date)->where('start_time', '<=', $request->end_time)->where('end_time', '>=', $request->start_time)->first();
 
 
-        if ($reservations) {
+//        $test = Schedule::whereBetween('start_time', [$startTime, $endTime])
+//            ->orWhereRaw('? BETWEEN start_time AND end_time', [$startTime, $endTime])
+//            ->WHERE('date', '=', $date)
+//            ->get();
+//
+//        $test1 = Schedule::WhereRaw('? BETWEEN start_time AND end_time', [$startTime, $endTime])
+//            ->where('date', '=', $date)
+//            ->get();
+
+//        if($topic)
+//        {
+//            return back()->with('error_message', 'Topic Already Taken');
+//        }
+
+         if( $reservations)
+        {
             return back()->with('error_message', 'Schedule Not Available');
-        } else {
+        }
+
+        else
+        {
             $schedule = new Schedule();
-            $schedule->speaker_id = $request->speaker_name;
+            $schedule->speaker_id = $request->speaker_id;
             $schedule->topic = $request->topic;
             $schedule->date = $request->date;
             $schedule->start_time = $request->start_time;
@@ -94,12 +102,10 @@ class ScheduleController extends Controller
     public function updateSchedule(Request $request, $id)
     {
 
+
         $request->validate([
             "speaker_name" => 'required',
-            "topic" => 'required',
-            "date" => 'required|after:today',
-            "start_time" => 'required',
-            "end_time" => 'required|after:start_time'
+            "topic" => 'required'
         ]);
 
         $reservations = Schedule::where('date', $request->date)->where('start_time', '<=', $request->end_time)->where('end_time', '>=', $request->start_time)->first();
@@ -108,17 +114,16 @@ class ScheduleController extends Controller
             ->orWhereRaw('? BETWEEN start_time AND end_time', [$request->start_time, $request->end_time])
             ->WHERE('date', '=', $request->date)
             ->get();
+
+         $schedule = Schedule::find($id)->first();
+
 //       if(sizeof($reservations)>0)
-        if ($reservations) {
-            return back()->with('error_message', 'Schedule Not Available');
+        if (empty($schedule)) {
+            return back()->with('error_message', 'Speaker Not Found');
 
         } else {
-            $schedule = Schedule::find($id)->first();
-            $schedule->id = $request->speaker_name;
+            $schedule->speaker_id = $request->speaker_name;
             $schedule->topic = $request->topic;
-            $schedule->date = $request->date;
-            $schedule->start_time = $request->start_time;
-            $schedule->end_time = $request->end_time;
             $schedule->save();
             return redirect()->route('manageSchedule')->with('success_message', 'Schedule Updated Successfully');
         }

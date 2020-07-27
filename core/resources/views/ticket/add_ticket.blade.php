@@ -1,70 +1,98 @@
-@extends('admin.dashboard')
+@extends('admin.dashboard1')
 @section('main')
-    <div class="row justify-content-center" >
-        <div class="col-lg-8">
-            <div class="card">
-                <div class="card-header text-center">
-                    <strong>Schedule Add Form</strong>
-                    <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
-                    <h3 class="text-danger text-center">{{Session::get('error_message')}}</h3>
-                </div>
-
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1><a href="{{route('manageTicket')}}" class="btn btn-info" role="button">Manage Ticket</a>
+                        </h1>
                     </div>
-                @endif
-                <div class="card-body card-block">
-                    <form action="{{route('saveTicket')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
-                        @csrf
-
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="selectSm" class=" form-control-label">Ticket Type</label></div>
-                            <div class="col-12 col-md-9">
-                                <select name="tkt_typ" id="" class="form-control-sm form-control">
-                                    <option value="Personal">Personal</option>
-                                    <option value="Business">Business</option>
-                                    <option value="Golden Pack">Golden Pack</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Ticket Price</label></div>
-                            <div class="col-12 col-md-9"><input type="text" name="tkt_price" name="text-input" placeholder="Ticket Price" class="form-control"></div>
-                        </div>
-
-
-
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Description</label></div>
-                            <div class="col-12 col-md-9"><textarea name="tkt_desc" id="textarea-input" rows="9" placeholder="About Ticket..." class="form-control"></textarea></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Ticket Qty</label></div>
-                            <div class="col-12 col-md-9"><input type="number" name="tkt_qty" name="text-input"  class="form-control"></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ticket Image</label></div>
-                            <div class="col-12 col-md-9"><input type="file" id="file-input" name="tkt_img" class="form-control-file"><small class="form-text text-muted">Max 1MB</small></div>
-
-                        </div>
-
-
-                        <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary btn-block">Save Info</button>
-
-                        </div>
-
-                    </form>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{route('adminHome')}}">Home</a></li>
+                            <li class="breadcrumb-item active">Ticket Add Form</li>
+                        </ol>
+                    </div>
                 </div>
+            </div><!-- /.container-fluid -->
+        </section>
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
+    @endif
+    <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-12">
+                        <!-- general form elements -->
+                        <!-- <div class="card card-success"> -->
+                        <!-- <div class="card-header text-center">
+                          <h3>Speaker</h3>
+                        </div> -->
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form action="{{route('saveTicket')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            @csrf
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Ticket Category</label>
+                                    <input type="text" class="form-control" id="tkt_typ" name="tkt_typ"
+                                           placeholder="Ticket Category" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Ticket Price</label>
+                                    <input type="text" class="form-control" id="tkt_price" name="tkt_price"
+                                           placeholder="Ticket Price" required>
+                                </div>
+                            </div>
 
-        </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label>Description</label>
+                                    <textarea class="form-control" rows="3" name="tkt_desc"
+                                                id="tkt_desc"></textarea>
+                                </div>
+
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Ticket Qty</label>
+                                    <input type="text" class="form-control" id="tkt_qty" name="tkt_qty"
+                                           placeholder="Ticket Qty" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Ticket Img</label>
+                                    <input type="file" class="form-control" id="tkt_img" name="tkt_img">
+                                    <small class="help-block form-text">Please Select 193*175 Image</small>
+                                </div>
+                            </div>
+
+                            <div class=" text-center">
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+                            </div>
+                        </form>
+
+
+                    </div>
+
+
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
     </div>
 @endsection
