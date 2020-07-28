@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2020 at 01:48 PM
+-- Generation Time: Jul 28, 2020 at 01:57 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -69,7 +69,7 @@ INSERT INTO `benifits` (`id`, `title`, `description`, `img`, `created_at`, `upda
 (1, 'Honorable Speakers', 'Parturient nec suspendisse liniquacmtuvluptas sit elementuisim risus tell nullam, elementum ac enim. it is importent things.', 'fa fa-graduation-cap', '2020-07-25 04:38:15', '2020-07-25 05:21:24'),
 (2, 'Confreances Topics', 'Parturient nec suspendisse liniquacmtuvluptas sit elementuisim risus tell nullam, elementum ac enim. it is importent things.', 'fa fa-calendar', '2020-07-25 04:38:15', '2020-07-25 05:23:29'),
 (3, 'Privacy & Condition', 'Parturient nec suspendisse liniquacmtuvluptas sit elementuisim risus tell nullam, elementum ac enim. it is importent things.', 'fa fa-cogs', '2020-07-25 04:38:15', '2020-07-25 04:38:41'),
-(4, 'Beneifits Of Event', 'Parturient nec suspendisse liniquacmtuvluptas sit elementuisim risus tell nullam, elementum ac enim. it is importent things.', 'fa fa-university', '2020-07-25 04:38:15', '2020-07-25 04:38:41');
+(4, 'Beneifits Of Events', 'Parturient nec suspendisse liniquacmtuvluptas sit elementuisim risus tell nullam, elementum ac enim. it is importent things.', 'fa fa-university', '2020-07-25 04:38:15', '2020-07-28 05:44:36');
 
 -- --------------------------------------------------------
 
@@ -94,9 +94,9 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `title`, `short_desc`, `long_desc`, `img`, `date`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Imperdiet tortor ratione quisque morbi nulla ntesque facilisi in quis world games.', 'Condimentum eu felis vitae nibh, mauris dui neque purus fusce tellus, sed velit, posuere ac pede idum ridiculus. Cras sodales mauris quis sit volutpat, molestie hendrerit aptent parturientvenatis urna urna etiam arcu nisl, libero odio molestie,', 'Condimentum eu felis vitae nibh, mauris dui neque purus fusce tellus, sed velit, posuere ac pede idum ridiculus. Cras sodales mauris quis sit volutpat, molestie hendrerit aptent parturientvenatis urna urna etiam arcu nisl, libero odio molestie, vitae auctor eros orci sed.Interdum libero diam ac a lorem, amet tellus dis vitae elit ut, torquent sapien pretium mauris integer, primis arcu sem auctor at, massa ut, in a vel feugiat dictumst mus accumsan. Nunc aenean sapien ornare ipsum qui faucibus, interdum dui varius ac sit enim proin, nec quia at. Nulla non,', 'assets/blogImage/blog01.jpg', 'July-22', 1, '2020-07-18 23:26:50', '2020-07-18 23:26:50'),
-(2, 'A praesent a feugiat id sit rilus velit fusce morbi dolorum. blog 28 DEC Pede fringilla et vulputate et wisi varius,', 'Condimentum eu felis vitae nibh, mauris dui neque purus fusce tellus, sed velit, posuere ac pede idum ridiculus. Cras sodales mauris quis sit volutpat, molestie hendrerit aptent parturientvenatis urna urna etiam arcu nisl, libero', 'Condimentum eu felis vitae nibh, mauris dui neque purus fusce tellus, sed velit, posuere ac pede idum ridiculus. Cras sodales mauris quis sit volutpat, molestie hendrerit aptent parturientvenatis urna urna etiam arcu nisl, libero odio molestie, vitae auctor eros orci sed.Interdum libero diam ac a lorem, amet tellus dis vitae elit ut, torquent sapien pretium mauris integer, non condimentum egestas feugiat lacus. Gravida non diam atque massa at at, sapien ut pulvinar, libero dictum quam faucibus urna nunc viverra. Faucibus libero et imperdiet et, id primis arcu sem auctor at, massa ut, in a vel feugiat dictumst mus accumsan. Nunc aenean sapien ornare ipsum qui faucibus, interdum dui varius ac sit enim proin, nec quia at.', 'assets/blogImage/blog03.jpg', 'July-28', 1, '2020-07-18 23:28:00', '2020-07-18 23:51:43'),
-(4, 'Imperdiet tortor ratione quisque morbi nulla ntesque facilisi in quis world games.', 'Condimentum eu felis vitae nibh, mauris dui neque purus fusce tellus, sed velit, posuere ac pede idum ridiculus. Cras sodales mauris quis sit volutpat, molestie hendrerit aptent parturientvenatis urna urna etiam arcu nisl, libero odio molestie', 'Condimentum eu felis vitae nibh, mauris dui neque purus fusce tellus, sed velit, posuere ac pede idum ridiculus. Cras sodales mauris quis sit volutpat, molestie hendrerit aptent parturientvenatis urna urna etiam arcu nisl, libero odio molestie, vitae auctor eros orci sed.Interdum libero diam ac a lorem, amet tellus dis vitae elit ut, torquent sapien pretium mauris integer, non condimentum egestas feugiat lacus. Gravida non diam atque massa at at, sapien ut pulvinar, libero dictum quam faucibus urna nunc viverra. Faucibus libero et imperdiet et, id primis arcu sem auctor at, massa ut, in a vel feugiat dictumst mus accumsan. Nunc a', 'assets/blogImage/blog02.jpg', 'July-29', 1, '2020-07-19 00:05:37', '2020-07-19 00:17:40');
+(1, 'Imperdiet tortor ratione quisque morbi nulla ntesque facilisi in quis world games.', 'Condimentum eu felis vitae nibh, mauris dui neque purus fusce tellus, sed velit, posuere ac pede idum ridiculus. Cras sodales mauris quis sit volutpat, molestie', 'Condimentum eu felis vitae nibh, mauris dui neque purus fusce tellus, sed velit, posuere ac pede idum ridiculus. Cras sodales mauris quis sit volutpat, molestie hendrerit aptent parturientvenatis urna urna etiam arcu nisl, libero odio molestie,}', 'speaker-sVmHIFwb.jpg', 'July-28', 1, '2020-07-27 10:55:33', '2020-07-28 09:11:58'),
+(2, 'Laravel Development', 'Condimentum eu felis vitae nibh, mauris dui neque purus fusce tellus, sed velit, posuere ac pede idum ridiculus. Cras sodales mauris quis sit volutpat, molestie', 'Condimentum eu felis vitae nibh, mauris dui neque purus fusce tellus, sed velit, posuere ac pede idum ridiculus. Cras sodales mauris quis sit volutpat, molestie hendrerit aptent parturientvenatis urna urna etiam arcu nisl, libero odio molestie,}', 'blog-4OspijsB.jpg', 'July-30', 1, '2020-07-27 10:55:58', '2020-07-27 10:55:58'),
+(3, 'Wordpressadsf', 'Condimentum eu felis vitae nibh, mauris dui neque purus fusce tellus, sed velit, posuere ac pede idum ridiculus. Cras sodales mauris quis sit volutpat, molestie hendrerit', 'Condimentum eu felis vitae nibh, mauris dui neque purus fusce tellus, sed velit, posuere ac pede idum ridiculus. Cras sodales mauris quis sit volutpat, molestie hendrerit aptent parturientvenatis urna urna etiam arcu nisl, libero odio molestie,}', 'speaker-ZSFilOQU.jpg', 'July-31', 1, '2020-07-27 10:56:16', '2020-07-28 09:05:24');
 
 -- --------------------------------------------------------
 
@@ -126,7 +126,8 @@ INSERT INTO `customers` (`id`, `name`, `email`, `phone`, `tkt_id`, `qty`, `creat
 (4, 'user3', 'test@gmail.com', '01911871738', 'rlwE5j', 10, '2020-07-25 11:30:05', '2020-07-25 11:30:05'),
 (5, 'testuser', 'admin@gmail.com', '01911871738', 'WVkNhm', 6, '2020-07-25 11:31:42', '2020-07-25 11:31:42'),
 (6, 'kabir', 'user@gmail.com', '01911871738', 'FP0Z4u', 6, '2020-07-25 11:32:07', '2020-07-25 11:32:07'),
-(7, 'Honorable Speakers', 'test@gmail.com', '01911871738', 'PSvinJ', 6, '2020-07-25 11:34:02', '2020-07-25 11:34:02');
+(7, 'Honorable Speakers', 'test@gmail.com', '01911871738', 'PSvinJ', 6, '2020-07-25 11:34:02', '2020-07-25 11:34:02'),
+(8, 'admin', 'kabir@gmail.com', '01911871738', 'SvKvkB', 2, '2020-07-26 04:13:28', '2020-07-26 04:13:28');
 
 -- --------------------------------------------------------
 
@@ -209,7 +210,7 @@ CREATE TABLE `schedules` (
 --
 
 INSERT INTO `schedules` (`id`, `speaker_id`, `topic`, `date`, `start_time`, `end_time`, `slot`, `created_at`, `updated_at`) VALUES
-(1, 1, '1', '2020-07-19', '11:30', '11:50', '1st', '2020-07-16 03:38:10', '2020-07-22 11:36:11'),
+(1, 1, '1', '2020-07-19', '11:30', '11:50', '1st', '2020-07-16 03:38:10', '2020-07-26 05:26:13'),
 (2, 2, '2', '2020-07-20', '11:11', '11:50', '2nd', '2020-07-17 22:19:04', '2020-07-17 22:19:04'),
 (3, 3, '4', '2020-07-23', '10:10', '10:55', '3rd', '2020-07-17 22:20:49', '2020-07-17 22:20:49');
 
@@ -234,19 +235,19 @@ CREATE TABLE `sections` (
 --
 
 INSERT INTO `sections` (`id`, `name`, `title`, `description`, `img`, `created_at`, `updated_at`) VALUES
-(1, 'banner', 'join with global business <span class=\"d-block w-100\">conferances 2019</span>', 'Tortor sed id nulla ac vivamus, semper at orci vitpltus a sodales. Nibh adipiscing nullam consequat.', NULL, NULL, '2020-07-25 06:53:30'),
-(2, 'about', 'join with us for next conferance 2019', 'consequat, quis ac turpis, mi a ligula scelerisque eleifend arcuttis feugiat pede vivamus idac, vitae volutpat viverra, pttitor velppede est auctor velit. Nullam nonummy Fusce neque\r\n                                pharetra elemtum ante praesent et, non non nulla enim, velit amet sit convallis si<p></p>\r\n                            <p>portgilla. Maecenas auctor convallis dolor, eros consectetuer nulla eget vitae, nec\r\n                                porttitor viverra eu quis quisque</p>', 'assets/sectionImage/DqxuUy.jpg', NULL, '2020-07-25 06:55:15'),
-(3, 'about_overview', 'well come to conference 2019', '<p>consequat, quis ac turpis, mi a ligula scelerisque eleifend arcu. Arctugiat\r\n                                            pede vivamus id ac, vitae volutpat viverra, porttitor velit parturient, pede\r\n                                            est auctor velit. Nullam nonummy Quam lorem magna, lectus pede sit felis ab\r\n                                            nulla wisi, fusce eget lorem. Porro etiam sed lacus eu, donec mus ipsum eu\r\n                                            ligula eget, nullacipit duis, accumsan ut lorem semvtulum suspendisse tempor\r\n                                            est nulla, ac tincidunt ligula magna enim et, eros </p>\r\n                                            <ol>\r\n                                                <li>leifend fringilla quiselit</li>\r\n                                                <li>aliquam dolor tortor phasellus</li>\r\n                                                <li> dignissim semper consequat </li>\r\n                                            </ol>', 'assets/sectionImage/PJoqAU.jpg', NULL, '2020-07-25 05:37:25'),
-(4, 'speaker', 'Event speakers', '<p>a porttitor metus cupidatat nunc, luctus erat at. Amet class phasellus in eget sociosqu mi amet morbi\r\n                    taciti eu urna, mi nunc volutpat quis asd</p>', NULL, NULL, '2020-07-23 07:00:04'),
-(5, 'schedule', 'what is going on', 'a porttitor metus cupidatat nunc, luctus erat at. Amet class phasellus in eget sociosqu mi amet morbi\r\n                    taciti eu urna, mi nunc volutpat quis', NULL, NULL, '2020-07-23 07:04:57'),
-(6, 'call_in', 'hurry up', 'contact with us for your ticket', NULL, NULL, '2020-07-23 07:11:05'),
-(7, 'ticket1', 'get your ticket', 'a porttitor metus cupidatat nunc, luctus erat at. Amet class phasellus in eget sociosqu mi amet morbi\r\n                    taciti eu urna, mi nunc volutpat quis', NULL, NULL, '2020-07-23 07:16:54'),
-(8, 'event', 'join our event', 'Magna eget et velit sed, cras neque amet aeante quis mauris mollis elit, fringilla et\r\n                                suscipitet.', NULL, NULL, '2020-07-23 07:21:51'),
-(9, 'blog1', 'our news update', 'a porttitor metus cupidatat nunc, luctus erat at. Amet class phasellus in eget sociosqu mi amet morbi\r\n                    taciti eu urna, mi nunc volutpat quis', NULL, NULL, '2020-07-23 08:34:32'),
-(10, 'sponsor1', 'official sponsor', 'a porttitor metus cupidatat nunc, luctus erat at. Amet class phasellus in eget sociosqu mi amet morbi\r\n                    taciti eu urna, mi nunc volutpat quis', NULL, NULL, '2020-07-23 08:39:28'),
-(11, 'tab_mission', 'Consequat, quis ac turpis, mi a ligula scelerque eleifend arcu. Arctugiat pede vivamus', 'Lorem ipsum dolor sit amet, varius class massa velit amet cras, felis a donec at. Justo nonummy hymenaeos sed ipsum, urna ornare odio amet sit et. Penatibus ante eu bibendum quisque. Ut sit aenean elementum tincidunt cras, dictum nunc aliquet lacus lorem. Lorem ridiculus nunc ligula perleifend et quam, dictumst pellentesque rhoncus et, hendrerit non accumsan fringilla mauris, metus reiciendis amet vitae sed consectetuer vitae.', NULL, NULL, '2020-07-23 08:46:05'),
-(12, 'tab_testimonial', 'Jhonson', 'It is helpfull conferences for all nec proin nunc quis odio turpiger euismod semper. Eu cras praesent fusce erat aptent nullam hendrerit volutpat&nbsp;', 'assets/sectionImage/Pe9RbM.jpg', NULL, '2020-07-23 09:10:37'),
-(13, 'overview_img', 'Honorable Speakers', 'Parturient nec suspendisse liniquacmtuvluptas sit elementuisim risus tell nullam, elementum ac enim. it is importent things.', 'assets/sectionImage/s2glwO.jpg', NULL, '2020-07-25 05:55:29');
+(1, 'banner', 'join with global business <span class=\"d-block w-100\">conferances 2019</span>', 'Tortor sed id nulla ac vivamus, semper at orci vitpltus a sodales.&nbsp;', NULL, NULL, '2020-07-28 04:57:20'),
+(2, 'about', 'join with us for next conferance 2019-2020', 'consequat, quis ac turpis, mi a ligula scelerisque eleifend arcuttis feugiat pede vivamus idac, vitae volutpat viverra, pttitor velppede est auctor velit. Nullam nonummy Fusce neque\r\n                                pharetra elemtum ante praesent et, non non nulla enim, velit amet sit convallis si<p></p>\r\n                            <p>portgilla. Maecenas auctor convallis dolor, eros consectetuer nulla eget vitae, nec\r\n                                porttitor viverra eu quis quisque</p>', 'section-Cn9Q13Ub.jpg', NULL, '2020-07-28 04:48:56'),
+(3, 'about_overview', 'well come to conference 2019', '<p>consequat, quis ac turpis, mi a ligula scelerisque eleifend arcu. Arctugiat\r\n                                            pede vivamus id ac, vitae volutpat viverra, porttitor velit parturient, pede\r\n                                            est auctor velit. Nullam nonummy Quam lorem magna, lectus pede sit felis ab\r\n                                            nulla wisi, fusce eget lorem. Porro etiam sed lacus eu, donec mus ipsum eu\r\n                                            ligula eget, nullacipit duis, accumsan ut lorem semvtulum suspendisse tempor\r\n                                            est nulla, ac tincidunt ligula magna enim et, eros </p>\r\n                                            <ol>\r\n                                                <li>leifend fringilla quiselit&nbsp;</li>\r\n                                                <li>aliquam dolor tortor phasellus</li>\r\n                                                <li> dignissim semper consequat </li>\r\n                                            </ol>', 'section-R2e9gk2G.jpg', NULL, '2020-07-28 05:19:30'),
+(4, 'speaker', 'Event speaker', '<p>a porttitor metus cupidatat nunc, luctus erat at. Amet class phasellus in eget sociosqu mi amet morbi\r\n                    taciti eu urna, mi nunc volutpat quis asddf</p>', NULL, NULL, '2020-07-28 07:09:39'),
+(5, 'schedule', 'what is going on', 'a porttitor metus cupidatat nunc, luctus erat at. Amet class phasellus in eget sociosqu mi amet morbi\r\n                    taciti eu urna, mi nunc volutpat quis&nbsp;', NULL, NULL, '2020-07-28 07:12:48'),
+(6, 'call_in', 'hurry up', 'contact with us for your ticket', NULL, NULL, '2020-07-28 07:16:20'),
+(7, 'ticket1', 'get your ticket', 'a porttitor metus cupidatat nunc, luctus erat at. Amet class phasellus in eget sociosqu mi amet morbi\r\n                    taciti eu urna, mi nunc volutpat quis&nbsp;', NULL, NULL, '2020-07-28 07:17:44'),
+(8, 'event', 'join our event', 'Magna eget et velit sed, cras neque amet aeante quis mauris mollis elit, fringilla et\r\n                                suscipitet', NULL, NULL, '2020-07-28 07:15:16'),
+(9, 'blog1', 'our news update', 'a porttitor metus cupidatat nunc, luctus erat at. Amet class phasellus in eget sociosqu mi amet morbi\r\n                    taciti eu urna, mi nunc volutpat quis&nbsp;', NULL, NULL, '2020-07-28 07:20:29'),
+(10, 'sponsor1', 'official sponsor', 'a porttitor metus cupidatat nunc, luctus erat at. Amet class phasellus in eget sociosqu mi amet morbi\r\n                    taciti eu urna, mi nunc volutpat quis', NULL, NULL, '2020-07-28 07:21:32'),
+(11, 'tab_mission', 'Consequat, quis ac turpis, mi a ligula scelerque eleifend arcu. Arctugiat pede vivamus', 'Lorem ipsum dolor sit amet, varius class massa velit amet cras, felis a donec at. Justo nonummy hymenaeos sed ipsum, urna ornare odio amet sit et. Penatibus ante eu bibendum quisque. Ut sit aenean elementum tincidunt cras, dictum nunc aliquet lacus lorem. Lorem ridiculus nunc ligula perleifend et quam, dictumst pellentesque rhoncus et, hendrerit non accumsan fringilla mauris, metus reiciendis amet vitae sed consectetuer vitae.', NULL, NULL, '2020-07-28 07:22:08'),
+(12, 'tab_testimonial', 'Jhonson', 'It is helpfull conferences for all nec proin nunc quis odio turpiger euismod semper. Eu cras praesent fusce erat aptent nullam hendrerit volutpat&nbsp;&nbsp;', 'assets/sectionImage/Pe9RbM.jpg', NULL, '2020-07-28 07:23:00'),
+(13, 'overview_img', 'Honorable Speakers', 'Parturient nec suspendisse liniquacmtuvluptas sit elementuisim risus tell nullam, elementum ac enim. it is importent things.', 'section-IRVxB3q1.jpg', NULL, '2020-07-28 08:54:20');
 
 -- --------------------------------------------------------
 
@@ -259,6 +260,7 @@ CREATE TABLE `settings` (
   `location` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `start_date` date NOT NULL,
   `place` char(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `max_tkt_qty` int(11) NOT NULL,
   `phone` char(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` char(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -271,8 +273,8 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `location`, `start_date`, `place`, `phone`, `email`, `title`, `img`, `created_at`, `updated_at`) VALUES
-(1, 'Uttara ,sector 11 dhaka', '2020-08-20', 'The SoftKing', '11111111112', 'softking@soft.com', 'Specon', 'assets/siteImage/CDl9k1.png', NULL, '2020-07-25 05:58:13');
+INSERT INTO `settings` (`id`, `location`, `start_date`, `place`, `max_tkt_qty`, `phone`, `email`, `title`, `img`, `created_at`, `updated_at`) VALUES
+(1, 'Uttara ,sector 11 dhaka', '2020-08-20', 'The SoftKing', 5, '11111111112', 'softking@soft.com', 'Specon', 'CDl9k1.png', NULL, '2020-07-25 05:58:13');
 
 -- --------------------------------------------------------
 
@@ -296,10 +298,10 @@ CREATE TABLE `speakers` (
 --
 
 INSERT INTO `speakers` (`id`, `speaker_name`, `experties`, `description`, `speaker_img`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Martin Hook', 'Wordpress Development', 'Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.', 'assets/speakerImage/speaker01.jpg', 0, '2020-07-16 00:28:19', '2020-07-25 11:15:27'),
-(2, 'Kawsar Ahmed', 'FrontEnd Development', 'Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.', 'assets/speakerImage/speaker04.jpg', 0, '2020-07-16 00:28:41', '2020-07-25 11:15:40'),
-(3, 'Ivan Ahmed', 'Java Development', 'Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.adc<div>Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.adc<br></div><div>Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.adc<br></div><div>Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.adc<br></div><div>Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.adc<br></div><div>Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.adc<br></div><div>Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.adc<br></div>', 'assets/speakerImage/speaker05.jpg', 1, '2020-07-16 00:28:54', '2020-07-25 11:16:18'),
-(4, 'Zaman Hossain', 'Android Development', 'Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.', 'assets/speakerImage/speaker06.jpg', 1, '2020-07-17 23:16:46', '2020-07-18 00:49:27');
+(1, 'Martin Hook', 'Wordpress Development', 'Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.', 'speaker-uxGhFHC3.jpg', 1, '2020-07-27 05:37:11', '2020-07-27 05:37:11'),
+(2, 'Kawsar Ahmed', 'Laravel', 'Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.', 'speaker-tmF1GKCW.jpg', 1, '2020-07-27 05:37:24', '2020-07-27 05:37:24'),
+(3, 'Ivan Ahmed', 'Android Developer', 'Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.', 'speaker-tW3lDEWk.jpg', 1, '2020-07-27 05:37:37', '2020-07-27 05:37:37'),
+(4, 'Mustafiz', 'Ios Developer', 'Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egeepltesque pede, tellus ipsum morbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, vehicula duis eget malesuadadales fusce mollis metus amet per, adipiscing eu ut. Adipiscing non id platea integer.', 'speaker-3mMWPTcJ.jpg', 1, '2020-07-27 05:37:45', '2020-07-27 05:40:12');
 
 -- --------------------------------------------------------
 
@@ -325,9 +327,9 @@ CREATE TABLE `sponsors` (
 --
 
 INSERT INTO `sponsors` (`id`, `name`, `company_name`, `email`, `website`, `sponsor_id`, `img`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'The Softking', 'user@gmail.com', 'www.google.com', 1, 'assets/sponsorImage/7w46Tp.png', 1, '2020-07-25 08:19:26', '2020-07-25 08:19:26'),
-(2, 'kabir', 'BrainStation', 'test1@gmail.com', 'www.test1.com', 2, 'assets/sponsorImage/et2RHi.png', 1, '2020-07-25 08:19:30', '2020-07-25 08:19:30'),
-(3, 'Test', 'Wedev', 'admin@gmail.com', 'www.google.com', 1, 'assets/sponsorImage/vE8nF8.png', 1, '2020-07-25 08:19:32', '2020-07-25 08:19:32');
+(1, 'admin', 'The Softking', 'test@gmail.com', 'www.google.com', 2, 'HKFszD.png', 1, '2020-07-28 09:57:21', '2020-07-28 09:57:21'),
+(2, 'user', 'BrainStation', 'test1@gmail.com', 'www.test1.com', 7, 'NUL4HT.png', 1, '2020-07-28 09:57:39', '2020-07-28 09:57:39'),
+(3, 'testuser', 'Wedev', 'user@gmail.com', 'www.test1.com', 2, 'wCpTUw.png', 1, '2020-07-28 09:57:42', '2020-07-28 09:57:42');
 
 -- --------------------------------------------------------
 
@@ -348,11 +350,11 @@ CREATE TABLE `sponsor_types` (
 --
 
 INSERT INTO `sponsor_types` (`id`, `sponsor_name`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Silver', 1, '2020-07-25 08:09:55', '2020-07-25 08:09:55'),
-(2, 'Golden', 1, '2020-07-25 08:09:55', '2020-07-25 08:09:55'),
-(3, 'Platinum', 0, '2020-07-25 08:09:55', '2020-07-25 08:09:55'),
+(1, 'Silver', 0, '2020-07-25 08:09:55', '2020-07-28 09:53:06'),
+(2, 'Golden', 1, '2020-07-25 08:09:55', '2020-07-28 09:57:21'),
+(3, 'Platinum', 0, '2020-07-25 08:09:55', '2020-07-28 09:45:35'),
 (4, 'Media', 0, '2020-07-25 08:10:20', '2020-07-25 08:10:20'),
-(5, 'Diamond', 0, '2020-07-25 08:10:20', '2020-07-25 10:37:21');
+(7, 'Diamond', 1, '2020-07-27 10:36:25', '2020-07-28 09:57:39');
 
 -- --------------------------------------------------------
 
@@ -377,9 +379,9 @@ CREATE TABLE `tickets` (
 --
 
 INSERT INTO `tickets` (`id`, `tkt_typ`, `tkt_price`, `tkt_desc`, `tkt_qty`, `tkt_img`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Personal', 250.00, 'Tortor sodales facilis diam sed. Turpis maecenas.', 22, 'assets/ticketImage/ticket01.png', 1, '2020-07-18 04:41:59', '2020-07-25 11:34:02'),
-(2, 'Business', 499.00, 'Tortor sodales facilis diam sed. Turpis maecenas.', 0, 'assets/ticketImage/ticket03.png', 1, '2020-07-18 04:42:11', '2020-07-25 11:03:03'),
-(3, 'Golden Pack', 599.00, 'Tortor sodales facilis diam sed. Turpis maecenas.', 30, 'assets/ticketImage/ticket01.png', 1, '2020-07-18 04:42:21', '2020-07-19 23:33:08');
+(1, 'Personal', 250.00, 'Tortor sodales facilis diam sed. Turpis maecenas.', 50, 'tkt-rmTOR0Kq.png', 1, '2020-07-27 09:21:16', '2020-07-27 09:21:16'),
+(2, 'Business', 499.00, 'Tortor sodales facilis diam sed. Turpis maecenas', 50, 'tkt-XL4YDZfV.png', 1, '2020-07-27 09:21:28', '2020-07-27 10:02:08'),
+(3, 'Golden Pack', 599.00, 'Tortor sodales facilis diam sed. Turpis maecenas.', 50, 'tkt-AtmjF2oO.png', 1, '2020-07-27 09:21:39', '2020-07-27 10:02:43');
 
 -- --------------------------------------------------------
 
@@ -402,8 +404,7 @@ INSERT INTO `topics` (`id`, `topic_name`, `created_at`, `updated_at`) VALUES
 (1, 'Wordpress Development', '2020-07-16 02:28:25', '2020-07-18 01:08:55'),
 (2, 'FrontEnd Development', '2020-07-16 02:28:27', '2020-07-16 02:28:27'),
 (3, 'Java Development', '2020-07-16 02:28:30', '2020-07-16 02:28:30'),
-(4, 'Android Development', '2020-07-16 02:28:32', '2020-07-16 02:28:32'),
-(6, 'Ios Development', '2020-07-21 04:57:32', '2020-07-21 04:57:32');
+(4, 'Android Development', '2020-07-16 02:28:32', '2020-07-16 02:28:32');
 
 -- --------------------------------------------------------
 
@@ -546,13 +547,13 @@ ALTER TABLE `benifits`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -570,7 +571,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `sections`
@@ -588,19 +589,19 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `speakers`
 --
 ALTER TABLE `speakers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sponsors`
 --
 ALTER TABLE `sponsors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sponsor_types`
 --
 ALTER TABLE `sponsor_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tickets`
@@ -612,7 +613,7 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT for table `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`

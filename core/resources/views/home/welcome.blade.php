@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('assets/frontEnd/assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/frontEnd/assets/css/owl.theme.default.min.css')}}">
 
-    <link rel="shortcut icon" href="{{asset('assets/frontEnd/assets/images/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('assets/siteImage/'.$settings->img)}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('assets/frontEnd/assets/css/style.css')}}">
 
     <title>{{$settings->title}}</title>
@@ -98,7 +98,11 @@
 {{--<script src="http://maps.google.com/maps/api/js?key=AIzaSyCo_pcAdFNbTDCAvMwAD19oRTuEmb9M50c"></script>--}}
 <script src="{{asset('assets/frontEnd/assets/js/map.js')}}"></script>
 <script src="{{asset('assets/frontEnd/assets/js/main.js')}}"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+@stack('img')
+@include("errors.errors")
+@include("errors.error")
+@include("errors.success")
 </body>
 
 </html>

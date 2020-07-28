@@ -40,7 +40,7 @@
                         </ul>
                     </div>
                     <div class="post-thumb">
-                        <a href="blog-details.html"><img src="{{asset($row->img)}}" alt="blog"></a>
+                        <a href="blog-details.html"><img src="{{asset('assets/blogImage/'.$row->img)}}" alt="blog"></a>
                         <ul class="blog-date">
                             <?php
 
@@ -150,3 +150,14 @@
     </div>
 </section>
 @endsection
+
+{{--@push('img')--}}
+{{--    <style>--}}
+{{--        img {--}}
+
+{{--            height:150px;--}}
+{{--            width: 155px;--}}
+{{--        }--}}
+{{--    </style>--}}
+
+{{--@endpush--}}

@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><a href="{{route('addSpeaker')}}" class="btn btn-info" role="button">Add Speaker</a></h1>
+                        <h1><a href="{{route('manageBlog')}}" class="btn btn-info" role="button">Manage Blog</a></h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -55,16 +55,22 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Description</label>
-                                    <textarea class="form-control" rows="5" name="long_desc"
+                                    <textarea class="form-control" rows="10" name="long_desc"
                                               id="long_desc">{{$editBlogById->long_desc}}</textarea>
                                 </div>
+
                                 <div class="form-group col-md-6">
-                                    <label>Image</label>
-                                    <img class="img-fluid img-thumbnail ml-3 rounded" src="{{asset('assets/blogImage/'.$editBlogById->img)}}"
+                                    <div class="pl-5"><label class="align-top">Image</label></div>
+
+                                    <img class="img-fluid img-thumbnail ml-3" src="{{asset('assets/blogImage/'.$editBlogById->img)}}"
                                          alt="{{asset('assets/blogImage/'.$editBlogById->img)}}">
-                                    <input type="file" class="form-control" id="img" name="img">
+                                    <div class="col-sm-3"><input type="file" class="form-control" id="img" name="img"></div>
+
                                     <small class="help-block form-text">Please Select 350*310 Image</small>
                                 </div>
+
+
+
                             </div>
 
 
@@ -89,8 +95,8 @@
     <style>
         img {
 
-            height:50px;
-            width: 80px;
+            height:150px;
+            width: 155px;
         }
     </style>
 

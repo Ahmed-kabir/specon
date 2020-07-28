@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Setting;
 use App\Speaker;
 use App\SponsorType;
 use App\Ticket;
@@ -132,13 +133,14 @@ class TicketController extends Controller
             "name" => 'required|max:25',
             "email" => 'required|email|max:25',
             "phone" => 'required|max:15',
-            "qty" => 'required|integer|max:5|min:1',
-            "checkbox" => 'required'
+            "qty" => 'required|integer|min:1'
+
 
         ]);
+        $settings = Setting::first();
         $ticket = Ticket::find($id);
-        if ($ticket->tkt_qty < $request->qty) {
-            return back()->with('error_message', $request->qty . 'Ticket' . ' ' . 'Not Available');
+        if ($ticket->tkt_qty > $settings->max_tkt_qty) {
+            return back()->with('error','You can buy max' .' ' .$settings->max_tkt_qty.'' . 'ticket at a time');
         } else {
             $tktId = Str::random(6);
             $customer = new Customer();

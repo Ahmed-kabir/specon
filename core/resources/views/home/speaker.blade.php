@@ -31,7 +31,7 @@
                         <span>{{$row->experties}}</span>
                     </div>
                     <div class="speaker-thumb">
-                        <img src="{{asset($row->speaker_img)}}" alt="speaker">
+                        <img src="{{asset('assets/speakerImage/'.$row->speaker_img)}}" alt="speaker">
                     </div>
                 </div>
             </div>

@@ -56,8 +56,9 @@
 
                                 <div class="schedule-item">
                                     <div class="schedule-thumb">
-                                        <a href="#0"><img src="{{asset('assets/speakerImage/'.$row->speaker_img)}}"
+                                        <a href="#0"><img src="{{asset('assets/speakerImage/'.$row->speakers->speaker_img)}}"
                                                           class="img-thumbnail" alt="User Image"></a>
+
                                     </div>
                                     <div class="schedule-content">
                                         <h4 class="title"><a href="#0">{{ $row->topicName->topic_name }}</a></h4>

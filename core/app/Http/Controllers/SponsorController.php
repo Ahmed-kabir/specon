@@ -23,9 +23,19 @@ class SponsorController extends Controller
             "company_name" => 'required',
             "email" => 'required',
             "website" => 'required',
-            "sponsor_id" => 'required'
+            "sponsor_id" => 'required',
+            "img" => 'mimes:jpeg,jpg,png,gif|max:1000|required'
 
         ]);
+
+        $sponsorImage = $request->file('img');
+        $randNumber = Str::random(6);
+        $fileExtension = $sponsorImage->getClientOriginalExtension();
+        $name = $randNumber . '.' . $fileExtension;
+
+        $path = ('assets/sponsorImage/');
+        $sponsorImage->move($path, $name);
+        $imageurl = $path . $name;
 
         $sponsor = new Sponsor();
         $sponsor->name = $request->name;
@@ -33,9 +43,10 @@ class SponsorController extends Controller
         $sponsor->email = $request->email;
         $sponsor->website = $request->website;
         $sponsor->sponsor_id = $request->sponsor_id;
+        $sponsor->img = $name;
         $sponsor->status = 0;
         $sponsor->save();
-        return redirect()->route('Sponsor')->with('success_message', 'Success!! Contact With Admin');
+        return redirect()->route('Sponsor')->with('success', 'Success!! Contact With Admin');
     }
 
     public function manageSponsor()
@@ -151,17 +162,17 @@ class SponsorController extends Controller
         $sponsor = Sponsor::where('id', $id)->first();
         $sponsor->status = 0;
         $sponsor->save();
-        return redirect()->route('manageSponsor')->with('success_message', 'Sponsor Inactivated Successfully');
+        return redirect()->route('manageSponsor')->with('success', 'Sponsor Inactivated Successfully');
     }
 
     public function activatedSponsor($id)
     {
         $sponsor = Sponsor::where('id', $id)->first();
-        $sponsor_type = SponsorType::where('id', $id)->first();
+        $sponsor_type = SponsorType::where('id', $sponsor->sponsor_id)->first();
         $sponsor->status = 1;
         $sponsor->save();
         $sponsor_type->status = 1;
         $sponsor_type->save();
-        return redirect()->route('sponsorRequest')->with('success_message', 'Sponsor Activated Successfully');
+        return redirect()->route('sponsorRequest')->with('success', 'Sponsor Activated Successfully');
     }
 }

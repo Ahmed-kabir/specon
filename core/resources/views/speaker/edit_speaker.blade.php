@@ -50,16 +50,21 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Description</label>
-                                    <textarea class="form-control" rows="5" name="description"
+                                    <textarea class="form-control" rows="10" name="description"
                                               id="description">{{$speaker->description}}</textarea>
                                 </div>
+
                                 <div class="form-group col-md-6">
-                                    <label>Image</label>
-                                    <img class="img-fluid img-thumbnail ml-3 rounded" src="{{asset('assets/speakerImage/'.$speaker->speaker_img)}}"
+                                    <div class="pl-5"><label class="align-top">Image</label></div>
+
+                                    <img class="img-fluid img-thumbnail ml-3" src="{{asset('assets/speakerImage/'.$speaker->speaker_img)}}"
                                          alt="{{asset('assets/speakerImage/'.$speaker->speaker_img)}}">
-                                    <input type="file" class="form-control" id="speaker_img" name="speaker_img">
-                                    <small class="help-block form-text">Please Select 460*530 Image</small>
+                                    <div class="col-sm-3"><input type="file" class="form-control" id="img" name="img"></div>
+
+                                    <small class="help-block form-text">Please Select 806*710 Image</small>
                                 </div>
+
+
                             </div>
 
 

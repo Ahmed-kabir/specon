@@ -1,56 +1,94 @@
-@extends('admin.dashboard')
+@extends('admin.dashboard1')
 @section('main')
-</br>
-</br>
-<div class="row justify-content-center" >
-    <div class="col-lg-10">
-        <div class="card">
-            <div class="card-header text-center">
-                <strong class="card-title">Blog List</strong>
-                <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
+
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+{{--                        <h3><a href="{{route('addBlog')}}" class="btn btn-info" role="button">Add Blog</a></h3>--}}
+
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{route('adminHome')}}">Home</a></li>
+                            <li class="breadcrumb-item active">Agenda List</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+
+                                        <th>Icon</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    @foreach($benifit  as $key => $row)
+                                        <tr>
+{{--                                            <td>{{ $benifit->firstItem() + $key}}</td>--}}
+
+                                            <td><i class="{{ $row->img }}"></i></td>
+                                            <td>{{ $row->title}}</td>
+                                            <td>{{ Str::words($row->description, 15)}}</td>
+
+
+
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+
+                                                    <a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#benifitModal-{{$row->id}}" >
+                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+
+
+                                                    <a href="{{route('inactiveBlog',$row->id)}}" class="btn btn-danger btn-sm">
+
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @include('benifit.edit_benifit')
+                                    @endforeach
+                                </table>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="card-body">
-                <table class="table">
-                    <thead class="thead-dark">
-                    <tr>
-                        {{--                        <th scope="col">SL</th>--}}
-                        <th scope="col">Title</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($benifit  as $key => $row)
-                        <tr>
-                            {{--                    <th scope="row">1</th>--}}
-                            {{--                            <td>{{ $blog->firstItem() + $key}}</td>--}}
-                            <td>{{ $row->title}}</td>
-                            <td>{{ $row->description}}</td>
-                            <td><i class="{{ $row->img }}"></i></td>
-                            <td>
-                                <a href="" class="btn btn-success" data-toggle="modal" data-target="#benifitModal-{{$row->id}}" >
-                                    <span class="glyphicon glyphicon-edit">Edit</span>
-                                </a>
-                                <a href="{{route('deleteBenifit',$row->id)}}" class="btn btn-danger" onclick="return confirm('Are You sure to Inactive this');">
+        </section>
 
-                                    <span class="glyphicon glyphicon-trash">Delete</span></a>
-
-                            </td>
-                        </tr>
-                        @include('benifit.edit_benifit')
-                    @endforeach
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
     </div>
-</div>
-@endsection
 
-@push('js')
-    <script>
-        $('#icon').iconpicker();
-    </script>
+@endsection
+@push('img')
+    <style>
+        img {
+
+            height:150px;
+            width: 155px;
+        }
+    </style>
+
 @endpush

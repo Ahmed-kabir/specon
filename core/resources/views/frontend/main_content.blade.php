@@ -49,7 +49,7 @@
                     <div class="col-xl-6 col-lg-10">
                         <div class="about-overview-right wow fadeIn" data-wow-duration="1s">
                             <div class="shape">
-                                <img src="{{asset($about['img'])}}" alt="about">
+                                <img src="{{asset('assets/sectionImage/'.$about['img'])}}" alt="about">
                             </div>
                             <ul id="parallax01">
                                 <li class="layer" data-depth="0.90">
@@ -121,7 +121,7 @@
                     </div>
                     <div class="col-xl-6 col-lg-10">
                         <div class="about-overview-right wow fadeIn" data-wow-duration="1s">
-                            <div class="shape"><img src="{{asset($about_overview['img'])}}" alt="about"></div>
+                            <div class="shape"><img src="{{asset('assets/sectionImage/'.$about_overview['img'])}}" alt="about"></div>
                             <ul id="parallax02">
                                 <li class="layer" data-depth="0.90">
                                     <img src="{{asset('assets/frontEnd/assets/images/parallax/parallax01.png')}}"
@@ -178,7 +178,7 @@
                 </div>
                 <div class="col-xl-6 p-0">
                     <div class="overview-right h-100 bg_img"
-                         data-background="{{asset('assets/frontEnd//assets/images/overview/overview-bg01.jpg')}}">
+                         data-background="{{asset('assets/sectionImage/'.$overview_img['img'])}}">
                         <img src="{{asset($overview_img['img'])}}" alt="overview">
                     </div>
                 </div>
@@ -206,7 +206,7 @@
                             </div>
                             <div class="speaker-thumb">
 
-                                <img src="{{asset($row->speaker_img)}}"/>
+                                <img src="{{asset('assets/speakerImage/'.$row->speaker_img)}}"/>
 
                             </div>
                         </div>
@@ -259,7 +259,7 @@
                                     {{--    @dd($row->speakers)--}}
                                     <div class="schedule-item">
                                         <div class="schedule-thumb">
-                                            <a href="#0"><img src="{{asset($row->speakers->speaker_img)}}"
+                                            <a href="#0"><img src="{{asset('assets/speakerImage/'.$row->speakers->speaker_img)}}"
                                                               alt="schedule"></a>
                                         </div>
                                         <div class="schedule-content">
@@ -319,7 +319,7 @@
                         <div class="ticket-item wow fadeInUp" data-wow-duration="1s">
                             <h3 class="title">{{$row->tkt_typ}}</h3>
                             <div class="ticket-thumb">
-                                <img src="{{asset($row->tkt_img)}}" alt="ticket">
+                                <img src="{{asset('assets/ticketImage/'.$row->tkt_img)}}" alt="ticket">
                             </div>
                             <div class="ticket-content">
                                 <p>{{$row->tkt_desc}}</p>
@@ -361,6 +361,7 @@
                             <div class="tab-area">
                                 <div class="tab-item">
                                     <div class="d-flex flex-wrap justify-content-between mb-30-none">
+
                                         <div class="event-tab-item text-center">
                                             <div class="event-tab-thumb">
                                                 <i class="flaticon-location-pin"></i>
@@ -472,7 +473,7 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="post-item wow fadeInUp" data-wow-duration="1s">
                             <div class="post-thumb">
-                                <a href="blog.html"><img src="{{asset($row->img)}}" alt="blog"></a>
+                                <a href="blog.html"><img src="{{asset('assets/blogImage/'.$row->img)}}" alt="blog"></a>
                                 <ul class="blog-date">
                                     <?php
 
@@ -504,23 +505,20 @@
                 <p>{!! $sponsor1['description'] !!}</p>
             </div>
             <div class="sponsor-wrapper">
-                @foreach($sponsorType as $v)
-                    @php
-                        $var= \App\SponsorType::findOrFail($v->id)->sponsorName()->get();
-                    @endphp
-                    <h4 class="sub-title">{{$v->sponsor_name}}</h4>
+                @foreach ($sponsorType as $row)
+                    @if($row->sponsorName()->exists())
+                        <h4 class="sub-title">{{ $row->sponsor_name}} sponsors</h4>
+                        <div class="sponsor-area">
+                            @foreach ($row->sponsorName as $item)
+                                @if ($item->status != 0)
+                                    <div class="sponsor-thumb">
 
-
-                    <div class="sponsor-area">
-                        @foreach( $var as $row)
-                            {{--                        @if($v->id == $row->sponsor_id)--}}
-                            {{--                        @if($row->status==1)--}}
-                            <div class="sponsor-thumb">
-                                <a href="#0"><img src="{{asset($row->img)}}" alt="sponsor"></a>
-                            </div>
-                            {{--                        @endif--}}
-                        @endforeach
-                    </div>
+                                        <a href="#0"><img src="{{asset('assets/sponsorImage/'.$item->img)}}" alt="sponsor"></a>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    @endif
                 @endforeach
             </div>
             <div class="text-center">

@@ -42,7 +42,7 @@ class BlogController extends Controller
         $speakerNameFormate = 'blog-'.Str::random(8).'.'.$imageName->getClientOriginalExtension();
         $img = Image::make($imageName);
         $path = 'assets/blogImage/';
-        $img->resize(350,310);
+        $img->resize(300,350);
         $img->save($path.'/'.$speakerNameFormate);
 
 
@@ -106,7 +106,7 @@ class BlogController extends Controller
             $speakerNameFormate = 'speaker-'.Str::random(8).'.'.$blogImage->getClientOriginalExtension();
             $img = Image::make($blogImage);
             $path = 'assets/blogImage/';
-            $img->resize(350,310);
+            $img->resize(300,350);
             $img->save($path.'/'.$speakerNameFormate);
 
         } else {

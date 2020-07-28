@@ -31,7 +31,7 @@
                     <div class="ticket-item">
                         <h3 class="title">{{$row->tkt_typ}}</h3>
                         <div class="ticket-thumb">
-                            <img src="{{asset($row->tkt_img)}}" alt="ticket">
+                            <img src="{{asset('assets/ticketImage/'.$row->tkt_img)}}" alt="ticket">
                         </div>
                         <div class="ticket-content">
                             <p>Tortor sodales facilis diam sed. Turpis maecenas.</p>

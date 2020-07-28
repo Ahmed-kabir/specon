@@ -66,22 +66,35 @@
                                     <textarea class="form-control" rows="6" name="tkt_desc"
                                               id="tkt_desc">{{$editTicketById->tkt_desc}}</textarea>
                                 </div>
+
                                 <div class="form-group col-md-6">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <label for="">Image: </label>
-                                            <input type="file" name="tkt_img" class="form-control d-block align-bottom" >
-                                            <small class="help-block form-text">Please Select 193*175 Image</small>
-                                        </div>
-                                        <div class="col py-3">
-                                            <div class="pl-5">
-                                                <label for="" class="align-top">Current Image : </label>
-                                                <img src="{{asset('assets/ticketImage/'.$editTicketById->tkt_img)}}"
-                                                     alt="buyticket" class="img-fluid w-75 img-thumbnail ">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="pl-5"><label class="align-top">Image</label></div>
+
+                                    <img class="img-fluid img-thumbnail ml-3" src="{{asset('assets/ticketImage/'.$editTicketById->tkt_img)}}"
+                                         alt="{{asset('assets/ticketImage/'.$editTicketById->tkt_img)}}">
+                                    <div class="col-sm-3"><input type="file" class="form-control" id="img" name="img"></div>
+
+                                    <small class="help-block form-text">Please Select 806*710 Image</small>
                                 </div>
+
+
+
+{{--                                <div class="form-group col-md-6">--}}
+{{--                                    <div class="form-row">--}}
+{{--                                        <div class="col">--}}
+{{--                                            <label for="">Image: </label>--}}
+{{--                                            <input type="file" name="tkt_img" class="form-control d-block align-bottom" >--}}
+{{--                                            <small class="help-block form-text">Please Select 193*175 Image</small>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col py-3">--}}
+{{--                                            <div class="pl-5">--}}
+{{--                                                <label for="" class="align-top">Current Image : </label>--}}
+{{--                                                <img src="{{asset('assets/ticketImage/'.$editTicketById->tkt_img)}}"--}}
+{{--                                                     alt="buyticket" class="img-fluid w-75 img-thumbnail ">--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </div>
 
 

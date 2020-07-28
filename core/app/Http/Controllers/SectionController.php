@@ -6,6 +6,7 @@ use App\Benifit;
 use App\Section;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class SectionController extends Controller
 {
@@ -45,7 +46,7 @@ class SectionController extends Controller
 
     public function manageBenifit()
     {
-        $data['title'] = 'Manage Benifit';
+        $data['title'] = 'Manage Agenda';
         $data['benifit'] = Benifit::all();
 
         return view('benifit.manage_benifit', $data);
@@ -58,25 +59,26 @@ class SectionController extends Controller
             "description" => 'required',
             "img" => 'mimes:jpeg,jpg,png,gif|max:1000'
         ]);
-        $imageurl = $this->chkimage($request, $id);
+        $speakerNameFormate = $this->chkimage($request, $id);
 
         $section = Section::find($id);
         $section->title = $request->title;
         $section->description = $request->description;
-        $section->img = $imageurl;
+        $section->img = $speakerNameFormate;
 
         $section->save();
-        return redirect()->route('manageAbout')->with('success_message', 'About Updated Successfully');
+        return redirect()->route('manageAbout')->with('success', 'About Updated Successfully');
     }
 
     public function updateBenifit(Request $request, $id)
     {
+
         $benifit = Benifit::find($id);
         $benifit->title = $request->title;
         $benifit->description = $request->description;
         $benifit->img = 'fa' . ' ' . $request->img;
         $benifit->save();
-        return redirect()->route('manageBenifit')->with('success_message', 'Updated Successfully');
+        return redirect()->route('manageBenifit')->with('success', 'Updated Successfully');
     }
 
     public function manageAboutOverview()
@@ -170,7 +172,7 @@ class SectionController extends Controller
         $section->img = $imageurl;
 
         $section->save();
-        return redirect()->route('testimonialTitle')->with('success_message', 'About Updated Successfully');
+        return redirect()->route('testimonialTitle')->with('success', 'About Updated Successfully');
     }
 
     public function updateTitleMission(Request $request, $id)
@@ -184,7 +186,7 @@ class SectionController extends Controller
         $section->title = $request->title;
         $section->description = $request->description;
         $section->save();
-        return redirect()->route('missionTitle')->with('success_message', 'Updated Successfully');
+        return redirect()->route('missionTitle')->with('success', 'Updated Successfully');
     }
 
     public function updateSponsor1(Request $request, $id)
@@ -198,7 +200,7 @@ class SectionController extends Controller
         $section->title = $request->title;
         $section->description = $request->description;
         $section->save();
-        return redirect()->route('sponsor1Title')->with('success_message', 'Updated Successfully');
+        return redirect()->route('sponsor1Title')->with('success', 'Updated Successfully');
     }
 
     public function updateBlogTitle1(Request $request, $id)
@@ -212,7 +214,7 @@ class SectionController extends Controller
         $section->title = $request->title;
         $section->description = $request->description;
         $section->save();
-        return redirect()->route('blog1Title')->with('success_message', 'Updated Successfully');
+        return redirect()->route('blog1Title')->with('success', 'Updated Successfully');
     }
 
     public function updateOverviewImg(Request $request, $id)
@@ -222,13 +224,13 @@ class SectionController extends Controller
             "img" => 'mimes:jpeg,jpg,png,gif|max:1000'
         ]);
 
-        $imageurl = $this->chkimage($request, $id);
+        $sectionImage = $this->chkimage($request, $id);
 
         $section = Section::find($id);
-        $section->img = $imageurl;
+        $section->img = $sectionImage;
 
         $section->save();
-        return redirect()->route('overviewImage')->with('success_message', 'Updated Successfully');
+        return redirect()->route('overviewImage')->with('success', 'Updated Successfully');
     }
 
     public function updateEventTitle(Request $request, $id)
@@ -242,7 +244,7 @@ class SectionController extends Controller
         $section->title = $request->title;
         $section->description = $request->description;
         $section->save();
-        return redirect()->route('eventTitle')->with('success_message', 'Updated Successfully');
+        return redirect()->route('eventTitle')->with('success', 'Updated Successfully');
     }
 
 
@@ -257,7 +259,7 @@ class SectionController extends Controller
         $section->title = $request->title;
         $section->description = $request->description;
         $section->save();
-        return redirect()->route('callInTitle')->with('success_message', 'Updated Successfully');
+        return redirect()->route('callInTitle')->with('success', 'Updated Successfully');
     }
 
     public function updateTicket1(Request $request, $id)
@@ -271,7 +273,7 @@ class SectionController extends Controller
         $section->title = $request->title;
         $section->description = $request->description;
         $section->save();
-        return redirect()->route('ticketTitle')->with('success_message', 'Updated Successfully');
+        return redirect()->route('ticketTitle')->with('success', 'Updated Successfully');
     }
 
     public function updateScheduleTitle(Request $request, $id)
@@ -285,7 +287,7 @@ class SectionController extends Controller
         $section->title = $request->title;
         $section->description = $request->description;
         $section->save();
-        return redirect()->route('scheduleTitle')->with('success_message', 'Updated Successfully');
+        return redirect()->route('scheduleTitle')->with('success', 'Updated Successfully');
     }
 
     public function updateSpeakerTitle(Request $request, $id)
@@ -299,7 +301,7 @@ class SectionController extends Controller
         $section->title = $request->title;
         $section->description = $request->description;
         $section->save();
-        return redirect()->route('speakerTitle')->with('success_message', 'Updated Successfully');
+        return redirect()->route('speakerTitle')->with('success', 'Updated Successfully');
     }
 
     public function deleteBenifit($id)
@@ -316,14 +318,13 @@ class SectionController extends Controller
             "description" => 'required',
             "img" => 'mimes:jpeg,jpg,png,gif|max:1000'
         ]);
-        $imageurl = $this->chkimage($request, $id);
+        $speakerNameFormate = $this->chkimage($request, $id);
         $section = Section::find($id);
         $section->title = $request->title;
         $section->description = $request->description;
-        $section->img = $imageurl;
-
+        $section->img = $speakerNameFormate;
         $section->save();
-        return redirect()->route('manageAboutOverview')->with('success_message', 'Data Updated Successfully');
+        return redirect()->route('manageAboutOverview')->with('success', 'Data Updated Successfully');
     }
 
     public function chkimage($request, $id)
@@ -332,19 +333,17 @@ class SectionController extends Controller
 
         $sectionImage = $request->file('img');
         if ($sectionImage) {
-            unlink($section->img);
-            $randNumber = Str::random(6);
-            $fileExtension = $sectionImage->getClientOriginalExtension();
-            $name = $randNumber . '.' . $fileExtension;
-
-            $path = ('assets/sectionImage/');
-            $sectionImage->move($path, $name);
-            $imageurl = $path . $name;
+//            unlink('assets/sectionImage/'.$section->img);
+            $speakerNameFormate = 'section-'.Str::random(8).'.'.$sectionImage->getClientOriginalExtension();
+            $img = Image::make($sectionImage);
+            $path = 'assets/sectionImage/';
+            $img->resize(806,710);
+            $img->save($path.'/'.$speakerNameFormate);
 
         } else {
-            $imageurl = $section->img;
+            $speakerNameFormate = $section->img;
         }
-        return $imageurl;
+        return $speakerNameFormate;
     }
 
 

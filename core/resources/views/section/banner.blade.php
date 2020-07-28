@@ -44,7 +44,7 @@
                         <form action="{{route('updateBanner',$banner->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                             @csrf
 
-                                <div class="form-group col-md-12">
+                                <div class="form-group ">
                                     <label>Banner Title</label>
                                     <input type="text" class="form-control" id="title" value="{{$banner['title']}}" name="title"
                                            placeholder="Name" required>
@@ -54,7 +54,7 @@
 
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" rows="3" name="description"  id="description area1"
+                                <textarea class="form-control nicEdit" rows="3" name="description"  id="description area1"
                                           placeholder="Description ...">{{$banner['description']}}</textarea>
                             </div>
 

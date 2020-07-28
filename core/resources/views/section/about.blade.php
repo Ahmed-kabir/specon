@@ -12,7 +12,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('adminHome')}}">Home</a></li>
-                            <li class="breadcrumb-item active">Banner Form</li>
+                            <li class="breadcrumb-item active">About Form</li>
                         </ol>
                     </div>
                 </div>
@@ -41,31 +41,37 @@
                         </div> -->
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{route('updateBanner',$about->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="{{route('updateAbout',$about->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                             @csrf
 
                             <div class="form-group">
-                                <label>Banner Title</label>
+                                <label>About Title</label>
                                 <input type="text" class="form-control" id="title" value="{{$about['title']}}" name="title"
                                        placeholder="Name" required>
                             </div>
 
 
 
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea class="form-control" rows="3" name="description"  id="description"
-                                          placeholder="Description ...">{{$about['description']}}</textarea>
-                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Description</label>
+                                    <textarea class="form-control nicEdit" rows="10" name="description"
+                                              id="long_desc">{{$about->description}}</textarea>
+                                </div>
 
-                            <div class="form-group col-md-6">
-                                <label>Image</label>
-                                <img class="img-fluid img-thumbnail ml-3 rounded" src="{{asset('assets/speakerImage/'.$about->img)}}"
-                                     alt="{{asset('assets/speakerImage/'.$about->img)}}">
-                                <input type="file" class="form-control" id="speaker_img" name="speaker_img">
-                                <small class="help-block form-text">Please Select 460*530 Image</small>
-                            </div>
+                                <div class="form-group col-md-6">
+                                    <div class="pl-5"><label class="align-top">Image</label></div>
 
+                                    <img class="img-fluid img-thumbnail ml-3" src="{{asset('assets/sectionImage/'.$about->img)}}"
+                                         alt="{{asset('assets/sectionImage/'.$about->img)}}">
+                                    <div class="col-sm-3"><input type="file" class="form-control" id="img" name="img"></div>
+
+                                    <small class="help-block form-text">Please Select 350*310 Image</small>
+                                </div>
+
+
+
+                            </div>
 
                             <div class=" text-center">
                                 <button type="submit" class="btn btn-primary btn-block">Submit</button>
@@ -84,3 +90,13 @@
         <!-- /.content -->
     </div>
 @endsection
+@push('img')
+    <style>
+        img {
+
+            height:150px;
+            width: 280px;
+        }
+    </style>
+
+@endpush

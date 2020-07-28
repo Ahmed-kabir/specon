@@ -24,13 +24,10 @@
             <div class="col-lg-8 mb-lg-0 mb-5">
                 <div class="become-sponsor-article">
                     <h3 class="title">{{$ticket->tkt_typ}} <span>${{$ticket->tkt_price}}</span></h3>
-                    <p class="main-para">Massa lacus elementum eros vitae nam, voluptatem in et neque commodo eget
-                        mattis, arcsrqllus, pretium sit nulla justo nullam dolor. Posuere ultrices. Mauris at ut
-                        nullam sodales, sapien veslum scelerisque sunt erat venenatis, semper vestibulum, tempor
-                        orci enim wisi in enim ipsum, etiam enim. Viverra dolor litora quaerat turpis integer, etiam
-                        enim purus nec elit tempor. Vitae siinrdum ante eu dolor. Morbi mi mauris integer auctor.
-                        Elit nonummy metus tristique dignissim tortor, accumsan amet, ullamcorper wisi ullamcorper
-                        sed purus. Libero facilisis integer vestibulum id.</p>
+                    <h4 class="title">Available Ticket:<span>{{$ticket->tkt_qty}}</span></h4>
+                    <p>You can buy max {{$settings->max_tkt_qty}} tkt at a time</p>
+
+
                     <h4 class="sub-title">benifites of Business package</h4>
                     <p>Fringilla euismod sed mauris nec, curabitur in mi sed eget, amet congue sed nam etiam quisnam
                         vehicula dui lorem, erat maecenas libero. </p>
@@ -57,29 +54,25 @@
                             </ul>
                         </div>
                     @endif
-                    <h3 class="text-danger text-center">{{Session::get('error_message')}}</h3>
-                    <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
+
                     <form class="application-form" action="{{route('confirmTicket',$ticket['id'])}}" method="post">
                         @csrf
                         <div class="form-group">
-                            <input type="text" name="name" placeholder="Full Name">
+                            <input type="text" name="name" value="{{old('name')}}" placeholder="Full Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" placeholder="Email">
+                            <input type="email" name="email" value="{{old('email')}}"  placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="phone" placeholder="Phone">
+                            <input type="text" name="phone" value="{{old('phone')}}"  placeholder="Phone" required>
                         </div>
                         <div class="form-group">
-                            <input type="number" name="qty" placeholder="Quantity" min="1">
+                            <input type="number" name="qty" value="{{old('qty')}}"  placeholder="Quantity" min="1" required>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Submit Now">
                         </div>
-                        <div class="form-group check-input d-flex flex-wrap align-items-center">
-                            <input type="checkbox" id="check-ticket" name="checkbox">
-                            <label for="check-ticket">I Accept The</label> <a href="#0">Terms & Policy</a>
-                        </div>
+
                     </form>
                 </div>
             </div>

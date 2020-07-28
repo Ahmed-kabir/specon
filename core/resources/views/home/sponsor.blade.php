@@ -52,19 +52,19 @@
                         </div>
                     @endif
                     <h5 class="title">Application Form</h5>
-                    <form class="application-form" method="post" action="{{route('saveSponsor')}}">
+                    <form class="application-form" method="post" action="{{route('saveSponsor')}}" enctype="multipart/form-data" >
                         @csrf
                         <div class="form-group">
-                            <input type="text" name="name" placeholder="Full Name">
+                            <input type="text" name="name" placeholder="Full Name" value="{{old('name')}}" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="company_name" placeholder="Company Name">
+                            <input type="text" name="company_name" value="{{old('company_name')}}" placeholder="Company Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="email" placeholder="Email">
+                            <input type="email" name="email" value="{{old('email')}}" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text"  name="website" placeholder="Website">
+                            <input type="text"  name="website" value="{{old('website')}}" placeholder="Website">
                         </div>
                         <div class="form-group">
                             <select name="sponsor_id" id="sponsor_id" >
@@ -72,6 +72,9 @@
                                     <option value="{{ $row->id}}">{{ $row->sponsor_name}}</option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="file"  name="img"  placeholder="Image" required>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Submit Now">

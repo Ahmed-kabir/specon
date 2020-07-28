@@ -41,7 +41,8 @@ class WelcomeController extends Controller
         $data['allSpeakers'] = Speaker::all();
         $data['benifit'] = Benifit::all();
         $data['ticket'] = Ticket::all();
-        $data['sponsorType'] = SponsorType::where('status', 1)->get();
+//        $data['sponsorType'] = SponsorType::where('status', 1)->get();
+         $data['sponsorType'] = SponsorType::with('sponsorName')->get();
 
         $data['blog'] = Blog::where('status', 1)->get();
         $data['settings'] = Setting::first();

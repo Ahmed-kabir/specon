@@ -32,36 +32,36 @@
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
-
+                                        <th>Sponsor Img</th>
                                         <th>Name</th>
                                         <th>Company Name</th>
                                         <th>Email</th>
                                         <th>Website</th>
                                         <th>Sponsor Type</th>
-                                        <th>Sponsor Img</th>
+
 
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     @foreach($sponsors  as $key => $row)
                                         <tr>
-
+                                            <td> <img src="{{asset('assets/sponsorImage/'.$row->img)}}" /></td>
                                             <td>{{ $row->name}}</td>
                                             <td>{{ $row->company_name}}</td>
                                             <td>{{ $row->email}}</td>
                                             <td>{{ $row->website}}</td>
                                             <td>{{ $row->sponsorType->sponsor_name}}</td>
-                                            <td> <img src="{{asset($row->img)}}" /></td>
+
 
 
                                             <td>
                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <a href="{{route('editSponsor',$row->id)}}" class="btn btn-success btn-sm">
-                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    <a href="{{route('activatedSponsor',$row->id)}}" class="btn btn-success btn-sm">
+                                                        <i class="fa fa-check" aria-hidden="true"></i></a>
 
-                                                    <a href="{{route('inactiveSponsor',$row->id)}}" class="btn btn-danger btn-sm">
+{{--                                                    <a href="{{route('inactiveSponsor',$row->id)}}" class="btn btn-danger btn-sm">--}}
 
-                                                        <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+{{--                                                        <i class="fa fa-trash-o" aria-hidden="true"></i></a>--}}
                                                 </div>
                                             </td>
                                         </tr>

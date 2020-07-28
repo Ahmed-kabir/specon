@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Active Sponsor</h4>
+                <h4 class="modal-title w-100 font-weight-bold">Coference Topic</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -25,7 +25,7 @@
 
                         <div role="iconpicker" data-iconset="fontawesome4" data-iconset-version="4.7.0"
                              data-arrow-prev-icon-class="fa fa-angle-left"
-                             data-arrow-next-icon-class="fa fa-angle-right"></div>
+                             data-arrow-next-icon-class="fa fa-angle-right" name="test"></div>
 
                         <label data-error="wrong" data-success="right" for="defaultForm-email">Icon Name</label>
                             <div class="form-control text-center">
