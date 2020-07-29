@@ -18,10 +18,11 @@ class AdminController extends Controller
     public function index()
     {
         $data['title'] = 'Admin Home';
-//        $data['sponsor'] = Sponsor::count('id');
-//        $data['soldTkt'] = Customer::sum('qty');
-//        $data['remainTicket'] = Ticket::sum('tkt_qty');
-//        $data['frontendSchedule'] = Schedule::with('speakers', 'topicName')->paginate(3);
+        $data['sponsor'] = Sponsor::count('id');
+        $data['soldTkt'] = Customer::sum('qty');
+        $data['remainTicket'] = Ticket::sum('tkt_qty');
+        $data['schedule'] = Schedule::with('speakers', 'topicName')->paginate(3);
+        $data['frontendSchedule'] = Schedule::with('speakers', 'topicName')->paginate(3);
         return view('admin.mainContent1', $data);
     }
 
@@ -45,13 +46,13 @@ class AdminController extends Controller
             "location" => 'required',
             "start_date" => 'required',
             "place" => 'required',
-            "phone" => 'required',
             "email" => 'required',
+            "max_tkt_qty" => 'required|integer|min:0',
             "img" => 'mimes:jpeg,jpg,png,gif|max:1000'
 
         ]);
 
-        $imageurl = $this->chkimage($request, $id);
+        $name = $this->chkimage($request, $id);
 
         $settings = Setting::where('id', $id)->first();
 
@@ -59,10 +60,10 @@ class AdminController extends Controller
         $settings->location = $request->location;
         $settings->start_date = $request->start_date;
         $settings->place = $request->place;
-        $settings->phone = $request->phone;
-        $settings->img = $imageurl;
+        $settings->max_tkt_qty = $request->max_tkt_qty;
+        $settings->img = $name;
         $settings->save();
-        return redirect()->route('adminHome')->with('success_message1', 'Updated Successfully');
+        return redirect()->route('adminHome')->with('success', 'Updated Successfully');
     }
 
     public function chkimage($request, $id)
@@ -70,7 +71,7 @@ class AdminController extends Controller
         $settings = Setting::where('id', $id)->first();
         $siteImage = $request->file('img');
         if ($siteImage) {
-//            unlink($speaker->speaker_img);
+            unlink($settings->img);
             $randNumber = Str::random(6);
             $fileExtension = $siteImage->getClientOriginalExtension();
             $name = $randNumber . '.' . $fileExtension;
@@ -79,9 +80,9 @@ class AdminController extends Controller
             $imageurl = $path . $name;
 
         } else {
-            $imageurl = $settings->img;
+            $name = $settings->img;
         }
-        return $imageurl;
+        return $name;
     }
 
 

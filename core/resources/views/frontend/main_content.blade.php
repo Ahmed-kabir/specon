@@ -1,13 +1,13 @@
 @extends('home.welcome')
 @section('main')
     <section class="banner-section bg_img"
-             data-background="{{asset('assets/frontEnd/assets/images/banner/banner-bg-one.jpg')}}">
+             data-background="{{asset('asset/sectionImage'.$banner->img)}}">
         <div class="banner-shape-two"></div>
         <div class="banner-shape-one"></div>
         <div class="container">
             <div class="banner-content text-center">
                 <div class="banner-header">
-                    <h1 class="title">{!! $banner->title !!}</span></h1>
+                    <h1 class="title">{!! $banner->title !!}</h1>
                     <p>{!! $banner->description !!} </p>
                 </div>
                 <ul class="banner-countdown">
@@ -206,7 +206,7 @@
                             </div>
                             <div class="speaker-thumb">
 
-                                <img src="{{asset('assets/speakerImage/'.$row->speaker_img)}}"/>
+                                <img src="{{asset('assets/speakerImage/'.$row->speaker_img)}}" alt="overview">
 
                             </div>
                         </div>
@@ -252,7 +252,7 @@
 
                 <div class="tab-area mb-30-none">
                     @foreach($slot as $vSlot)
-                        <div class="tab-item" id="msg">
+                        <div class="tab-item" >
 
                             @foreach($frontendSchedule as $row)
                                 @if($row->date == $vSlot->date)
@@ -342,7 +342,7 @@
             <div class="row m-0">
                 <div class="col-xl-6 p-0">
                     <div class="maps h-100 container-fluid">
-                        <iframe width="100%" height="500"
+                        <iframe width="650" height="650"
                                 src="https://maps.google.com/maps?q={{$settings->location}}&output=embed"></iframe>
 
                     </div>
@@ -369,8 +369,9 @@
                                             <div class="event-tab-content">
                                                 <ul>
                                                     <li>{{$settings->place}}</li>
+                                                    <li>dfsfdsgfdg</li>
 
-                                                    <ul>
+                                                    </ul>
                                             </div>
                                         </div>
                                         <div class="event-tab-item text-center">
@@ -379,9 +380,9 @@
                                             </div>
                                             <div class="event-tab-content">
                                                 <ul>
-                                                    <li><a href="tel:(123) 456-7890">{{$settings->phone}}</a></li>
-                                                    <li><a href="tel:(123) 456-7891">(123) 456-7891</a></li>
-                                                    <ul>
+                                                    <li> {{$settings->phone}} </li>
+                                                    <li>(123) 456-7891</li>
+                                                    </ul>
                                             </div>
                                         </div>
                                         <div class="event-tab-item text-center">
@@ -393,7 +394,7 @@
                                                     <li><a href="mailto:contact@example.com">{{$settings->email}}</a>
                                                     </li>
                                                     <li><a href="mailto:info@example.com">info@example.com</a></li>
-                                                    <ul>
+                                                    </ul>
                                             </div>
                                         </div>
                                         <div class="event-tab-item text-center">
@@ -404,7 +405,7 @@
                                                 <ul>
                                                     <li>monday to Friday</li>
                                                     <li>time by schedule</li>
-                                                    <ul>
+                                                    </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -419,7 +420,7 @@
                                                 <ul>
                                                     <li><a href="#0">00 : 41 min</a></li>
                                                     <li><a href="#0">16.52 km</a></li>
-                                                    <ul>
+                                                    </ul>
                                             </div>
                                         </div>
                                         <div class="event-tab-item text-center">
@@ -430,7 +431,7 @@
                                                 <ul>
                                                     <li>02 : 17 hours</li>
                                                     <li>20.05 km</li>
-                                                    <ul>
+                                                    </ul>
                                             </div>
                                         </div>
                                         <div class="event-tab-item text-center">
@@ -441,7 +442,7 @@
                                                 <ul>
                                                     <li>00 : 03 hours</li>
                                                     <li>20 km</li>
-                                                    <ul>
+                                                    </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -481,8 +482,8 @@
                                     $month = $exploded_date[0];
                                     $date = $exploded_date[1];
                                     ?>
-                                    <h2>{{$date}}</h2>
-                                    <span>{{$month}}</span>
+                                    <li class="b-d">{{$date}}</li>
+                                    <li class="b-m">{{$month}}</li>
                                 </ul>
                             </div>
                             <div class="post-content">
@@ -529,54 +530,5 @@
     {{--    <div id="countdown"></div>--}}
     <input type="hidden" id="start_date" name="start_date" value="{{$settings->start_date}}">
 @endsection
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-</script>
 
-<script>
-    $(document).ready(function () {
-        // var end = new Date('2020-10-20');
-        var startDate = document.getElementById("start_date").value;
-        var end = new Date(startDate);
-
-
-        var _second = 1000;
-        var _minute = _second * 60;
-        var _hour = _minute * 60;
-        var _day = _hour * 24;
-        var timer;
-
-        function showRemaining() {
-            var now = new Date();
-            var distance = end - now;
-            if (distance < 0) {
-
-                clearInterval(timer);
-                // document.getElementById('countdown').innerHTML = 'EXPIRED!';
-                document.getElementById('days').innerHTML = 'Nan';
-                document.getElementById('hours').innerHTML = 'Nan';
-                document.getElementById('minutes').innerHTML = 'Nan';
-                document.getElementById('seconds').innerHTML = 'Nan';
-                return;
-            }
-            var days = Math.floor(distance / _day);
-            var hours = Math.floor((distance % _day) / _hour);
-            var minutes = Math.floor((distance % _hour) / _minute);
-            var seconds = Math.floor((distance % _minute) / _second);
-
-            document.getElementById('days').innerHTML = days;
-            document.getElementById('hours').innerHTML = hours;
-            document.getElementById('minutes').innerHTML = minutes;
-            document.getElementById('seconds').innerHTML = seconds;
-        }
-
-        timer = setInterval(showRemaining, 1000);
-
-    });
-
-</script>
 

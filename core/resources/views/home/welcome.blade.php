@@ -99,6 +99,52 @@
 <script src="{{asset('assets/frontEnd/assets/js/map.js')}}"></script>
 <script src="{{asset('assets/frontEnd/assets/js/main.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+        // var end = new Date('2020-10-20');
+        var startDate = document.getElementById("start_date").value;
+        var end = new Date(startDate);
+
+
+        var _second = 1000;
+        var _minute = _second * 60;
+        var _hour = _minute * 60;
+        var _day = _hour * 24;
+        var timer;
+
+        function showRemaining() {
+            var now = new Date();
+            var distance = end - now;
+            if (distance < 0) {
+
+                clearInterval(timer);
+                // document.getElementById('countdown').innerHTML = 'EXPIRED!';
+                document.getElementById('days').innerHTML = 'Nan';
+                document.getElementById('hours').innerHTML = 'Nan';
+                document.getElementById('minutes').innerHTML = 'Nan';
+                document.getElementById('seconds').innerHTML = 'Nan';
+                return;
+            }
+            var days = Math.floor(distance / _day);
+            var hours = Math.floor((distance % _day) / _hour);
+            var minutes = Math.floor((distance % _hour) / _minute);
+            var seconds = Math.floor((distance % _minute) / _second);
+
+            document.getElementById('days').innerHTML = days;
+            document.getElementById('hours').innerHTML = hours;
+            document.getElementById('minutes').innerHTML = minutes;
+            document.getElementById('seconds').innerHTML = seconds;
+        }
+
+        timer = setInterval(showRemaining, 1000);
+
+    });
+
+</script>
+
 @stack('img')
 @include("errors.errors")
 @include("errors.error")

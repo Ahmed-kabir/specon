@@ -48,8 +48,8 @@
                             $month =$exploded_date[0];
                             $date = $exploded_date[1];
                             ?>
-                            <h2>{{$date}}</h2>
-                            <span>{{$month}}</span>
+                            <li class="b-d">{{$date}}</li>
+                            <li class="b-m">{{$month}}</li>
                         </ul>
                     </div>
                     <div class="entry-content">

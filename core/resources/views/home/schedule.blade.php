@@ -49,7 +49,7 @@
 
             <div class="tab-area mb-30-none">
                 @foreach($slot as $vSlot)
-                    <div class="tab-item" id="msg">
+                    <div class="tab-item">
 
                         @foreach($frontendSchedule as $row)
                             @if($row->date == $vSlot->date)

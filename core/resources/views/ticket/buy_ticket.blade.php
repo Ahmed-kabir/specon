@@ -25,14 +25,16 @@
                 <div class="become-sponsor-article">
                     <h3 class="title">{{$ticket->tkt_typ}} <span>${{$ticket->tkt_price}}</span></h3>
                     <h4 class="title">Available Ticket:<span>{{$ticket->tkt_qty}}</span></h4>
-                    <p>You can buy max {{$settings->max_tkt_qty}} tkt at a time</p>
+                    <p>You can buy max {{$settings->max_tkt_qty}} ticket at a time</p>
 
 
                     <h4 class="sub-title">benifites of Business package</h4>
                     <p>Fringilla euismod sed mauris nec, curabitur in mi sed eget, amet congue sed nam etiam quisnam
                         vehicula dui lorem, erat maecenas libero. </p>
                     <ul>
-                        <li>Leifend fringilla quiselit </li>
+
+
+                        <li>Leifend fringilla quiselit</li>
                         <li>Aliquam dolor tortor phasellu </li>
                         <li>Dignissim semper consequat </li>
                     </ul>

@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><a href="{{route('addSpeaker')}}" class="btn btn-info" role="button">Add Speaker</a></h1>
+                        <h1><a href="{{route('manageTicket')}}" class="btn btn-info" role="button">Manage Ticket</a></h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -17,15 +17,7 @@
                 </div>
             </div><!-- /.container-fluid -->
         </section>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-    @endif
+
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">

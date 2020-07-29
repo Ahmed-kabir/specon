@@ -41,7 +41,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="application-form-area">
-                    <h3 class="text-success text-center">{{Session::get('success_message')}}</h3>
+
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -64,7 +64,7 @@
                             <input type="email" name="email" value="{{old('email')}}" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text"  name="website" value="{{old('website')}}" placeholder="Website">
+                            <input type="text"  name="website" value="{{old('website')}}" placeholder="Website" required>
                         </div>
                         <div class="form-group">
                             <select name="sponsor_id" id="sponsor_id" >
@@ -74,7 +74,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="file"  name="img"  placeholder="Image" required>
+                            <input type="file"  name="img" required>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Submit Now">

@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-{{--                        <h1><a href="{{route('manageSpeaker')}}" class="btn btn-info" role="button">Manage Speaker</a>--}}
+                        {{--                        <h1><a href="{{route('manageSpeaker')}}" class="btn btn-info" role="button">Manage Speaker</a>--}}
                         </h1>
                     </div>
                     <div class="col-sm-6">
@@ -19,15 +19,7 @@
             </div><!-- /.container-fluid -->
         </section>
 
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-    @endif
+
     <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
@@ -44,21 +36,34 @@
                         <form action="{{route('updateBanner',$banner->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                             @csrf
 
-                                <div class="form-group ">
-                                    <label>Banner Title</label>
-                                    <input type="text" class="form-control" id="title" value="{{$banner['title']}}" name="title"
-                                           placeholder="Name" required>
+                            <div class="form-group">
+                                <label>Banner Title</label>
+                                <input type="text" class="form-control" id="title" value="{{$banner['title']}}" name="title"
+                                       placeholder="Name" required>
+                            </div>
+
+
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Description</label>
+                                    <textarea class="form-control nicEdit" rows="10" name="description"
+                                              id="long_desc">{{$banner->description}}</textarea>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <div class="pl-5"><label class="align-top">Image</label></div>
+
+                                    <img class="img-fluid img-thumbnail ml-3" src="{{asset('assets/sectionImage/'.$banner->img)}}"
+                                         alt="{{asset('assets/sectionImage/'.$banner->img)}}">
+                                    <div class="col-sm-3"><input type="file" class="form-control" id="img" name="img"></div>
+
+                                    <small class="help-block form-text">Please Select 750*610 Image</small>
                                 </div>
 
 
 
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea class="form-control nicEdit" rows="3" name="description"  id="description area1"
-                                          placeholder="Description ...">{{$banner['description']}}</textarea>
                             </div>
-
-
 
                             <div class=" text-center">
                                 <button type="submit" class="btn btn-primary btn-block">Submit</button>
@@ -77,3 +82,13 @@
         <!-- /.content -->
     </div>
 @endsection
+@push('img')
+    <style>
+        img {
+
+            height:150px;
+            width: 280px;
+        }
+    </style>
+
+@endpush

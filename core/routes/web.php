@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'WelcomeController@index')->name('index');
 Route::get('/speaker', 'WelcomeController@speaker')->name('speaker');
+Route::get('/invoice/{id}', 'WelcomeController@invoice')->name('Invoice');
 Route::get('/schedule', 'WelcomeController@schedule')->name('Schedule');
 Route::get('/contact', 'WelcomeController@contact')->name('Contact');
 Route::get('/blog', 'WelcomeController@blog')->name('Blog');
@@ -55,6 +56,7 @@ Route::group(['middleware'=>'auth:admin'],function(){
     Route::get('edit/ticket/{id}', 'TicketController@editTicket')->name('editTicket');
     Route::post('update/ticket/{id}', 'TicketController@updateTicket')->name('updateTicket');
     Route::get('inactive/ticket/{id}', 'TicketController@inactiveTicket')->name('inactiveTicket');
+    Route::get('confirm/ticket/{id}', 'TicketController@confirmTicketBySession')->name('confirmTicketBySession');
     //                  sponsor Category section
 
     Route::get('add/sponsor/category', 'SponsorTypeController@addSponsorCategory')->name('addSponsorCategory');

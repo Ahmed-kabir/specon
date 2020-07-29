@@ -59,6 +59,17 @@ class WelcomeController extends Controller
 
         return view('frontend.main_content', $data);
     }
+    public function invoice($id)
+    {
+//        dd(session()->has('data'));
+        if (!session()->has('data'))
+        {
+            return back()->with('error','First Make A Booking');
+        }
+        return view('ticket.invoice')->with([
+            'tktId' => $id,
+        ]);
+    }
 
     public function speaker()
     {

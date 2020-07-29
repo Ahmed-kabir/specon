@@ -63,7 +63,7 @@ class ScheduleController extends Controller
 
          if( $reservations)
         {
-            return back()->with('error_message', 'Schedule Not Available');
+            return back()->with('error', 'Schedule Not Available');
         }
 
         else
@@ -75,7 +75,7 @@ class ScheduleController extends Controller
             $schedule->start_time = $request->start_time;
             $schedule->end_time = $request->end_time;
             $schedule->save();
-            return back()->with('success_message', 'Schedule Added Successfully');
+            return back()->with('success', 'Schedule Added Successfully');
         }
 
     }

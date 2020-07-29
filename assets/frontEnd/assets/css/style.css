@@ -3546,12 +3546,12 @@ footer {
       width: 60px;
       text-align: center;
       z-index: 2; }
-      .post-item .post-thumb .blog-date h2 {
+      .post-item .post-thumb .blog-date .b-d {
         font-size: 30px;
         color: #ffffff;
         background: #ff007a;
         line-height: 50px; }
-      .post-item .post-thumb .blog-date span {
+      .post-item .post-thumb .blog-date .b-m {
         display: block;
         background: #440a95;
         color: #ffffff;

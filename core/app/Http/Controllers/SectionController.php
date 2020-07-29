@@ -22,16 +22,18 @@ class SectionController extends Controller
     {
         $request->validate([
             "title" => 'required',
-            "description" => 'required'
+            "description" => 'required',
+            "img" => 'mimes:jpeg,jpg,png,gif|max:1000'
         ]);
         $section = Section::find($id);
 //      $bannerInfo =[
 //          'title' =>$request->title,
 //          'description' =>$request->description
 //      ];
-
+        $speakerNameFormate = $this->chkimage($request, $id);
         $section->title = $request->title;
         $section->description = $request->description;
+        $section->img = $speakerNameFormate;
         $section->save();
         return redirect()->route('manageBanner')->with('success', 'Banner Updated Successfully');
 

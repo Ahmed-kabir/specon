@@ -7,6 +7,7 @@ use App\Setting;
 use App\Speaker;
 use App\SponsorType;
 use App\Ticket;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -24,9 +25,9 @@ class TicketController extends Controller
 
         $request->validate([
             "tkt_typ" => 'required',
-            "tkt_price" => 'required|not_in:0',
+            "tkt_price" => 'required|numeric|min:0',
             "tkt_desc" => 'required',
-            "tkt_qty" => 'required|not_in:0',
+            "tkt_qty" => 'required|integer|min:0',
             "tkt_img" => 'mimes:jpeg,jpg,png,gif|required|max:1000'
         ]);
 //        $ticketImage = $request->file('tkt_img');
@@ -40,11 +41,11 @@ class TicketController extends Controller
 //        $imageurl = $path . $name;
 
         $imageName = $request->file('tkt_img');
-        $speakerNameFormate = 'tkt-'.Str::random(8).'.'.$imageName->getClientOriginalExtension();
+        $speakerNameFormate = 'tkt-' . Str::random(8) . '.' . $imageName->getClientOriginalExtension();
         $img = Image::make($imageName);
         $path = 'assets/ticketImage/';
-        $img->resize(193,175);
-        $img->save($path.'/'.$speakerNameFormate);
+        $img->resize(193, 175);
+        $img->save($path . '/' . $speakerNameFormate);
 
 
         $ticket = new Ticket();
@@ -55,7 +56,7 @@ class TicketController extends Controller
         $ticket->status = 1;
         $ticket->tkt_img = $speakerNameFormate;
         $ticket->save();
-        return back()->with('success_message', 'Ticket Added Successfully');
+        return back()->with('success', 'Ticket Added Successfully');
     }
 
     public function manageTicket()
@@ -77,10 +78,10 @@ class TicketController extends Controller
 
         $request->validate([
             "tkt_typ" => 'required',
-            "tkt_price" => 'required|not_in:0',
+            "tkt_price" => 'required|numeric|min:0',
             "tkt_desc" => 'required',
-            "tkt_qty" => 'required|not_in:0',
-            "tkt_img" => 'mimes:jpeg,jpg,png,gif|max:1000'
+            "tkt_qty" => 'required|integer|min:0',
+            "img" => 'mimes:jpeg,jpg,png,gif|max:1000'
         ]);
         $speakerNameFormate = $this->chkimage($request, $id);
         $ticket = Ticket::find($id);
@@ -90,21 +91,21 @@ class TicketController extends Controller
         $ticket->tkt_qty = $request->tkt_qty;
         $ticket->tkt_img = $speakerNameFormate;
         $ticket->save();
-        return redirect()->route('manageTicket')->with('success_message', 'Ticket Updated Successfully');
+        return redirect()->route('manageTicket')->with('success', 'Ticket Updated Successfully');
     }
 
     public function chkimage($request, $id)
     {
         $ticket = Ticket::where('id', $id)->first();
-        $ticketImage = $request->file('tkt_img');
+        $ticketImage = $request->file('img');
         if ($ticketImage) {
-            unlink('assets/ticketImage/'.$ticket->tkt_img);
+            unlink('assets/ticketImage/' . $ticket->tkt_img);
 
-            $speakerNameFormate = 'tkt-'.Str::random(8).'.'.$ticketImage->getClientOriginalExtension();
+            $speakerNameFormate = 'tkt-' . Str::random(8) . '.' . $ticketImage->getClientOriginalExtension();
             $img = Image::make($ticketImage);
             $path = 'assets/ticketImage/';
-            $img->resize(193,175);
-            $img->save($path.'/'.$speakerNameFormate);
+            $img->resize(193, 175);
+            $img->save($path . '/' . $speakerNameFormate);
 
         } else {
             $speakerNameFormate = $ticket->tkt_img;
@@ -122,6 +123,7 @@ class TicketController extends Controller
 
     public function buyTicket($id)
     {
+
         $data['title'] = 'Buy Ticket';
         $data['ticket'] = Ticket::find($id);
         return view('ticket.buy_ticket', $data);
@@ -139,36 +141,53 @@ class TicketController extends Controller
         ]);
         $settings = Setting::first();
         $ticket = Ticket::find($id);
-        if ($ticket->tkt_qty > $settings->max_tkt_qty) {
-            return back()->with('error','You can buy max' .' ' .$settings->max_tkt_qty.'' . 'ticket at a time');
+        $tktId = $ticket->id;
+
+        if ($request->qty > $settings->max_tkt_qty) {
+            return back()->with('error', 'You can buy max' . ' ' . $settings->max_tkt_qty . '' . 'ticket at a time')->withInput();
         } else {
-            $tktId = Str::random(6);
-            $customer = new Customer();
-            $customer->name = $request->name;
-            $customer->email = $request->email;
-            $customer->phone = $request->phone;
-            $customer->tkt_id = $tktId;
-            $customer->qty = $request->qty;
-            $customer->save();
+            $voucher_id = Str::random(6);
+            $data['tktId'] = $voucher_id;
+            $data['name'] = $request->name;
+            $data['email'] = $request->email;
+            $data['phone'] = $request->phone;
+            $data['qty'] = $request->qty;
+            $data['total_price'] = $request->qty * $ticket->tkt_price;
 
-            $ticket->tkt_qty = $ticket->tkt_qty - $request->qty;
-            $ticket->save();
+            $session = Session::put('data', $data);
+            return redirect()->route('Invoice',$tktId);
 
-            $to = $request->email;
-            $subject = 'Ticket Info';
-//            $message="Click this link for reset password:". $link = url("user/password/reset/$user_id");
-            $message = "Your Ticket No Is :" . $tktId;
-            $headers = 'From: webmaster@example.com' . "\r\n" .
-                'Reply-To: webmaster@example.com' . "\r\n" .
-                'X-Mailer: PHP/' . phpversion();
-
-            mail($to, $subject, $message, $headers);
-
-
-            return redirect()->route('buyTicket', $id)->with('success_message', 'Please Check Your Email');
-
-
-//            return redirect()->route('buyTicket', $id)->with('success_message', 'Ticket Confirmed Successfully');
+//            return view('ticket.invoice', compact('tktId','data'));
         }
+    }
+
+    public function confirmTicketBySession($id)
+    {
+        $ticket = Ticket::find($id);
+        $customer = new Customer();
+        $customer->name = session('data.name');
+        $customer->email = session('data.email');
+        $customer->phone = session('data.phone');
+        $customer->tkt_id = session('data.tktId');
+        $customer->qty = session('data.qty');
+        $customer->save();
+
+        $ticket->tkt_qty = $ticket->tkt_qty - session('data.qty');
+        $ticket->save();
+
+        $to = session('data.email');
+        $subject = 'Ticket Info';
+//            $message="Click this link for reset password:". $link = url("user/password/reset/$user_id");
+        $message = "Your Ticket No Is :" . session('data.tktId');
+        $headers = 'From: webmaster@example.com' . "\r\n" .
+            'Reply-To: webmaster@example.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+        mail($to, $subject, $message, $headers);
+        Session::forget('data');
+
+        return redirect()->route('buyTicket', $id)->with('success', 'Please Check Your Email');
+
+
     }
 }

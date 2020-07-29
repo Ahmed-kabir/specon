@@ -77,7 +77,7 @@ class SpeakerController extends Controller
             "speaker_name" => 'required',
             "experties" => 'required',
             "description" => 'required',
-            "speaker_img" => 'mimes:jpeg,jpg,png,gif|max:1000'
+            "img" => 'mimes:jpeg,jpg,png,gif|max:1000'
         ]);
 
         $speakerNameFormate = $this->chkimage($request, $id);
@@ -89,7 +89,7 @@ class SpeakerController extends Controller
         $speaker->description = $request->description;
         $speaker->speaker_img = $speakerNameFormate;
         $speaker->save();
-        return redirect()->route('manageSpeaker')->with('success_message', 'Speaker Updated Successfully');
+        return redirect()->route('manageSpeaker')->with('success', 'Speaker Updated Successfully');
 
     }
 
